@@ -33,8 +33,9 @@ export function SupportPageContent() {
 
   async function handleManualSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const formElement = event.currentTarget;
     setManualStatus("loading");
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(formElement);
     const payload = {
       firstName: getValue(formData.get("firstName")),
       lastName: getValue(formData.get("lastName")),
@@ -63,7 +64,7 @@ export function SupportPageContent() {
       }
 
       setManualStatus("success");
-      event.currentTarget.reset();
+      formElement.reset();
     } catch (error) {
       console.error(error);
       setManualStatus("error");
@@ -72,8 +73,9 @@ export function SupportPageContent() {
 
   async function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const formElement = event.currentTarget;
     setContactStatus("loading");
-    const formData = new FormData(event.currentTarget);
+    const formData = new FormData(formElement);
     const payload = {
       contactName: getValue(formData.get("contactName")),
       contactEmail: getValue(formData.get("contactEmail")),
@@ -95,7 +97,7 @@ export function SupportPageContent() {
       }
 
       setContactStatus("success");
-      event.currentTarget.reset();
+      formElement.reset();
     } catch (error) {
       console.error(error);
       setContactStatus("error");

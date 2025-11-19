@@ -64,12 +64,7 @@ export default function RootLayout({
       <body className="bg-white text-slate-900 antialiased">
         <LanguageProvider>{children}</LanguageProvider>
         {/* abilita il web component <model-viewer> prima dell'interazione per evitare elementi vuoti */}
-        <Script
-          type="module"
-          src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
-          strategy="beforeInteractive"
-          id="model-viewer-script"
-        />
+        <Script type="module" src="/vendor/model-viewer.min.js" strategy="beforeInteractive" id="model-viewer-script" />
       </body>
     </html>
   );
