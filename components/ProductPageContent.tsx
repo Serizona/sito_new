@@ -358,7 +358,6 @@ export function ProductPageContent() {
           <model-viewer
             suppressHydrationWarning
             src="/models/vic_hero.glb"
-            poster="/models/vic_hero_poster.webp"
             preload
             loading="eager"
             reveal="auto"
