@@ -1,12 +1,106 @@
 "use client";
 
 import Image from "next/image";
+import { FormEvent, useState } from "react";
 import { useLanguage } from "@/components/LanguageContext";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { translations } from "@/lib/translations";
 
+type FormStatus = "idle" | "loading" | "success" | "error";
+
 export function SupportPageContent() {
-  const { dict } = useLanguage();
+  const { dict, lang } = useLanguage();
+  const [manualStatus, setManualStatus] = useState<FormStatus>("idle");
+  const [contactStatus, setContactStatus] = useState<FormStatus>("idle");
+
+  const getValue = (entry: FormDataEntryValue | null) => (typeof entry === "string" ? entry.trim() : "");
+  const getOptional = (entry: FormDataEntryValue | null) => {
+    const value = getValue(entry);
+    return value.length > 0 ? value : undefined;
+  };
+
+  const manualMessages = {
+    success: lang === "it" ? "Richiesta inviata correttamente. Ti contatteremo via email." : "Request sent successfully. We'll follow up via email.",
+    error: lang === "it" ? "Impossibile inviare la richiesta. Riprova tra qualche minuto." : "Unable to send the request. Please try again later.",
+    sending: lang === "it" ? "Invio in corso..." : "Sending...",
+  };
+
+  const contactMessages = {
+    success: lang === "it" ? "Messaggio inviato. Ti risponderemo presto." : "Message sent. We'll get back to you shortly.",
+    error: lang === "it" ? "Invio non riuscito. Riprova più tardi." : "Unable to send the message. Please try again later.",
+    sending: lang === "it" ? "Invio in corso..." : "Sending...",
+  };
+
+  async function handleManualSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setManualStatus("loading");
+    const formData = new FormData(event.currentTarget);
+    const payload = {
+      firstName: getValue(formData.get("firstName")),
+      lastName: getValue(formData.get("lastName")),
+      hospital: getValue(formData.get("hospital")),
+      department: getValue(formData.get("department")),
+      workEmail: getValue(formData.get("workEmail")),
+      country: getValue(formData.get("country")),
+      phone: getOptional(formData.get("phone")),
+      useCase: getOptional(formData.get("useCase")),
+      notes: getOptional(formData.get("notes")),
+      privacy: formData.has("privacy"),
+      marketing: formData.has("marketing"),
+    };
+
+    try {
+      const response = await fetch("/api/support/manual", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+
+      setManualStatus("success");
+      event.currentTarget.reset();
+    } catch (error) {
+      console.error(error);
+      setManualStatus("error");
+    }
+  }
+
+  async function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setContactStatus("loading");
+    const formData = new FormData(event.currentTarget);
+    const payload = {
+      contactName: getValue(formData.get("contactName")),
+      contactEmail: getValue(formData.get("contactEmail")),
+      contactMessage: getValue(formData.get("contactMessage")),
+      contactPrivacy: formData.has("contactPrivacy"),
+    };
+
+    try {
+      const response = await fetch("/api/support/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+
+      setContactStatus("success");
+      event.currentTarget.reset();
+    } catch (error) {
+      console.error(error);
+      setContactStatus("error");
+    }
+  }
   const supportFallback = translations.en.supportPage;
   const supportPage = dict.supportPage ?? supportFallback;
   const nav = supportPage.nav ?? supportFallback.nav;
@@ -129,11 +223,7 @@ export function SupportPageContent() {
             <p className="mt-3 text-slate-600">{t.manualForm.description}</p>
           </div>
 
-          <form
-            className="mt-8 grid gap-6"
-            method="POST"
-            action="mailto:info@intusai.com?subject=ViC%20User%20Manual%20Request"
-          >
+          <form className="mt-8 grid gap-6" onSubmit={handleManualSubmit}>
             <div className="grid gap-6 md:grid-cols-2">
               <FormField label={`${t.manualForm.fields.firstName} *`} id="firstName" placeholder={t.manualForm.placeholders.firstName} required />
               <FormField label={`${t.manualForm.fields.lastName} *`} id="lastName" placeholder={t.manualForm.placeholders.lastName} required />
@@ -180,13 +270,21 @@ export function SupportPageContent() {
             </div>
 
             <div className="flex flex-wrap items-center gap-4">
-              <button type="submit" className="rounded-full bg-blue-700 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-800">
-                {t.manualForm.submit}
+              <button
+                type="submit"
+                className="rounded-full bg-blue-700 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-800 disabled:opacity-60"
+                disabled={manualStatus === "loading"}
+              >
+                {manualStatus === "loading" ? manualMessages.sending : t.manualForm.submit}
               </button>
               <p
                 className="text-sm text-slate-500"
                 dangerouslySetInnerHTML={{ __html: t.manualForm.emailHint }}
               />
+              <div className="text-sm" aria-live="polite">
+                {manualStatus === "success" && <span className="text-emerald-600">{manualMessages.success}</span>}
+                {manualStatus === "error" && <span className="text-rose-600">{manualMessages.error}</span>}
+              </div>
             </div>
           </form>
         </section>
@@ -219,11 +317,7 @@ export function SupportPageContent() {
               </div>
             </div>
 
-            <form
-              className="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-200/70 space-y-6"
-              method="POST"
-              action="mailto:info@intusai.com?subject=Contact%20request%20from%20website"
-            >
+            <form className="rounded-3xl border border-slate-200 bg-white p-8 shadow-lg shadow-slate-200/70 space-y-6" onSubmit={handleContactSubmit}>
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.4em] text-blue-700">{t.contactSection.form.badge}</p>
                 <h3 className="mt-3 text-2xl font-semibold text-slate-900">{t.contactSection.form.title}</h3>
@@ -259,9 +353,17 @@ export function SupportPageContent() {
                 <span dangerouslySetInnerHTML={{ __html: t.contactSection.form.privacy }} />
               </label>
 
-              <button type="submit" className="w-full rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800">
-                {t.contactSection.form.submit}
+              <button
+                type="submit"
+                className="w-full rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white hover:bg-slate-800 disabled:opacity-60"
+                disabled={contactStatus === "loading"}
+              >
+                {contactStatus === "loading" ? contactMessages.sending : t.contactSection.form.submit}
               </button>
+              <div className="text-sm" aria-live="polite">
+                {contactStatus === "success" && <span className="text-emerald-600">{contactMessages.success}</span>}
+                {contactStatus === "error" && <span className="text-rose-600">{contactMessages.error}</span>}
+              </div>
             </form>
           </div>
         </section>
