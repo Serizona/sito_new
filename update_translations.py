@@ -1,0 +1,9 @@
+﻿from pathlib import Path
+text = Path("lib/translations.ts").read_text()
+old = "      ircad: {\n        badge: \"Dataset\",\n        title: \"Built on trusted academic data sources\",\n        description:\n          \"A portion of our training data originates from IRCAD. On top of that, we share a ViC-labeled subset (10 cases) so teams can compare our automatic structures with their own segmentations or annotation guidelines.\",\n        downloadCta: \"Download ViC segmentated dataset\",\n      },"
+new = "      ircad: {\n        badge: \"Dataset\",\n        title: \"Built on trusted academic data sources\",\n        description:\n          \"A portion of our training data originates from IRCAD. On top of that, we share a ViC-labeled subset (10 cases) so teams can compare our automatic structures with their own segmentations or annotation guidelines.\",\n        downloadCta: \"Download ViC dataset\",\n      },"
+text = text.replace(old, new, 1)
+old_it = "      ircad: {\n        badge: \"Dataset\",\n        title: \"Costruito da fonti affidabili\",\n        description:\n          \"Parte dei nostri dati di training proviene da IRCAD. In pi� condividiamo un sottoinsieme etichettato da ViC (10 casi) per permettere ai team di confrontare le nostre strutture automatiche con le proprie segmentazioni o linee guida.\",\n        downloadCta: \"Scarica il dataset segmentato da ViC\",\n        \n      },"
+new_it = "      ircad: {\n        badge: \"Dataset\",\n        title: \"Costruito da fonti affidabili\",\n        description:\n          \"Parte dei nostri dati di training proviene da IRCAD. In pi� condividiamo un sottoinsieme etichettato da ViC (10 casi) per permettere ai team di confrontare le nostre strutture automatiche con le proprie segmentazioni o linee guida.\",\n        downloadCta: \"Scarica il dataset segmentato da ViC\",\n      },"
+text = text.replace(old_it, new_it, 1)
+Path("lib/translations.ts").write_text(text)
