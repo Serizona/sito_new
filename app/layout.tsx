@@ -18,53 +18,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link
-          rel="preload"
-          href="/models/logo3d.glb"
-          as="fetch"
-          type="model/gltf-binary"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/models/vic_hero.glb"
-          as="fetch"
-          type="model/gltf-binary"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/models/liver_card.glb"
-          as="fetch"
-          type="model/gltf-binary"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/models/kidney_card.glb"
-          as="fetch"
-          type="model/gltf-binary"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/models/pancreas_card.glb"
-          as="fetch"
-          type="model/gltf-binary"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          href="/models/lungs_card.glb"
-          as="fetch"
-          type="model/gltf-binary"
-          crossOrigin="anonymous"
-        />
       </head>
       <body className="bg-white text-slate-900 antialiased">
         <LanguageProvider>{children}</LanguageProvider>
         {/* abilita il web component <model-viewer> prima dell'interazione per evitare elementi vuoti */}
-        <Script type="module" src="/vendor/model-viewer.min.js" strategy="beforeInteractive" id="model-viewer-script" />
+        <Script
+          type="module"
+          src="/vendor/model-viewer.min.js"
+          strategy="beforeInteractive"
+          id="model-viewer-script"
+          crossOrigin="anonymous"
+        />
       </body>
     </html>
   );

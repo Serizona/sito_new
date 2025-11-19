@@ -65,6 +65,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   } catch (error) {
     console.error("Manual request email failed", error);
-    return NextResponse.json({ error: "Unable to send request." }, { status: 500 });
+    const details = error instanceof Error ? error.message : "Unknown error";
+    return NextResponse.json({ error: "Unable to send request.", details }, { status: 500 });
   }
 }
