@@ -252,7 +252,7 @@ export const translations = {
     sliceViewer: {
       title: "Esempio di caso segmentato da ViC",
       caption:
-        "Una breve serie di slice provenienti da un caso segmentato automaticamente da ViC: scorri per vedere come le nostre reti segmentano organi, vasi e masse.",
+        "Una breve serie di slice provenienti da un caso segmentato automaticamente da ViC: scorri per vedere come performano le nostre reti.",
     },
     home: {
       hero: {
@@ -272,7 +272,7 @@ export const translations = {
         list: [
           "Segmentazione AI e visualizzazione 3D",
           "Interoperabilità DICOM/NRRD",
-          "Accesso web",
+          "Accesso web da qualsiasi piattaforma.",
           "Anonimizzazione delle informazioni sul paziente e rispetto della privacy",
         ],
       },
@@ -289,7 +289,7 @@ export const translations = {
         badge: "Contattaci",
         title: "Vuoi vedere ViC in azione?",
         description:
-          "Il nostro team può guidarti nell’onboarding, nelle integrazioni o in workflow personalizzati. Contattaci dalla pagina di supporto dedicata.",
+          "Il nostro team può guidarti nell’onboarding, nelle integrazioni o in workflow personalizzati. Contattaci dalla pagina di supporto dedicata per maggiori informazioni.",
         cta: "Vai al supporto",
       },
     },
@@ -303,7 +303,7 @@ export const translations = {
       },
       hero: {
         badge: "Supporto",
-        title: "Siamo qui per aiutare il tuo team con ViC.",
+        title: "Siamo qui per supportare il tuo team con ViC.",
         intro:
           'Scegli una delle opzioni oppure scrivi a <a href="mailto:info@intusai.com">info@intusai.com</a> per un supporto dedicato.',
       },
