@@ -268,19 +268,19 @@ export const translations = {
         paragraph1:
           "Sviluppiamo strumenti che rendono l’imaging più chiaro e rapido. Uniamo machine learning, collaborazione clinica e design accurato per aiutare i team a pianificare con fiducia, comunicare meglio e risparmiare tempo in contesti critici.",
         paragraph2:
-          "Il nostro lavoro si concentra sulla chirurgia addominale-toracica, con un supporto solido per la pianificazione di fegato, pancreas, reni e polmoni.",
+          "Il nostro lavoro si concentra sulla chirurgia addomino-toracica, fornendo un supporto solido per guidare la pianificazione pre-operatoria.",
         list: [
           "Segmentazione AI e visualizzazione 3D",
           "Interoperabilità DICOM/NRRD",
-          "Accesso web su cloud",
-          "Anonimizzazione delle informazioni sul paziente e privacy",
+          "Accesso web",
+          "Anonimizzazione delle informazioni sul paziente e rispetto della privacy",
         ],
       },
       why: {
         title: "Perché IntusAI",
         cards: [
           { title: "Focus clinico", body: "Progettato con i chirurghi per la pianificazione e la guida pre-operatoria." },
-          { title: "Time to value", body: "Inferenza rapida, interfaccia chiaro." },
+          { title: "Time to value", body: "Inferenza rapida, interfaccia chiaro e immediato." },
           { title: "Interoperabilità", body: "Formati standard e integrazioni paziente-specifico." },
         ],
         cta: "Esplora VirtualClone (ViC)",
