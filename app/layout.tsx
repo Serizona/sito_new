@@ -18,6 +18,12 @@ export default function RootLayout({
   return (
     <html lang="it">
       <head>
+        <link rel="preload" href="/models/logo3d.glb" as="fetch" type="model/gltf-binary" crossOrigin="anonymous" />
+        <link rel="preload" href="/models/vic_hero.glb" as="fetch" type="model/gltf-binary" crossOrigin="anonymous" />
+        <link rel="preload" href="/models/liver_card.glb" as="fetch" type="model/gltf-binary" crossOrigin="anonymous" />
+        <link rel="preload" href="/models/kidney_card.glb" as="fetch" type="model/gltf-binary" crossOrigin="anonymous" />
+        <link rel="preload" href="/models/pancreas_card.glb" as="fetch" type="model/gltf-binary" crossOrigin="anonymous" />
+        <link rel="preload" href="/models/lungs_card.glb" as="fetch" type="model/gltf-binary" crossOrigin="anonymous" />
       </head>
       <body className="bg-white text-slate-900 antialiased">
         <LanguageProvider>{children}</LanguageProvider>
