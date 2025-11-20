@@ -7,7 +7,7 @@ export const translations = {
       support: "Support",
       exploreProduct: "Explore ViC",
       talkToUs: "Talk to us",
-      requestDemo: "Request a demo",
+      requestDemo: "See ViC in action",
       emailSupport: "Email support",
     },
     home: {
@@ -28,8 +28,8 @@ export const translations = {
         list: [
           "AI segmentation and 3D visualization",
           "DICOM/NRRD interoperability",
-          "Web-based access, on-prem or cloud",
-          "Privacy by design & audit trails",
+          "Web access from any platform",
+          "Patient data anonymization and privacy protection",
         ],
       },
       why: {
