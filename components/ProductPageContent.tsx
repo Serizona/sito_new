@@ -214,7 +214,7 @@ const productCopy = {
       ],
     },
     benefits: {
-      title: "Perché i team scelgono ViC",
+      title: "Perché scegliere ViC",
       cards: [
         {
           title: "Accessibilità",
