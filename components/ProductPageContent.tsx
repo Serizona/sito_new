@@ -245,7 +245,6 @@ type ProductCopy = (typeof productCopy)[keyof typeof productCopy];
 export function ProductPageContent() {
   const { lang } = useLanguage();
   const content: ProductCopy = productCopy[lang] ?? productCopy.en;
-  const posterFromModel = (modelPath: string) => modelPath.replace("/models/", "/posters/").replace(/\.glb$/, ".jpg");
 
   useEffect(() => {
     const cards = document.querySelectorAll("model-viewer[data-mv-hover]");
@@ -362,7 +361,6 @@ export function ProductPageContent() {
             preload
           loading="eager"
           reveal="auto"
-          poster="/posters/vic_hero.jpg"
           importance="high"
           auto-rotate
           autoplay
@@ -447,9 +445,8 @@ export function ProductPageContent() {
                   suppressHydrationWarning
                   camera-controls
                   src={card.model}
-                  poster={posterFromModel(card.model)}
                   loading="lazy"
-                  reveal="interaction"
+                  reveal="auto"
                   interaction-prompt="none"
                   environment-image="neutral"
                   exposure="0.95"
