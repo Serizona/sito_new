@@ -10,13 +10,13 @@ type LanguageContextValue = {
 };
 
 const LanguageContext = createContext<LanguageContextValue>({
-  lang: "en",
+  lang: "it",
   setLang: () => {},
-  dict: translations.en,
+  dict: translations.it,
 });
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Locale>("en");
+  const [lang, setLang] = useState<Locale>("it");
   const value = useMemo(
     () => ({
       lang,
