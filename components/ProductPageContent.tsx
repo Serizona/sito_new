@@ -13,7 +13,7 @@ const productCopy = {
       highlight: "images",
       afterHighlight: "into decisions.",
       description:
-        "Surgeons upload DICOM/NRRD; data are anonymized automatically. AI models segment abdominal–thoracic anatomy and generate a clean, interactive 3D patient twin to plan procedures and develop a pre-operative plan.",
+        "Automatically anonymized DICOM/NRRD, segmented by AI and transformed into an interactive 3D model for pre-operative planning.",
       ctaPrimary: "See ViC in action",
       ctaSecondary: "See features",
       stats: [
@@ -129,7 +129,7 @@ const productCopy = {
       highlight: "le immagini",
       afterHighlight: "in decisioni.",
       description:
-        "L'utente carica DICOM/NRRD e i dati vengono anonimizzati automaticamente. I modelli AI segmentano i distretti toraco-addominali e producono una ricosrtuzione 3D interattiva per analizzare il modello e definire un piano pre-operatorio.",
+        "DICOM/NRRD anonimizzati automaticamente; segmentati dall’AI e trasformati in un modello 3D interattivo per la pianificazione pre-operatoria.",
       ctaPrimary: "Richiedi una demo",
       ctaSecondary: "Vedi le funzionalità",
       stats: [
