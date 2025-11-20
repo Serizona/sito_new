@@ -24,7 +24,7 @@ export const translations = {
         paragraph1:
           "We build tools that make imaging clearer and faster. By combining machine learning, clinical collaboration and careful product design, we help teams plan with confidence, communicate better and save time in high-stakes workflows.",
         paragraph2:
-          "Our work focuses on abdominal–thoracic surgery, with robust support for liver, pancreas, kidney and lungs planning.",
+          "Our work focuses on thoraco-abdominal surgery, providing robust support to guide pre-operative planning.",
         list: [
           "AI segmentation and 3D visualization",
           "DICOM/NRRD interoperability",
