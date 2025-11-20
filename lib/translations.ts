@@ -1,4 +1,4 @@
-export const translations = {
+﻿export const translations = {
   en: {
     nav: {
       company: "Company",
@@ -7,7 +7,7 @@ export const translations = {
       support: "Support",
       exploreProduct: "Explore ViC",
       talkToUs: "Talk to us",
-      requestDemo: "See ViC in action",
+      requestDemo: "Request a demo",
       emailSupport: "Email support",
     },
     home: {
@@ -15,7 +15,7 @@ export const translations = {
         titleLine1: "We turn medical images",
         titleLine2: "into decisions.",
         description:
-          "IntusAI designs software for clinical teams. Our flagship product, VirtualClone (ViC), brings AI segmentation and accurated 3D-visualization to everyday surgical planning.",
+          "IntusAI designs software for clinical teams. Our flagship product, VirtualClone (ViC), brings AI segmentation and accurate 3D-visualization to everyday surgical planning.",
         discover: "Discover ViC",
         about: "About IntusAI",
       },
@@ -24,12 +24,12 @@ export const translations = {
         paragraph1:
           "We build tools that make imaging clearer and faster. By combining machine learning, clinical collaboration and careful product design, we help teams plan with confidence, communicate better and save time in high-stakes workflows.",
         paragraph2:
-          "Our work focuses on thoraco-abdominal surgery, providing robust support to guide pre-operative planning.",
+          "Our work focuses on abdominal-thoracic surgery, with robust support for liver, pancreas, kidney and lungs planning.",
         list: [
           "AI segmentation and 3D visualization",
           "DICOM/NRRD interoperability",
-          "Web access from any platform",
-          "Patient data anonymization and privacy protection",
+          "Web-based access, on-prem or cloud",
+          "Privacy by design & audit trails",
         ],
       },
       why: {
@@ -62,22 +62,10 @@ export const translations = {
         description:
           "Our segmentation models rely on high-quality, high-volume imaging. That foundation keeps the ViC stack reliable for AI training, radiomics and clinical validation.",
         metrics: [
-          {
-            label: "Dataset—high-quality CT scans",
-            value: "> 2,600 annotated",
-          },
-          {
-            label: "Reconstructed structures",
-            value: "10 anatomy classes",
-          },
-          {
-            label: "Mean DICE score",
-            value: "0.85 average across ViC reconstructions",
-          },
-          {
-            label: "Prediction time",
-            value: "< 5 minutes",
-          },
+          { label: "Dataset - high-quality CT scans", value: "> 2,600 annotated" },
+          { label: "Reconstructed structures", value: "10 anatomy classes" },
+          { label: "Mean DICE score", value: "0.85 average across ViC reconstructions" },
+          { label: "Prediction time", value: "< 5 minutes" },
         ],
         note: "We maintain a continuous improvement loop: new clinical collaborations expand the dataset, while anonymization and bias checks keep it research-ready.",
       },
@@ -85,22 +73,21 @@ export const translations = {
         badge: "Dataset",
         title: "Built on trusted academic data sources",
         description:
-          "A portion of our training data originates from IRCAD. On top of that, we share a ViC-labeled subset (10 cases) so teams can compare our automatic structures with their own segmentations or annotation guidelines.",
+          "A portion of our training data originates from IRCAD. We share 20 ViC-labeled cases from that source, curated and corrected by our team, so others can rely on high-accuracy segmentations and compare them with their own annotations or guidelines.",
         downloadCta: "Download ViC dataset",
-       
       },
       collab: {
         badge: "Clinical & engineering",
         title: "Collaboration-ready networks",
         description:
-          "We work with surgical teams, imaging labs and engineering departments to co-develop AI services, validation studies or bespoke reconstructions. Share your objectives—AI benchmarking, radiomic discovery, multi-center validation—and we tailor access plus expert support.",
+          "We work with surgical teams, imaging labs and engineering departments to co-develop AI services, validation studies or bespoke reconstructions. Share your objectives - AI benchmarking, radiomic discovery, multi-center validation - and we tailor access plus expert support.",
         startCta: "Start a collaboration",
       },
     },
     sliceViewer: {
       title: "Example of a ViC segmented case",
       caption:
-        "A short stack of slices from a ViC-segmented case—scroll through to see how our networks automatically outline organs and vessels.",
+        "A short stack of slices from a ViC-segmented case - scroll through to see how our networks automatically outline organs and vessels.",
     },
     supportPage: {
       nav: {
@@ -119,8 +106,7 @@ export const translations = {
       cards: {
         manual: {
           title: "Request User Manual",
-          body:
-            "Get the latest VirtualClone (ViC) user manual.",
+          body: "Get the latest VirtualClone (ViC) user manual.",
           cta: "Request user manual",
         },
         contact: {
@@ -171,7 +157,7 @@ export const translations = {
         hqAddress: "Via San Senatore 6/1\n20122 Milano (MI)",
         phoneTitle: "Direct line",
         phoneValue: "0000 000000",
-        phoneHours: "Mon–Fri, 09:00–18:00 CET",
+        phoneHours: "Mon-Fri, 09:00-18:00 CET",
         emailTitle: "Email",
         emailValue: "info@intusai.com",
         form: {
@@ -203,61 +189,48 @@ export const translations = {
     },
     dataset: {
       hero: {
-        badge: "Dataset chirurgico di alta qualità",
-        title: "Algoritmi addestrati su immagini di alta qualità.",
+        badge: "Dataset chirurgico di alta qualita",
+        title: "Algoritmi addestrati su immagini di alta qualita.",
         description:
-          "IntusAI addestra le reti ViC su un dataset multicentrico con oltre 2.600 TAC addominali e toraciche segmentate. L’alta qualità delle immagini di origine garantisce risultati eccellenti in termini di segmentazione, visualizzazione e supporto decisionale nei flussi chirurgici.",
+          "IntusAI addestra le reti ViC su un dataset multicentrico con oltre 2.600 TAC addominali e toraciche segmentate. L'alta qualita delle immagini di origine garantisce risultati eccellenti in termini di segmentazione, visualizzazione e supporto decisionale nei flussi chirurgici.",
         explore: "Esplora il dataset",
       },
       stats: {
         title: "Prestazioni delle reti basate sui dati",
         description:
-          "I nostri modelli di segmentazione si basano su immagini ad alta qualità. Questa struttura rende ViC una piattaforma affidabile per AI training, radiomica e validazione clinica",
+          "I nostri modelli di segmentazione si basano su immagini ad alta qualita e grandi volumi. Questa struttura rende ViC una piattaforma affidabile per AI training, radiomica e validazione clinica",
         metrics: [
-          {
-            label: "Dataset – TAC di alta qualità",
-            value: "> 2.600 annotate",
-          },
-          {
-            label: "Strutture ricostruite",
-            value: "10 classi anatomiche",
-          },
-          {
-            label: "DICE medio",
-            value: "0,85 di DICE medio sulle ricostruzioni ViC",
-          },
-          {
-            label: "Tempo di predizione",
-            value: "< 5 minuti",
-          },
+          { label: "Dataset - TAC di alta qualita", value: "> 2.600 annotate" },
+          { label: "Strutture ricostruite", value: "10 classi anatomiche" },
+          { label: "DICE medio", value: "0,85 di media sulle ricostruzioni ViC" },
+          { label: "Tempo di predizione", value: "< 5 minuti" },
         ],
-        note: "Manteniamo un ciclo di miglioramento continuo; periodicamente nuove collaborazioni cliniche ampliano il nostro dataset.",
+        note: "Manteniamo un ciclo di miglioramento continuo; periodicamente nuove collaborazioni cliniche ampliano il dataset.",
       },
       ircad: {
         badge: "Dataset",
         title: "Costruito da fonti affidabili",
         description:
-          "Parte dei nostri dati di training proviene da IRCAD. In più condividiamo un sottoinsieme etichettato da ViC (20 casi) per permettere ai team di confrontare le nostre strutture automatiche con le proprie segmentazioni o linee guida.",
+          "Parte dei nostri dati di training proviene da IRCAD. Condividiamo 20 casi etichettati da ViC, curati e verificati dal team, cosi altri possano usare segmentazioni ad alta accuratezza e confrontarle con le proprie annotazioni o linee guida.",
         downloadCta: "Scarica il dataset segmentato da ViC",
-        
       },
       collab: {
         badge: "Clinico & ingegneristico",
         title: "Reti pronte alla collaborazione",
         description:
-          "Collaboriamo con team chirurgici per sviluppare servizi AI, studi di validazione o ricostruzioni paziente-specifico. Raccontaci obiettivi—benchmarking AI, radiomica e adatteremo prodotto e supporto specialistico.",
+          "Collaboriamo con team chirurgici, imaging lab e reparti ingegneristici per sviluppare servizi AI, studi di validazione o ricostruzioni paziente-specifico. Raccontaci obiettivi - benchmarking AI, radiomica - e adatteremo accesso e supporto specialistico.",
         startCta: "Avvia una collaborazione",
       },
     },
     sliceViewer: {
-      title: "Esempio di caso segmentato automaticamente da ViC",
+      title: "Esempio di caso segmentato da ViC",
       caption:
-        "Una breve serie di slice provenienti da un caso segmentato automaticamente da ViC: scorri per vedere come performano le nostre reti.",
+        "Una breve serie di slice provenienti da un caso segmentato automaticamente da ViC: scorri per vedere come le nostre reti segmentano organi, vasi e masse.",
     },
     home: {
       hero: {
-        titleLine1: "Trasformiamo le  immagini ",
-        titleLine2: " in decisioni.",
+        titleLine1: "Trasformiamo le immagini",
+        titleLine2: "in decisioni.",
         description:
           "IntusAI sviluppa software avanzati per i team clinici. Il nostro prodotto di punta, VirtualClone (ViC), integra segmentazione AI e visualizzazione 3D nella pianificazione chirurgica quotidiana.",
         discover: "Scopri ViC",
@@ -266,22 +239,22 @@ export const translations = {
       about: {
         title: "Su IntusAI",
         paragraph1:
-          "Sviluppiamo strumenti che rendono l’imaging più chiaro e rapido. Uniamo machine learning, collaborazione clinica e design accurato per aiutare i team a pianificare con fiducia, comunicare meglio e risparmiare tempo in contesti critici.",
+          "Sviluppiamo strumenti che rendono l'imaging piu chiaro e rapido. Uniamo machine learning, collaborazione clinica e design accurato per aiutare i team a pianificare con fiducia, comunicare meglio e risparmiare tempo in contesti critici.",
         paragraph2:
           "Il nostro lavoro si concentra sulla chirurgia addomino-toracica, fornendo un supporto solido per guidare la pianificazione pre-operatoria.",
         list: [
           "Segmentazione AI e visualizzazione 3D",
-          "Interoperabilità DICOM/NRRD",
-          "Accesso web da qualsiasi piattaforma.",
+          "Interoperabilita DICOM/NRRD",
+          "Accesso web da qualsiasi piattaforma",
           "Anonimizzazione delle informazioni sul paziente e rispetto della privacy",
         ],
       },
       why: {
-        title: "Perché IntusAI",
+        title: "Perche IntusAI",
         cards: [
           { title: "Focus clinico", body: "Progettato con i chirurghi per la pianificazione e la guida pre-operatoria." },
-          { title: "Time to value", body: "Inferenza rapida, interfaccia chiaro e immediato." },
-          { title: "Interoperabilità", body: "Formati standard e integrazioni paziente-specifico." },
+          { title: "Time to value", body: "Inferenza rapida, interfaccia chiara." },
+          { title: "Interoperabilita", body: "Formati standard e integrazioni paziente-specifico." },
         ],
         cta: "Esplora VirtualClone (ViC)",
       },
@@ -289,7 +262,7 @@ export const translations = {
         badge: "Contattaci",
         title: "Vuoi vedere ViC in azione?",
         description:
-          "Il nostro team può guidarti nell’onboarding, nelle integrazioni o in workflow personalizzati. Contattaci dalla pagina di supporto dedicata per maggiori informazioni.",
+          "Il nostro team puo guidarti nell'onboarding, nelle integrazioni o in workflow personalizzati. Contattaci dalla pagina di supporto dedicata.",
         cta: "Vai al supporto",
       },
     },
@@ -303,15 +276,14 @@ export const translations = {
       },
       hero: {
         badge: "Supporto",
-        title: "Siamo qui per supportare il tuo team con ViC.",
+        title: "Siamo qui per aiutare il tuo team con ViC.",
         intro:
           'Scegli una delle opzioni oppure scrivi a <a href="mailto:info@intusai.com">info@intusai.com</a> per un supporto dedicato.',
       },
       cards: {
         manual: {
           title: "Richiedi il manuale utente",
-          body:
-            "Ricevi l’ultima versione del manuale di VirtualClone (ViC).",
+          body: "Ricevi l'ultima versione del manuale di VirtualClone (ViC).",
           cta: "Richiedi il manuale",
         },
         contact: {
@@ -348,7 +320,7 @@ export const translations = {
           notes: "Descrivi scenario clinico, tempistiche o richieste caso-specifiche.",
         },
         consentPrimary:
-          'Confermo di aver letto l’<a href="/privacy">informativa privacy</a> e accetto di essere contattato da IntusAI riguardo a ViC.',
+          'Confermo di aver letto l''<a href="/privacy">informativa privacy</a> e accetto di essere contattato da IntusAI riguardo a ViC.',
         consentSecondary: "Desidero ricevere aggiornamenti sul prodotto.",
         submit: "Invia richiesta",
         emailHint: 'Preferisci la mail? Scrivi a <a href="mailto:info@intusai.com">info@intusai.com</a>.',
@@ -362,7 +334,7 @@ export const translations = {
         hqAddress: "Via San Senatore 6/1\n20122 Milano (MI)",
         phoneTitle: "Linea diretta",
         phoneValue: "0000 000000",
-        phoneHours: "Lun–Ven, 09:00–18:00 CET",
+        phoneHours: "Lun-Ven, 09:00-18:00 CET",
         emailTitle: "Email",
         emailValue: "info@intusai.com",
         form: {
@@ -375,12 +347,11 @@ export const translations = {
           placeholderEmail: "elisa.conti@ospedale.it",
           placeholderMessage: "Descrivi scenario clinico, tempistiche o richieste specifiche.",
           privacy:
-            'Accetto l’<a href="/privacy">informativa privacy</a> e di essere contattato per la mia richiesta.',
+            'Accetto l''<a href="/privacy">informativa privacy</a> e di essere contattato per la mia richiesta.',
           submit: "Invia messaggio",
         },
       },
     },
-
   },
 };
 
