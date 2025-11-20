@@ -25,16 +25,16 @@ const productCopy = {
     intro: {
       title: "What is VirtualClone (ViC)?",
       paragraphs: [
-        "A multimodal DICOM viewer enhanced with AI. ViC automatically detects and segments organs, vessels and lesions, producing an accurate 3D model of the patient with minimal manual correction.",
-        "Assess parenchyma–vessel relationships pre-operatively and use the reconstructed model to guide dissection strategy and resection feasibility.",
+        "ViC is an AI-powered multimodal DICOM viewer that automatically detects and segments organs, vessels, and lesions, generating an accurate 3D model.",
+        "It enables clinicians to analyze parenchyma–vessel relationships, assess resectability, and plan a pre-operative strategy.",
       ],
       listTitle: "At a glance",
       list: [
         "Upload DICOM or NRRD; automatic anonymization and conversion",
-        "2D viewer with familiar radiological tools",
-        "AI segmentation for abdominal–thoracic anatomy",
-        "Brush-based manual editing for quick refinements",
-        "Real-time 3D rendering with opacity controls",
+        "2D viewer with standard radiological tools",
+        "AI segmentation for abdominal–thoracic districts",
+        "Manual brush editing for quick refinements",
+        "Real-time 3D rendering with opacity controls, visualization, and volume info",
       ],
     },
     workflow: {
@@ -129,7 +129,7 @@ const productCopy = {
       highlight: "le immagini",
       afterHighlight: "in decisioni.",
       description:
-        "I chirurghi caricano DICOM/NRRD e i dati vengono anonimizzati automaticamente. I modelli AI segmentano i distretti toraco-addominali e producono una ricosrtuzione 3D interattiva per pianificare e definire un piano pre-operatorio.",
+        "L'utente carica DICOM/NRRD e i dati vengono anonimizzati automaticamente. I modelli AI segmentano i distretti toraco-addominali e producono una ricosrtuzione 3D interattiva per analizzare il modello e definire un piano pre-operatorio.",
       ctaPrimary: "Richiedi una demo",
       ctaSecondary: "Vedi le funzionalità",
       stats: [
@@ -142,15 +142,15 @@ const productCopy = {
       title: "Cos’è VirtualClone (ViC)?",
       paragraphs: [
         "Vic è viewer DICOM multimodale basato sull'AI che rileva e segmenta automaticamente organi, vasi e lesioni; producendo un modello 3D accurato.",
-        "Permette al chirurgo di analizzare i rapporti parenchima–vasi e valutare la fattibilità della resezione e programmare un piano pre-operatorio.",
+        "Permette al clinico di analizzare i rapporti parenchima–vasi e valutare la fattibilità della resezione e programmare un piano pre-operatorio.",
       ],
       listTitle: "In sintesi",
       list: [
         "Carica DICOM o NRRD; anonimizzazione e conversione automatiche",
-        "Viewer 2D con strumenti radiologici familiari",
+        "Viewer 2D con strumenti radiologici standard",
         "Segmentazione AI per i distretti toraco-addominali",
         "Editing manuale a pennello per rifiniture rapide",
-        "Rendering 3D in tempo reale con controlli di opacità e visualizzazione",
+        "Rendering 3D in tempo reale con controlli di opacità e visualizzazione e calcolo volumi",
       ],
     },
     workflow: {
@@ -181,22 +181,22 @@ const productCopy = {
         "Ogni ricostruzione si concentra sul distretto toraco-addominale richiesto per la pianificazione chirurgica ed è progettata per supportare il planning preoperatorio.",
       cards: [
         {
-          title: "Ricostruzione 3D del fegato",
+          title: "Ricostruzione 3D distretto epatico",
           body: "Volumi, territori arteriosi/venosi, modalità negative staining e resezioni non anatomiche.",
           model: "/models/liver_card.glb",
         },
         {
-          title: "Ricostruzione 3D del rene",
+          title: "Ricostruzione 3D distretto renale",
           body: "Volumi, territori arteriosi/venosi, modalità negative staining e resezioni non anatomiche.",
           model: "/models/kidney_card.glb",
         },
         {
-          title: "Ricostruzione 3D del pancreas",
+          title: "Ricostruzione 3D distretto pancreatico",
           body: "Volumi, proposte di resezione, vicinanza dei vasi al tumore.",
           model: "/models/pancreas_card.glb",
         },
         {
-          title: "Ricostruzione 3D del polmone",
+          title: "Ricostruzione 3D distretto polmonare",
           body: "Visualizzazione nitida di bronchi e strutture vascolari.",
           model: "/models/lungs_card.glb",
         },
@@ -226,7 +226,7 @@ const productCopy = {
         },
         {
           title: "Velocità",
-          body: "Elaborazione rapida dei dati con ricostruzione 3D e funzionalità specifiche.",
+          body: "Elaborazione rapida dei dati con ricostruzione 3D e funzionalità distretto-specifiche.",
         },
       ],
     },
