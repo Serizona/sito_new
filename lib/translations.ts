@@ -231,13 +231,13 @@ export const translations = {
             value: "< 5 minuti",
           },
         ],
-        note: "Manteniamo un ciclo di miglioramento continuo; periodicamente nuove collaborazioni cliniche ampliano il dataset.",
+        note: "Manteniamo un ciclo di miglioramento continuo; periodicamente nuove collaborazioni cliniche ampliano il nostro dataset.",
       },
       ircad: {
         badge: "Dataset",
         title: "Costruito da fonti affidabili",
         description:
-          "Parte dei nostri dati di training proviene da IRCAD. In più condividiamo un sottoinsieme etichettato da ViC (10 casi) per permettere ai team di confrontare le nostre strutture automatiche con le proprie segmentazioni o linee guida.",
+          "Parte dei nostri dati di training proviene da IRCAD. In più condividiamo un sottoinsieme etichettato da ViC (20 casi) per permettere ai team di confrontare le nostre strutture automatiche con le proprie segmentazioni o linee guida.",
         downloadCta: "Scarica il dataset segmentato da ViC",
         
       },
@@ -245,12 +245,12 @@ export const translations = {
         badge: "Clinico & ingegneristico",
         title: "Reti pronte alla collaborazione",
         description:
-          "Collaboriamo con team chirurgici, imaging lab per sviluppare servizi AI, studi di validazione o ricostruzioni paziente-specifico. Raccontaci obiettivi—benchmarking AI, radiomica e adatteremo prodotto e supporto specialistico.",
+          "Collaboriamo con team chirurgici per sviluppare servizi AI, studi di validazione o ricostruzioni paziente-specifico. Raccontaci obiettivi—benchmarking AI, radiomica e adatteremo prodotto e supporto specialistico.",
         startCta: "Avvia una collaborazione",
       },
     },
     sliceViewer: {
-      title: "Esempio di caso segmentato da ViC",
+      title: "Esempio di caso segmentato automaticamente da ViC",
       caption:
         "Una breve serie di slice provenienti da un caso segmentato automaticamente da ViC: scorri per vedere come performano le nostre reti.",
     },
