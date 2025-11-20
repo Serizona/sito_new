@@ -245,6 +245,7 @@ type ProductCopy = (typeof productCopy)[keyof typeof productCopy];
 export function ProductPageContent() {
   const { lang } = useLanguage();
   const content: ProductCopy = productCopy[lang] ?? productCopy.en;
+  const posterFromModel = (modelPath: string) => modelPath.replace("/models/", "/posters/").replace(/\.glb$/, ".jpg");
 
   useEffect(() => {
     const cards = document.querySelectorAll("model-viewer[data-mv-hover]");
@@ -359,20 +360,21 @@ export function ProductPageContent() {
             suppressHydrationWarning
             src="/models/vic_hero.glb"
             preload
-            loading="eager"
-            reveal="auto"
-            importance="high"
-            auto-rotate
-            autoplay
-            interaction-prompt="none"
-            environment-image="neutral"
-            exposure="1.3"
-            shadow-intensity="1"
-            shadow-softness="0.8"
-            tone-mapping="aces"
-            bounds="tight"
-            camera-target="10m -30m 0m"
-            camera-orbit="5deg 90deg 95%"
+          loading="eager"
+          reveal="auto"
+          poster="/posters/vic_hero.jpg"
+          importance="high"
+          auto-rotate
+          autoplay
+          interaction-prompt="none"
+          environment-image="neutral"
+          exposure="1.1"
+          shadow-intensity="0.7"
+          shadow-softness="0.8"
+          tone-mapping="aces"
+          bounds="tight"
+          camera-target="10m -30m 0m"
+          camera-orbit="5deg 90deg 95%"
             field-of-view="14deg"
             min-field-of-view="10deg"
             max-field-of-view="22deg"
@@ -445,10 +447,13 @@ export function ProductPageContent() {
                   suppressHydrationWarning
                   camera-controls
                   src={card.model}
+                  poster={posterFromModel(card.model)}
+                  loading="lazy"
+                  reveal="interaction"
                   interaction-prompt="none"
                   environment-image="neutral"
-                  exposure="1.1"
-                  shadow-intensity="0.8"
+                  exposure="0.95"
+                  shadow-intensity="0.45"
                   camera-orbit="0deg 70deg auto"
                   field-of-view="20deg"
                   data-mv-hover
