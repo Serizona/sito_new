@@ -120,7 +120,7 @@ export const translations = {
         manual: {
           title: "Request User Manual",
           body:
-            "Get the latest VirtualClone (ViC) user manual, release notes, onboarding checklists, and best practices for surgical planning.",
+            "Get the latest VirtualClone (ViC) user manual.",
           cta: "Request user manual",
         },
         contact: {
