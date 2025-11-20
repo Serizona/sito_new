@@ -212,7 +212,7 @@ export const translations = {
       stats: {
         title: "Prestazioni delle reti basate sui dati",
         description:
-          "I nostri modelli di segmentazione si basano su immagini ad alta qualità e grandi volumi. Questa struttura rende ViC una piattaforma affidabile per AI training, radiomica e validazione clinica",
+          "I nostri modelli di segmentazione si basano su immagini ad alta qualità. Questa struttura rende ViC una piattaforma affidabile per AI training, radiomica e validazione clinica",
         metrics: [
           {
             label: "Dataset – TAC di alta qualità",
@@ -224,7 +224,7 @@ export const translations = {
           },
           {
             label: "DICE medio",
-            value: "0,85 di media sulle ricostruzioni ViC",
+            value: "0,85 di DICE medio sulle ricostruzioni ViC",
           },
           {
             label: "Tempo di predizione",
