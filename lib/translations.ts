@@ -7,7 +7,7 @@
       support: "Support",
       exploreProduct: "Explore ViC",
       talkToUs: "Talk to us",
-      requestDemo: "Request a demo",
+      requestDemo: "See ViC in action",
       emailSupport: "Email support",
     },
     home: {
@@ -184,7 +184,7 @@
       support: "Supporto",
       exploreProduct: "Esplora ViC",
       talkToUs: "Contattaci",
-      requestDemo: "Richiedi una demo",
+      requestDemo: "See ViC in action",
       emailSupport: "Scrivi al supporto",
     },
     dataset: {
