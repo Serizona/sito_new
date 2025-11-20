@@ -211,8 +211,8 @@
         badge: "Dataset",
         title: "Costruito da fonti affidabili",
         description:
-          "Parte dei nostri dati di training proviene da IRCAD. Condividiamo 20 casi etichettati da ViC, curati e verificati dal team, cosi altri possano usare segmentazioni ad alta accuratezza e confrontarle con le proprie annotazioni o linee guida.",
-        downloadCta: "Scarica il dataset segmentato da ViC",
+          "Parte dei nostri dati di training proviene da IRCAD. Condividiamo 20 casi ViC, corretti e verificati dal nostro team, per offrire segmentazioni ad alta accuratezza da riusare o confrontare con le proprie annotazioni e linee guida.",
+        downloadCta: "Ottieni dataset",
       },
       collab: {
         badge: "Clinico & ingegneristico",
