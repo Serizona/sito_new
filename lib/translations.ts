@@ -320,10 +320,10 @@
           notes: "Descrivi scenario clinico, tempistiche o richieste caso-specifiche.",
         },
         consentPrimary:
-          'Confermo di aver letto l''<a href="/privacy">informativa privacy</a> e accetto di essere contattato da IntusAI riguardo a ViC.',
+          "Confermo di aver letto l'<a href=\"/privacy\">informativa privacy</a> e accetto di essere contattato da IntusAI riguardo a ViC.",
         consentSecondary: "Desidero ricevere aggiornamenti sul prodotto.",
         submit: "Invia richiesta",
-        emailHint: 'Preferisci la mail? Scrivi a <a href="mailto:info@intusai.com">info@intusai.com</a>.',
+        emailHint: "Preferisci la mail? Scrivi a <a href=\"mailto:info@intusai.com\">info@intusai.com</a>.",
       },
       contactSection: {
         badge: "Contattaci",
@@ -347,7 +347,7 @@
           placeholderEmail: "elisa.conti@ospedale.it",
           placeholderMessage: "Descrivi scenario clinico, tempistiche o richieste specifiche.",
           privacy:
-            'Accetto l''<a href="/privacy">informativa privacy</a> e di essere contattato per la mia richiesta.',
+            "Accetto l'<a href=\"/privacy\">informativa privacy</a> e di essere contattato per la mia richiesta.",
           submit: "Invia messaggio",
         },
       },
