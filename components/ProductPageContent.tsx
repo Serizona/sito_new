@@ -13,8 +13,8 @@ const productCopy = {
       highlight: "images",
       afterHighlight: "into decisions.",
       description:
-        "Surgeons upload DICOM/NRRD; data are anonymized automatically. AI models segment abdominal–thoracic anatomy and generate a clean, interactive 3D patient twin to plan procedures and develop a preoperative plan.",
-      ctaPrimary: "Request a demo",
+        "Surgeons upload DICOM/NRRD; data are anonymized automatically. AI models segment abdominal–thoracic anatomy and generate a clean, interactive 3D patient twin to plan procedures and develop a pre-operative plan.",
+      ctaPrimary: "See ViC in action",
       ctaSecondary: "See features",
       stats: [
         { label: "DICOM", caption: "Compliance" },
@@ -25,8 +25,8 @@ const productCopy = {
     intro: {
       title: "What is VirtualClone (ViC)?",
       paragraphs: [
-        "A multimodal DICOM viewer enhanced with AI. ViC automatically detects and segments organs and vessels, producing an accurate 3D model of the patient with minimal manual correction.",
-        "Assess parenchyma–vessel relationships pre-operatively and use the reconstructed model to guide dissection strategy and resection feasibility. AR alignment is under active development.",
+        "A multimodal DICOM viewer enhanced with AI. ViC automatically detects and segments organs, vessels and lesions, producing an accurate 3D model of the patient with minimal manual correction.",
+        "Assess parenchyma–vessel relationships pre-operatively and use the reconstructed model to guide dissection strategy and resection feasibility.",
       ],
       listTitle: "At a glance",
       list: [
@@ -43,11 +43,11 @@ const productCopy = {
       steps: [
         {
           title: "Import & anonymize",
-          body: "Upload DICOM or NRRD; automatic anonymization and conversion with secure storage for device-agnostic access.",
+          body: "Upload DICOM or NRRD; automatic anonymization and conversion with secure storage.",
         },
         {
           title: "AI segmentation",
-          body: "Run ViC models to obtain anatomical masks for liver, pancreas, kidney, vessels, and lesions.",
+          body: "Run ViC models to obtain anatomical masks for thoraco-abdominal organs, vessels, and lesions.",
         },
         {
           title: "Assisted reconstruction",
@@ -55,14 +55,14 @@ const productCopy = {
         },
         {
           title: "3D visualization",
-          body: "Generate a patient-specific 3D reconstruction with opacity controls, presets, and shareable interactive viewers.",
+          body: "Generate a patient-specific 3D reconstruction with opacity controls, presets, and interactive viewers.",
         },
       ],
     },
     reconstructions: {
       title: "3D reconstructions tailored to each case.",
       description:
-        "Each reconstruction focuses on the specific thoraco-abdominal district required for surgical planning—each designed to support preoperative planning.",
+        "Each reconstruction focuses on the specific thoraco-abdominal district required for surgical planning, each designed to support pre-operative planning.",
       cards: [
         {
           title: "Liver 3D Reconstruction",
@@ -90,11 +90,11 @@ const productCopy = {
       title: "Core features",
       cards: [
         { title: "AI segmentation", body: "Automatic detection of organs, vessels and lesions from CT/MR with fast inference and accuracy." },
-        { title: "Interactive 3D", body: "Real-time 3D visualization with rotation, opacity adjustment, and anatomical presets." },
-        { title: "Privacy by design", body: "Automatic anonymization on import and fully auditable data handling for secure processing." },
-        { title: "2D DICOM viewer", body: "Multi-planar navigation with standard radiological tools and fast visual verification." },
-        { title: "Editing tools", body: "Manual refinement of AI masks or assisted reconstruction service by expert radiologists." },
-        { title: "Collaborative review", body: "Interactive 3D reconstructions for multidisciplinary evaluation." },
+        { title: "Interactive 3D", body: "Real-time 3D visualization with rotation, zoom, opacity adjustment, and district-specific anatomical presets." },
+        { title: "Privacy by design", body: "Automatic anonymization on import and data handling fully compliant with privacy standards." },
+        { title: "2D DICOM viewer", body: "DICOM visualization with standard radiology tools and additional utilities." },
+        { title: "Editing tools", body: "Manual refinement of AI masks or assisted reconstruction performed by expert radiologists." },
+        { title: "Collaborative review", body: "Interactive 3D reconstructions for clinical assessment and teamwork." },
       ],
     },
     benefits: {
@@ -102,15 +102,15 @@ const productCopy = {
       cards: [
         {
           title: "Accessibility",
-          body: "Fully web-based and device-independent: no installation required. Upload studies from any workstation or PACS and access securely from anywhere.",
+          body: "Fully web-based and device-independent: no installation required. Upload studies from any workstation and access them securely from anywhere.",
         },
         {
           title: "Usability",
-          body: "Intuitive interface with automatic anonymization and registration. Manual tools and assisted reconstruction support precise yet simple refinements.",
+          body: "Intuitive interface with automatic anonymization and structure segmentation.",
         },
         {
           title: "Time",
-          body: "Cloud-based processing ensures rapid results for 3D reconstruction and territory segmentation.",
+          body: "Fast data processing with 3D reconstruction and dedicated functionalities.",
         },
       ],
     },
@@ -122,14 +122,14 @@ const productCopy = {
       cta: "Go to support page",
     },
   },
-  it: {
+  it: { 
     hero: {
       badge: "ViC • Visual Intelligence for Care",
       title: "VirtualClone (ViC) trasforma",
       highlight: "le immagini",
       afterHighlight: "in decisioni.",
       description:
-        "I chirurghi caricano DICOM/NRRD e i dati vengono anonimizzati automaticamente. I modelli AI segmentano l’anatomia addominale-toracica e producono un gemello 3D interattivo per pianificare procedure e definire un piano preoperatorio.",
+        "I chirurghi caricano DICOM/NRRD e i dati vengono anonimizzati automaticamente. I modelli AI segmentano i distretti toraco-addominali e producono una ricosrtuzione 3D interattiva per pianificare e definire un piano pre-operatorio.",
       ctaPrimary: "Richiedi una demo",
       ctaSecondary: "Vedi le funzionalità",
       stats: [
@@ -141,16 +141,16 @@ const productCopy = {
     intro: {
       title: "Cos’è VirtualClone (ViC)?",
       paragraphs: [
-        "Un viewer DICOM multimodale potenziato dall’AI. ViC rileva e segmenta automaticamente organi e vasi, producendo un modello 3D accurato con correzioni minime.",
-        "Analizza i rapporti parenchima–vasi in fase preoperatoria e usa il modello per guidare dissezione e fattibilità della resezione. L’allineamento AR è in sviluppo attivo.",
+        "Vic è viewer DICOM multimodale basato sull'AI che rileva e segmenta automaticamente organi, vasi e lesioni; producendo un modello 3D accurato.",
+        "Permette al chirurgo di analizzare i rapporti parenchima–vasi e valutare la fattibilità della resezione e programmare un piano pre-operatorio.",
       ],
       listTitle: "In sintesi",
       list: [
         "Carica DICOM o NRRD; anonimizzazione e conversione automatiche",
         "Viewer 2D con strumenti radiologici familiari",
-        "Segmentazione AI per l’anatomia addominale-toracica",
+        "Segmentazione AI per i distretti toraco-addominali",
         "Editing manuale a pennello per rifiniture rapide",
-        "Rendering 3D in tempo reale con controlli di opacità",
+        "Rendering 3D in tempo reale con controlli di opacità e visualizzazione",
       ],
     },
     workflow: {
@@ -163,15 +163,15 @@ const productCopy = {
         },
         {
           title: "Segmentazione AI",
-          body: "Esegui i modelli ViC per ottenere maschere anatomiche di fegato, pancreas, reni, vasi e lesioni.",
+          body: "Esegui la segmentazione automatica di ViC per ottenere maschere di organi, vasi e lesioni.",
         },
         {
           title: "Ricostruzione assistita",
-          body: "Rifinisci manualmente oppure richiedi la Ricostruzione Assistita da specialisti IntusAI per aggiustamenti di precisione.",
+          body: "Rifinisci manualmente oppure richiedi la Ricostruzione Assistita da specialisti per aggiustamenti di precisione o eventuali modifiche.",
         },
         {
           title: "Visualizzazione 3D",
-          body: "Genera una ricostruzione 3D specifica del paziente con controlli di opacità, preset e viewer condivisibili.",
+          body: "Genera una ricostruzione 3D specifica del paziente con controlli di opacità, preset e funzionalità specifiche del distretto d'interesse.",
         },
       ],
     },
@@ -205,12 +205,12 @@ const productCopy = {
     features: {
       title: "Funzionalità principali",
       cards: [
-        { title: "Segmentazione AI", body: "Rilevamento automatico di organi, vasi e lesioni da TC/RM con inferenza rapida e alta accuratezza." },
-        { title: "3D interattivo", body: "Visualizzazione 3D in tempo reale con rotazione, slicing, regolazione dell’opacità e preset anatomici." },
-        { title: "Privacy by design", body: "Anonimizzazione automatica all’import e gestione dei dati completamente tracciabile." },
-        { title: "Viewer DICOM 2D", body: "Navigazione multi-planare con strumenti radiologici standard e rapida verifica visiva." },
+        { title: "Segmentazione AI", body: "Rilevamento automatico di organi, vasi e lesioni da TC/RM con inferenza rapida e accuratezza." },
+        { title: "3D interattivo", body: "Visualizzazione 3D in tempo reale con rotazione, zoom, regolazione dell’opacità e preset anatomici distretto-specifici." },
+        { title: "Privacy by design", body: "Anonimizzazione automatica all’import e gestione dei dati nel rispetto della privacy." },
+        { title: "Viewer DICOM 2D", body: "Visualizzazione del DICOM con strumenti radiologici standard e tools aggiuntivi." },
         { title: "Strumenti di editing", body: "Rifinitura manuale delle maschere AI o servizio di ricostruzione assistita da radiologi esperti." },
-        { title: "Revisione collaborativa", body: "Condividi ricostruzioni 3D interattive con i clinici per valutazioni multidisciplinari." },
+        { title: "Revisione collaborativa", body: "Ricostruzioni 3D interattive per valutazioni cliniche." },
       ],
     },
     benefits: {
@@ -218,15 +218,15 @@ const productCopy = {
       cards: [
         {
           title: "Accessibilità",
-          body: "Totalmente web e device-independent: nessuna installazione. Carichi gli studi da qualsiasi workstation o PACS e accedi in sicurezza ovunque.",
+          body: "Totalmente web e device-independent: nessuna installazione. Carichi gli studi da qualsiasi workstation e accedi in sicurezza ovunque.",
         },
         {
           title: "Usabilità",
-          body: "Interfaccia intuitiva guidata, con anonimizzazione e registrazione automatiche, oltre a strumenti manuali e ricostruzioni assistite.",
+          body: "Interfaccia intuitiva, con anonimizzazione e segmentazione automatica delle strutture.",
         },
         {
           title: "Velocità",
-          body: "Elaborazione cloud per risultati rapidi su ricostruzioni 3D e segmentazioni dei territori.",
+          body: "Elaborazione rapida dei dati con ricostruzione 3D e funzionalità specifiche.",
         },
       ],
     },
