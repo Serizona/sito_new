@@ -73,7 +73,9 @@
         badge: "Dataset",
         title: "Built on trusted sources, refined by our team",
         description:
-          "We selected 20 cases from the original IRCAD dataset and carried out a complete manual review, correcting the segmentations and enhancing anatomical consistency. The result is a cleaner, more accurate, and ready-to-use dataset, ideal as a reliable reference or for comparison with your own annotations and guidelines. We make this refined dataset directly accessible to users, enabling its use in research, development, training, and validation.",
+          "We selected 20 cases from the original IRCAD dataset and carried out a complete manual review, correcting the segmentations and enhancing anatomical consistency. The result is a cleaner, more accurate, and ready-to-use dataset, ideal as a reliable reference or for comparison with your own annotations and guidelines.",
+        note:
+          "We make our dataset directly accessible to users, enabling its use in research, development, training, and validation.",
         downloadCta: "Download ViC dataset",
       },
       collab: {
@@ -211,7 +213,9 @@
         badge: "Dataset",
         title: "Basato su fonti affidabili, perfezionato dal nostro team",
         description:
-          "Abbiamo selezionato 20 casi dal dataset originale IRCAD e li abbiamo sottoposti a una revisione manuale completa, correggendo le segmentazioni e migliorandone la coerenza anatomica. Il risultato è un dataset più accurato, più pulito e pronto all’uso, ideale come riferimento affidabile. Rendiamo questo dataset perfezionato direttamente accessibile agli utenti, così da poterlo utilizzare in attività di ricerca, sviluppo, training e validazione.",
+          "Abbiamo selezionato 20 casi dal dataset originale IRCAD e li abbiamo sottoposti a una revisione manuale completa, correggendo le segmentazioni e migliorandone la coerenza anatomica. Il risultato è un dataset più accurato, più pulito e pronto all’uso, ideale come riferimento affidabile.",
+        note:
+          "Rendiamo il dataset corretto direttamente accessibile agli utenti, così da poterlo utilizzare in attività di ricerca, sviluppo, training e validazione.",
         downloadCta: "Ottieni dataset",
       },
       collab: {

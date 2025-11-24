@@ -79,6 +79,9 @@ export function DatasetPageContent() {
               </span>
               <h2 className="text-3xl md:text-4xl font-bold leading-tight">{dataset.ircad.title}</h2>
               <p className="text-base md:text-lg text-white/80">{dataset.ircad.description}</p>
+              {dataset.ircad.note ? (
+                <p className="text-base md:text-lg text-white/70 italic">{dataset.ircad.note}</p>
+              ) : null}
             </div>
 
             <div className="relative">
