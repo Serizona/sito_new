@@ -28,8 +28,8 @@
         list: [
           "AI segmentation and 3D visualization",
           "DICOM/NRRD interoperability",
-          "Web-based access, on-prem or cloud",
-          "Privacy by design & audit trails",
+          "Web access from any platform",
+          "Anonymization of patient information and privacy compliance",
         ],
       },
       why: {
