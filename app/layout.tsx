@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "IntusAI",
   description:
     "IntusAI builds software that turns medical images into reliable decisions.",
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -18,7 +23,6 @@ export default function RootLayout({
   return (
     <html lang="it">
       <head>
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="preload" href="/models/logo3d.glb" as="fetch" type="model/gltf-binary" crossOrigin="anonymous" />
         <link rel="preload" href="/models/vic_hero.glb" as="fetch" type="model/gltf-binary" crossOrigin="anonymous" />
         <link rel="preload" href="/models/liver_card.glb" as="fetch" type="model/gltf-binary" crossOrigin="anonymous" />
