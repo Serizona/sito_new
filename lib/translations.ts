@@ -55,7 +55,7 @@
         title: "Algorithms trained on high-quality medical images.",
         description:
           "IntusAI trains its ViC networks on a proprietary, multicenter dataset with more than 2,600 annotated abdominal and thoracic CT scans. The fidelity of that source data keeps our segmentation, visualization and decision layers dependable in surgical workflows.",
-        explore: "Explore dataset",
+        explore: "Scarica il Dataset",
       },
       stats: {
         title: "Network performance grounded in data",
@@ -193,7 +193,7 @@
         title: "Algoritmi addestrati su immagini di alta qualita.",
         description:
           "IntusAI addestra le reti ViC su un dataset multicentrico con oltre 2.600 TAC addominali e toraciche segmentate. L'alta qualita delle immagini di origine garantisce risultati eccellenti in termini di segmentazione, visualizzazione e supporto decisionale nei flussi chirurgici.",
-        explore: "Esplora il dataset",
+        explore: "Scarica il Dataset",
       },
       stats: {
         title: "Prestazioni delle reti basate sui dati",
