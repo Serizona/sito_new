@@ -19,9 +19,6 @@ export default function RootLayout({
     <html lang="it">
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="preload" href="/models/logo3d.glb" as="fetch" type="model/gltf-binary" crossOrigin="anonymous" />
         <link rel="preload" href="/models/vic_hero.glb" as="fetch" type="model/gltf-binary" crossOrigin="anonymous" />
         <link rel="preload" href="/models/liver_card.glb" as="fetch" type="model/gltf-binary" crossOrigin="anonymous" />
