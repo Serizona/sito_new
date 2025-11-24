@@ -123,21 +123,6 @@ export function DatasetPageContent() {
           </div>
         </section>
 
-        <section className="bg-slate-900 text-white">
-          <div className="mx-auto max-w-5xl px-4 py-16 text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.4em] text-blue-200">{dataset.collab.badge}</p>
-            <h2 className="mt-4 text-3xl font-semibold">{dataset.collab.title}</h2>
-            <p className="mt-3 text-slate-300">{dataset.collab.description}</p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
-              <a
-                href="/support#contact"
-                className="rounded-full bg-white text-slate-900 px-6 py-3 text-sm font-semibold hover:bg-slate-100"
-              >
-                {dataset.collab.startCta}
-              </a>
-            </div>
-          </div>
-        </section>
       </main>
 
       <footer className="border-t border-slate-200">
