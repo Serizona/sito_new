@@ -71,9 +71,9 @@
       },
       ircad: {
         badge: "Dataset",
-        title: "Built on trusted academic data sources",
+        title: "Built on trusted sources, refined by our team",
         description:
-          "A portion of our training data originates from IRCAD. We share 20 IRCAD cases curated and verified by our team with high-accuracy segmentations you can re-use or compare against your own annotations or guidelines.",
+          "We selected 20 cases from the original IRCAD dataset and carried out a complete manual review, correcting the segmentations and enhancing anatomical consistency. The result is a cleaner, more accurate, and ready-to-use dataset, ideal as a reliable reference or for comparison with your own annotations and guidelines. We make this refined dataset directly accessible to users, enabling its use in research, development, training, and validation.",
         downloadCta: "Download ViC dataset",
       },
       collab: {
@@ -209,9 +209,9 @@
       },
       ircad: {
         badge: "Dataset",
-        title: "Costruito da fonti affidabili",
+        title: "Basato su fonti affidabili, perfezionato dal nostro team",
         description:
-          "Parte dei nostri dati di training proviene da IRCAD. Condividiamo 20 casi IRCAD curati e verificati dal nostro team, con segmentazioni ad alta accuratezza da riusare o confrontare con le tue annotazioni e linee guida.",
+          "Abbiamo selezionato 20 casi dal dataset originale IRCAD e li abbiamo sottoposti a una revisione manuale completa, correggendo le segmentazioni e migliorandone la coerenza anatomica. Il risultato è un dataset più accurato, più pulito e pronto all’uso, ideale come riferimento affidabile. Rendiamo questo dataset perfezionato direttamente accessibile agli utenti, così da poterlo utilizzare in attività di ricerca, sviluppo, training e validazione.",
         downloadCta: "Ottieni dataset",
       },
       collab: {
