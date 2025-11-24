@@ -15,7 +15,7 @@
         titleLine1: "We turn medical images",
         titleLine2: "into decisions.",
         description:
-          "IntusAI designs software for clinical teams. Our flagship product, VirtualClone (ViC), brings AI segmentation and accurate 3D-visualization to everyday surgical planning.",
+          "IntusAI designs software for clinical teams. Our flagship product, VirtualClone (ViC), brings AI segmentation and accurate 3D-visualization to surgical planning.",
         discover: "Discover ViC",
         about: "About IntusAI",
       },
@@ -236,7 +236,7 @@
         titleLine1: "Trasformiamo le immagini",
         titleLine2: "in decisioni.",
         description:
-          "IntusAI sviluppa software avanzati per i team clinici. Il nostro prodotto di punta, VirtualClone (ViC), integra segmentazione AI e visualizzazione 3D nella pianificazione chirurgica quotidiana.",
+          "IntusAI sviluppa software avanzati per i team clinici. Il nostro prodotto di punta, VirtualClone (ViC), integra segmentazione AI e visualizzazione 3D nella pianificazione chirurgica.",
         discover: "Scopri ViC",
         about: "Su IntusAI",
       },
