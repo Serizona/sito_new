@@ -134,7 +134,7 @@ export function SupportPageContent() {
   const t = { nav, hero, cards, manualForm, contactSection };
 
   return (
-    <div className="min-h-screen bg-white text-slate-900">
+    <div className="min-h-screen bg-gradient-to-br from-[#eef3ff] via-white to-[#e8fff4] text-slate-900">
       <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
         <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
           <a href="/" className="flex items-center gap-1">
@@ -184,9 +184,12 @@ export function SupportPageContent() {
           />
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-12 grid gap-6 md:grid-cols-2 items-stretch">
           {[t.cards.manual, t.cards.contact].map((card, idx) => (
-            <div key={card.title} className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+            <div
+              key={card.title}
+              className="flex h-full flex-col gap-4 rounded-3xl border border-slate-200/80 bg-white/90 p-8 shadow-lg shadow-slate-200/70 backdrop-blur"
+            >
               <div className="flex items-center gap-3">
                 <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-white shadow-inner">
                   {idx === 0 ? (
@@ -207,7 +210,7 @@ export function SupportPageContent() {
               <p className="mt-3 text-slate-600">{card.body}</p>
               <a
                 href={idx === 0 ? "#manual-request" : "#contact"}
-                className="mt-6 inline-flex items-center justify-center rounded-full bg-blue-700 px-5 py-3 text-sm font-semibold text-white hover:bg-blue-800"
+                className="mt-auto inline-flex items-center justify-center rounded-full bg-blue-700 px-5 py-3 text-sm font-semibold text-white shadow-md shadow-blue-500/30 transition hover:-translate-y-0.5 hover:bg-blue-800"
               >
                 {card.cta}
               </a>
