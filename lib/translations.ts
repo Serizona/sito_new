@@ -55,7 +55,7 @@
         title: "Algorithms trained on high-quality medical images.",
         description:
           "IntusAI trains its ViC networks on a proprietary, multicenter dataset with more than 2,600 annotated abdominal and thoracic CT scans. The fidelity of that source data keeps our segmentation, visualization and decision layers dependable in surgical workflows.",
-        explore: "Scarica il Dataset",
+        explore: "Download Dataset",
       },
       stats: {
         title: "Network performance grounded in data",
@@ -189,18 +189,18 @@
     },
     dataset: {
       hero: {
-        badge: "Dataset chirurgico di alta qualita",
-        title: "Algoritmi addestrati su immagini di alta qualita.",
+        badge: "Dataset chirurgico di alta qualità",
+        title: "Algoritmi addestrati su immagini di alta qualità.",
         description:
-          "IntusAI addestra le reti ViC su un dataset multicentrico con oltre 2.600 TAC addominali e toraciche segmentate. L'alta qualita delle immagini di origine garantisce risultati eccellenti in termini di segmentazione, visualizzazione e supporto decisionale nei flussi chirurgici.",
+          "IntusAI addestra le reti ViC su un dataset multicentrico con oltre 2.600 TAC addominali e toraciche segmentate. L'alta qualità delle immagini di origine garantisce risultati eccellenti in termini di segmentazione, visualizzazione e supporto decisionale nei flussi chirurgici.",
         explore: "Scarica il Dataset",
       },
       stats: {
         title: "Prestazioni delle reti basate sui dati",
         description:
-          "I nostri modelli di segmentazione si basano su immagini ad alta qualita e grandi volumi. Questa struttura rende ViC una piattaforma affidabile per AI training, radiomica e validazione clinica",
+          "I nostri modelli di segmentazione si basano su immagini ad alta qualità e grandi volumi. Questa struttura rende ViC una piattaforma affidabile per AI training, radiomica e validazione clinica",
         metrics: [
-          { label: "Dataset - TAC di alta qualita", value: "> 2.600 annotate" },
+          { label: "Dataset - TAC di alta qualità", value: "> 2.600 annotate" },
           { label: "Strutture ricostruite", value: "10 classi anatomiche" },
           { label: "DICE medio", value: "0,85 di media sulle ricostruzioni ViC" },
           { label: "Tempo di predizione", value: "< 5 minuti" },
