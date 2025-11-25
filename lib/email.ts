@@ -27,11 +27,26 @@ function getTransport() {
   const user = process.env.SMTP_USER;
   const pass = process.env.SMTP_PASS;
 
+  console.log(`📧 Configuring SMTP: ${host}:${port} (secure: ${secure})`);
+
   return nodemailer.createTransport({
     host,
     port,
     secure,
     auth: user && pass ? { user, pass } : undefined,
+    // Timeout più lunghi per connessioni lente
+    connectionTimeout: 60000, // 60 secondi
+    greetingTimeout: 30000,   // 30 secondi
+    socketTimeout: 60000,     // 60 secondi
+    // Debugging
+    debug: process.env.DEBUG?.includes("nodemailer") ?? false,
+    logger: process.env.DEBUG?.includes("nodemailer") ?? false,
+    // Opzioni SSL/TLS
+    tls: {
+      // Non rifiutare certificati non autorizzati (solo per testing)
+      rejectUnauthorized: process.env.NODE_ENV === "production",
+      minVersion: "TLSv1.2",
+    },
   });
 }
 
@@ -39,12 +54,45 @@ export async function sendSupportEmail(payload: EmailPayload) {
   const from = getEnv("SMTP_FROM");
   const transporter = getTransport();
 
-  await transporter.sendMail({
-    from,
-    to: recipients.join(","),
-    subject: payload.subject,
-    text: payload.text,
-    html: payload.text.replace(/\n/g, "<br />"),
-    replyTo: payload.replyTo,
-  });
+  try {
+    // Test della connessione SMTP
+    console.log("🔌 Testing SMTP connection...");
+    const verified = await transporter.verify();
+    console.log("✅ SMTP connection verified:", verified);
+  } catch (verifyError) {
+    console.error("❌ SMTP verification failed:", verifyError);
+    // Log dettagliato dell'errore
+    if (verifyError instanceof Error) {
+      console.error("Error details:", {
+        message: verifyError.message,
+        name: verifyError.name,
+        stack: verifyError.stack,
+      });
+    }
+    throw new Error(`SMTP connection failed: ${verifyError instanceof Error ? verifyError.message : String(verifyError)}`);
+  }
+
+  try {
+    console.log(`📨 Sending email to: ${recipients.join(", ")}`);
+    const info = await transporter.sendMail({
+      from,
+      to: recipients.join(","),
+      subject: payload.subject,
+      text: payload.text,
+      html: payload.text.replace(/\n/g, "<br />"),
+      replyTo: payload.replyTo,
+    });
+    
+    console.log("✅ Email sent successfully:", info.messageId);
+    return info;
+  } catch (sendError) {
+    console.error("❌ Failed to send email:", sendError);
+    if (sendError instanceof Error) {
+      console.error("Send error details:", {
+        message: sendError.message,
+        name: sendError.name,
+      });
+    }
+    throw sendError;
+  }
 }
