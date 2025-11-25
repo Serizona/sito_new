@@ -243,22 +243,22 @@
       about: {
         title: "Su IntusAI",
         paragraph1:
-          "Sviluppiamo strumenti che rendono l'imaging piu chiaro e rapido. Uniamo machine learning, collaborazione clinica e design accurato per aiutare i team a pianificare con fiducia, comunicare meglio e risparmiare tempo in contesti critici.",
+          "Sviluppiamo strumenti che rendono l'imaging più chiaro e rapido. Uniamo machine learning, collaborazione clinica e design accurato per aiutare i team a pianificare con fiducia, comunicare meglio e risparmiare tempo in contesti critici.",
         paragraph2:
           "Il nostro lavoro si concentra sulla chirurgia addomino-toracica, fornendo un supporto solido per guidare la pianificazione pre-operatoria.",
         list: [
           "Segmentazione AI e visualizzazione 3D",
-          "Interoperabilita DICOM/NRRD",
+          "Interoperabilità DICOM/NRRD",
           "Accesso web da qualsiasi piattaforma",
           "Anonimizzazione delle informazioni sul paziente e rispetto della privacy",
         ],
       },
       why: {
-        title: "Perche IntusAI",
+        title: "Perché IntusAI",
         cards: [
           { title: "Focus clinico", body: "Progettato con i chirurghi per la pianificazione e la guida pre-operatoria." },
           { title: "Time to value", body: "Inferenza rapida, interfaccia chiara." },
-          { title: "Interoperabilita", body: "Formati standard e integrazioni paziente-specifico." },
+          { title: "Interoperabilità", body: "Formati standard e integrazioni paziente-specifico." },
         ],
         cta: "Esplora VirtualClone (ViC)",
       },
@@ -266,7 +266,7 @@
         badge: "Contattaci",
         title: "Vuoi vedere ViC in azione?",
         description:
-          "Il nostro team puo guidarti nell'onboarding, nelle integrazioni o in workflow personalizzati. Contattaci dalla pagina di supporto dedicata.",
+          "Il nostro team può guidarti nell'onboarding, nelle integrazioni o in workflow personalizzati.\nContattaci dalla pagina di supporto dedicata.",
         cta: "Vai al supporto",
       },
     },
