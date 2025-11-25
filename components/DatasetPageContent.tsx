@@ -103,7 +103,6 @@ export function DatasetPageContent() {
                   </span>
                   <div>
                     <p className="font-semibold text-white">{dataset.hero.explore}</p>
-                    <p className="text-xs text-white/60">{dataset.stats.title}</p>
                   </div>
                 </div>
                 <div className="mt-6 flex flex-wrap gap-3">
