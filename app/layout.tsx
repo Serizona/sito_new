@@ -35,6 +35,13 @@ export default function RootLayout({
           id="model-viewer-script"
           crossOrigin="anonymous"
         />
+        <Script id="model-viewer-draco-config" strategy="beforeInteractive">
+          {`
+            // Configura il decoder Draco per model-viewer
+            window.ModelViewerElement = window.ModelViewerElement || {};
+            window.ModelViewerElement.dracoDecoderLocation = 'https://www.gstatic.com/draco/versioned/decoders/1.5.6/';
+          `}
+        </Script>
       </body>
     </html>
   );
