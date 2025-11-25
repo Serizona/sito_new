@@ -234,7 +234,7 @@ const productCopy = {
       badge: "Contattaci",
       title: "Vuoi vedere ViC in azione o discuterne il deployment?",
       description:
-        "Il nostro team può guidarti nell’onboarding, nelle integrazioni o in workflow personalizzati. Contattaci dalla pagina di supporto dedicata.",
+        "Il nostro team può guidarti nell'onboarding, nelle integrazioni o in workflow personalizzati.\nContattaci dalla pagina di supporto dedicata.",
       cta: "Vai al supporto",
     },
   },
