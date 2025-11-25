@@ -129,7 +129,7 @@ const productCopy = {
       highlight: "le immagini",
       afterHighlight: "in decisioni.",
       description:
-        "DICOM/NRRD anonimizzati automaticamente; segmentati dall’AI e trasformati in un modello 3D interattivo per la pianificazione pre-operatoria.",
+        "DICOM/NRRD anonimizzati automaticamente, segmentati dall'AI e trasformati in un modello 3D interattivo per la pianificazione pre-operatoria.",
       ctaPrimary: "Richiedi una demo",
       ctaSecondary: "Vedi le funzionalità",
       stats: [
