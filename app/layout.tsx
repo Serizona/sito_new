@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "IntusAI",
   description:
     "IntusAI builds software that turns medical images into reliable decisions.",
+  icons: {
+    icon: "/logo-transparent.png",
+    shortcut: "/logo-transparent.png",
+    apple: "/logo-transparent.png",
+  },
 };
 
 export default function RootLayout({

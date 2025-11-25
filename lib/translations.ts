@@ -15,7 +15,7 @@
         titleLine1: "We turn medical images",
         titleLine2: "into decisions.",
         description:
-          "IntusAI designs software for clinical teams. Our flagship product, VirtualClone (ViC), brings AI segmentation and accurate 3D-visualization to everyday surgical planning.",
+          "IntusAI designs software for clinical teams. Our flagship product, VirtualClone (ViC), brings AI segmentation and accurate 3D-visualization to surgical planning.",
         discover: "Discover ViC",
         about: "About IntusAI",
       },
@@ -28,8 +28,8 @@
         list: [
           "AI segmentation and 3D visualization",
           "DICOM/NRRD interoperability",
-          "Web-based access, on-prem or cloud",
-          "Privacy by design & audit trails",
+          "Web access from any platform",
+          "Anonymization of patient information and privacy compliance",
         ],
       },
       why: {
@@ -55,7 +55,7 @@
         title: "Algorithms trained on high-quality medical images.",
         description:
           "IntusAI trains its ViC networks on a proprietary, multicenter dataset with more than 2,600 annotated abdominal and thoracic CT scans. The fidelity of that source data keeps our segmentation, visualization and decision layers dependable in surgical workflows.",
-        explore: "Explore dataset",
+        explore: "Download Dataset",
       },
       stats: {
         title: "Network performance grounded in data",
@@ -71,9 +71,11 @@
       },
       ircad: {
         badge: "Dataset",
-        title: "Built on trusted academic data sources",
+        title: "Built on trusted sources, refined by our team",
         description:
-          "A portion of our training data originates from IRCAD. We share 20 IRCAD cases curated and verified by our team with high-accuracy segmentations you can re-use or compare against your own annotations or guidelines.",
+          "We selected 20 cases from the original IRCAD dataset and carried out a complete manual review, correcting the segmentations and enhancing anatomical consistency. The result is a cleaner, more accurate, and ready-to-use dataset, ideal as a reliable reference or for comparison with your own annotations and guidelines.",
+        note:
+          "We make our dataset directly accessible to users, enabling its use in research, development, training, and validation.",
         downloadCta: "Download ViC dataset",
       },
       collab: {
@@ -189,18 +191,18 @@
     },
     dataset: {
       hero: {
-        badge: "Dataset chirurgico di alta qualita",
-        title: "Algoritmi addestrati su immagini di alta qualita.",
+        badge: "Dataset chirurgico di alta qualità",
+        title: "Algoritmi addestrati su immagini di alta qualità.",
         description:
-          "IntusAI addestra le reti ViC su un dataset multicentrico con oltre 2.600 TAC addominali e toraciche segmentate. L'alta qualita delle immagini di origine garantisce risultati eccellenti in termini di segmentazione, visualizzazione e supporto decisionale nei flussi chirurgici.",
-        explore: "Esplora il dataset",
+          "IntusAI addestra le reti ViC su un dataset multicentrico con oltre 2.600 TAC addominali e toraciche segmentate. L'alta qualità delle immagini di origine garantisce risultati eccellenti in termini di segmentazione, visualizzazione e supporto decisionale nei flussi chirurgici.",
+        explore: "Scarica il Dataset",
       },
       stats: {
         title: "Prestazioni delle reti basate sui dati",
         description:
-          "I nostri modelli di segmentazione si basano su immagini ad alta qualita e grandi volumi. Questa struttura rende ViC una piattaforma affidabile per AI training, radiomica e validazione clinica",
+          "I nostri modelli di segmentazione si basano su immagini ad alta qualità e grandi volumi. Questa struttura rende ViC una piattaforma affidabile per AI training, radiomica e validazione clinica",
         metrics: [
-          { label: "Dataset - TAC di alta qualita", value: "> 2.600 annotate" },
+          { label: "Dataset - TAC di alta qualità", value: "> 2.600 annotate" },
           { label: "Strutture ricostruite", value: "10 classi anatomiche" },
           { label: "DICE medio", value: "0,85 di media sulle ricostruzioni ViC" },
           { label: "Tempo di predizione", value: "< 5 minuti" },
@@ -209,9 +211,11 @@
       },
       ircad: {
         badge: "Dataset",
-        title: "Costruito da fonti affidabili",
+        title: "Basato su fonti affidabili, perfezionato dal nostro team",
         description:
-          "Parte dei nostri dati di training proviene da IRCAD. Condividiamo 20 casi IRCAD curati e verificati dal nostro team, con segmentazioni ad alta accuratezza da riusare o confrontare con le tue annotazioni e linee guida.",
+          "Abbiamo selezionato 20 casi dal dataset originale IRCAD e li abbiamo sottoposti a una revisione manuale completa, correggendo le segmentazioni e migliorandone la coerenza anatomica. Il risultato è un dataset più accurato, più pulito e pronto all’uso, ideale come riferimento affidabile.",
+        note:
+          "Rendiamo il dataset corretto direttamente accessibile agli utenti, così da poterlo utilizzare in attività di ricerca, sviluppo, training e validazione.",
         downloadCta: "Ottieni dataset",
       },
       collab: {
@@ -232,7 +236,7 @@
         titleLine1: "Trasformiamo le immagini",
         titleLine2: "in decisioni.",
         description:
-          "IntusAI sviluppa software avanzati per i team clinici. Il nostro prodotto di punta, VirtualClone (ViC), integra segmentazione AI e visualizzazione 3D nella pianificazione chirurgica quotidiana.",
+          "IntusAI sviluppa software avanzati per i team clinici. Il nostro prodotto di punta, VirtualClone (ViC), integra segmentazione AI e visualizzazione 3D nella pianificazione chirurgica.",
         discover: "Scopri ViC",
         about: "Su IntusAI",
       },

@@ -245,6 +245,7 @@ type ProductCopy = (typeof productCopy)[keyof typeof productCopy];
 export function ProductPageContent() {
   const { lang } = useLanguage();
   const content: ProductCopy = productCopy[lang] ?? productCopy.en;
+  const rotateHint = lang === "it" ? "Trascina per ruotare" : "Drag to rotate";
 
   useEffect(() => {
     const cards = document.querySelectorAll("model-viewer[data-mv-hover]");
@@ -431,6 +432,21 @@ export function ProductPageContent() {
               key={card.title}
               className="group relative overflow-hidden rounded-3xl bg-white border border-slate-200 transition-shadow duration-300 hover:shadow-xl"
             >
+              <div className="pointer-events-none absolute right-4 top-4 z-10 opacity-0 transition duration-200 group-hover:opacity-100">
+                <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-800 shadow-md shadow-blue-100/60">
+                  <svg viewBox="0 0 20 20" aria-hidden="true" className="h-4 w-4 text-blue-600">
+                    <path
+                      fill="currentColor"
+                      d="M10 3a6.97 6.97 0 0 0-4.95 2.05L3.4 3.4a1 1 0 1 0-1.4 1.4l2.12 2.12a1 1 0 0 0 1.4 0L7.65 4.2A5 5 0 1 1 5 10a1 1 0 0 0-2 0 7 7 0 1 0 7-7Z"
+                    />
+                    <path
+                      fill="currentColor"
+                      d="M15 10a1 1 0 0 0-1-1H8.41l1.3-1.29a1 1 0 1 0-1.42-1.42L5.3 8.29a1 1 0 0 0 0 1.42l2.99 2.99a1 1 0 0 0 1.42-1.42L8.41 11H14a1 1 0 0 0 1-1Z"
+                    />
+                  </svg>
+                  {rotateHint}
+                </span>
+              </div>
               <div className="p-6 flex items-start justify-between">
                 <div>
                   <h3 className="text-lg font-semibold">{card.title}</h3>
