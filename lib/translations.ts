@@ -198,12 +198,12 @@
         explore: "Scarica il Dataset",
       },
       stats: {
-        title: "Dataset IRCAD corretto: 20 casi selezionati",
+        title: "Prestazioni ViC basate sui dati",
         description:
           "I nostri modelli di segmentazione si basano su immagini ad alta qualità e grandi volumi di dati. Questo approccio rende ViC una piattaforma affidabile per AI training, radiomica e validazione clinica.",
         metrics: [
           { label: "Dataset - TAC di alta qualità", value: "> 2.600 annotate" },
-          { label: "Strutture ricostruite", value: "10 classi anatomiche" },
+          { label: "Strutture ricostruite", value: ">10 classi anatomiche" },
           { label: "DICE medio", value: "0,85 di media sulle ricostruzioni ViC" },
           { label: "Tempo di predizione", value: "< 5 minuti" },
         ],
