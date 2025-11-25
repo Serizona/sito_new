@@ -1,6 +1,5 @@
-// src/lib/email.ts
-import nodemailer from "nodemailer";
-import type { Transporter } from "nodemailer";
+// lib/email.ts
+import { Resend } from 'resend';
 
 const DEFAULT_RECIPIENTS = ["info@intusai.com", "serena.busceti@aimsacademy.org"];
 
@@ -15,53 +14,18 @@ export type EmailPayload = {
   replyTo?: string;
 };
 
-function getEnv(name: string): string {
-  const value = process.env[name];
-  if (!value) {
-    throw new Error(`Missing environment variable: ${name}`);
-  }
-  return value;
-}
-
-// Configurazione transporter con timeout e retry
-const transporter: Transporter = nodemailer.createTransport({
-  host: getEnv("SMTP_HOST"),
-  port: Number(process.env.SMTP_PORT ?? "465"),
-  secure: process.env.SMTP_SECURE === "true",
-  auth: {
-    user: getEnv("SMTP_USER"),
-    pass: getEnv("SMTP_PASS"),
-  },
-  // ⭐ AGGIUNGI QUESTI TIMEOUT
-  connectionTimeout: 15000, // 15 secondi
-  greetingTimeout: 10000,   // 10 secondi
-  socketTimeout: 15000,      // 15 secondi
-  // Opzionale: abilita debug in sviluppo
-  debug: process.env.NODE_ENV === "development",
-  logger: process.env.NODE_ENV === "development",
-});
-
-// Verifica connessione SMTP all'avvio
-export async function verifyEmailConnection() {
-  try {
-    await transporter.verify();
-    console.log("✅ SMTP server is ready");
-    return true;
-  } catch (error) {
-    console.error("❌ SMTP connection failed:", error);
-    return false;
-  }
-}
+// Inizializza Resend
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Funzione con retry logic
 async function sendWithRetry(
   fn: () => Promise<any>,
   retries = 3,
-  delay = 2000
+  delay = 1000
 ): Promise<any> {
   try {
     return await fn();
-  } catch (error) {
+  } catch (error: any) {
     if (retries === 0) throw error;
     
     console.warn(`⚠️ Retry ${4 - retries}/3 dopo ${delay}ms...`);
@@ -73,12 +37,10 @@ async function sendWithRetry(
 
 // Funzione principale di invio email
 export async function sendEmail(payload: EmailPayload) {
-  const from = getEnv("SMTP_FROM");
-
   try {
-    const info = await sendWithRetry(async () => {
-      return await transporter.sendMail({
-        from,
+    const result = await sendWithRetry(async () => {
+      return await resend.emails.send({
+        from: 'IntusAI <onboarding@resend.dev>',
         to: recipients,
         subject: payload.subject,
         text: payload.text,
@@ -86,13 +48,17 @@ export async function sendEmail(payload: EmailPayload) {
       });
     });
 
-    console.log("✅ Email inviata:", info.messageId);
-    return info;
+    if (result.error) {
+      console.error("❌ Errore Resend:", result.error);
+      throw new Error(result.error.message);
+    }
+
+    console.log("✅ Email inviata via Resend:", result.data?.id);
+    return result.data;
   } catch (error: any) {
     console.error("❌ Errore invio email:", {
-      code: error.code,
-      command: error.command,
       message: error.message,
+      name: error.name,
     });
     throw error;
   }
@@ -101,4 +67,14 @@ export async function sendEmail(payload: EmailPayload) {
 // Alias per compatibilità
 export async function sendSupportEmail(payload: EmailPayload) {
   return sendEmail(payload);
+}
+
+// Verifica configurazione
+export async function verifyEmailConnection() {
+  if (!process.env.RESEND_API_KEY) {
+    console.error("❌ RESEND_API_KEY non configurata");
+    return false;
+  }
+  console.log("✅ Resend configurato correttamente");
+  return true;
 }
