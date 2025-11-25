@@ -1,9 +1,11 @@
-import { Resend } from 'resend';
+// src/lib/email.ts (o dove lo tieni tu)
+
+import nodemailer from "nodemailer";
 
 const DEFAULT_RECIPIENTS = ["info@intusai.com", "serena.busceti@aimsacademy.org"];
 const recipients =
   process.env.SUPPORT_EMAILS?.split(",")
-    .map((value) => value.trim())
+    .map((v) => v.trim())
     .filter(Boolean) ?? DEFAULT_RECIPIENTS;
 
 type EmailPayload = {
@@ -12,41 +14,41 @@ type EmailPayload = {
   replyTo?: string;
 };
 
-function getEnv(name: string, required = true) {
+function getEnv(name: string, required = true): string {
   const value = process.env[name];
-  if (required && (!value || value.trim() === "")) {
-    throw new Error(`${name} is not configured`);
+  if (!value && required) {
+    throw new Error(`Missing environment variable: ${name}`);
   }
-  return value;
+  return value as string;
 }
 
-export async function sendSupportEmail(payload: EmailPayload) {
-  const apiKey = getEnv("RESEND_API_KEY");
+// Transporter SMTP verso SiteGround
+const transporter = nodemailer.createTransport({
+  host: getEnv("SMTP_HOST"),
+  port: Number(getEnv("SMTP_PORT")),
+  secure: getEnv("SMTP_SECURE", false)?.toString() === "true", // 465 = true
+  auth: {
+    user: getEnv("SMTP_USER"),
+    pass: getEnv("SMTP_PASS"),
+  },
+});
+
+export async function sendEmail(payload: EmailPayload) {
   const from = getEnv("SMTP_FROM");
-  
-  const resend = new Resend(apiKey);
 
   try {
-    console.log(`📨 Sending email via Resend to: ${recipients.join(", ")}`);
-    
-    const { data, error } = await resend.emails.send({
-      from: from!,  // Aggiungi ! per dire a TypeScript che non è undefined
+    const info = await transporter.sendMail({
+      from,
       to: recipients,
       subject: payload.subject,
       text: payload.text,
-      html: payload.text.replace(/\n/g, "<br />"),
       replyTo: payload.replyTo,
     });
 
-    if (error) {
-      console.error("❌ Resend error:", error);
-      throw new Error(`Failed to send email: ${error.message}`);
-    }
-
-    console.log("✅ Email sent successfully:", data?.id);
-    return data;
-  } catch (error) {
-    console.error("❌ Failed to send email:", error);
-    throw error;
+    console.log("✅ Email inviata:", info.messageId);
+    return info;
+  } catch (err) {
+    console.error("❌ Errore invio email SMTP:", err);
+    throw err;
   }
 }
