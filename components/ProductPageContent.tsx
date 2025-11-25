@@ -141,8 +141,8 @@ const productCopy = {
     intro: {
       title: "Cos’è VirtualClone (ViC)?",
       paragraphs: [
-        "Vic è viewer DICOM multimodale basato sull'AI che rileva e segmenta automaticamente organi, vasi e lesioni; producendo un modello 3D accurato.",
-        "Permette al clinico di analizzare i rapporti parenchima–vasi e valutare la fattibilità della resezione e programmare un piano pre-operatorio.",
+        "ViC è un viewer DICOM multimodale basato sull'AI che rileva e segmenta automaticamente organi, vasi e lesioni, producendo un modello 3D accurato.",
+        "Permette al clinico di analizzare i rapporti parenchima–vasi, valutare la fattibilità della resezione e programmare un piano pre-operatorio.",
       ],
       listTitle: "In sintesi",
       list: [
@@ -150,7 +150,7 @@ const productCopy = {
         "Viewer 2D con strumenti radiologici standard",
         "Segmentazione AI per i distretti toraco-addominali",
         "Editing manuale a pennello per rifiniture rapide",
-        "Rendering 3D in tempo reale con controlli di opacità e visualizzazione e calcolo volumi",
+        "Rendering 3D in tempo reale con controlli di opacità, visualizzazione e calcolo dei volumi",
       ],
     },
     workflow: {
