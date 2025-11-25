@@ -1,7 +1,7 @@
 // lib/email.ts
 import { Resend } from 'resend';
 
-const DEFAULT_RECIPIENTS = ["info@intusai.com"];
+const DEFAULT_RECIPIENTS = ["serena.busceti@aimsacademy.org"];
 
 const recipients =
   process.env.SUPPORT_EMAILS?.split(",")
