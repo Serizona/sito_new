@@ -462,7 +462,7 @@ export function ProductPageContent() {
                   camera-controls
                   src={card.model}
                   loading="lazy"
-                  reveal="auto"
+                  reveal="interaction"
                   interaction-prompt="none"
                   environment-image="neutral"
                   exposure="0.95"
