@@ -159,7 +159,7 @@ const productCopy = {
       steps: [
         {
           title: "Importa e anonimizza",
-          body: "Carica DICOM o NRRD; anonimizzazione e conversione automatiche con storage sicuro accessibile da ogni device.",
+          body: "Carica DICOM o NRRD: anonimizzazione e conversione automatiche, storage sicuro accessibile da ogni device.",
         },
         {
           title: "Segmentazione AI",
@@ -167,7 +167,7 @@ const productCopy = {
         },
         {
           title: "Ricostruzione assistita",
-          body: "Rifinisci manualmente oppure richiedi la Ricostruzione Assistita da specialisti per aggiustamenti di precisione o eventuali modifiche.",
+          body: "Rifinisci manualmente o richiedi supporto da specialisti per aggiustamenti di precisione.",
         },
         {
           title: "Visualizzazione 3D",
