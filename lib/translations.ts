@@ -198,7 +198,7 @@
         explore: "Scarica il Dataset",
       },
       stats: {
-        title: "Prestazioni delle reti basate sui dati",
+        title: "Dataset IRCAD corretto: 20 casi selezionati",
         description:
           "I nostri modelli di segmentazione si basano su immagini ad alta qualità e grandi volumi di dati. Questo approccio rende ViC una piattaforma affidabile per AI training, radiomica e validazione clinica.",
         metrics: [
