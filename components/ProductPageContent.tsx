@@ -146,10 +146,10 @@ const productCopy = {
       ],
       listTitle: "In sintesi",
       list: [
-        "Carica DICOM o NRRD; anonimizzazione e conversione automatiche",
+        "Caricamento DICOM o NRRD con anonimizzazione e conversione automatiche",
         "Viewer 2D con strumenti radiologici standard",
         "Segmentazione AI per i distretti toraco-addominali",
-        "Editing manuale a pennello per rifiniture rapide",
+        "Editing manuale con pennello per rifiniture rapide",
         "Rendering 3D in tempo reale con controlli di opacità, visualizzazione e calcolo dei volumi",
       ],
     },
