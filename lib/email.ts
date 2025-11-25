@@ -41,12 +41,15 @@ function getTransport() {
     // Debugging
     debug: process.env.DEBUG?.includes("nodemailer") ?? false,
     logger: process.env.DEBUG?.includes("nodemailer") ?? false,
-    // Opzioni SSL/TLS
+    // Opzioni SSL/TLS più permissive
     tls: {
-      // Non rifiutare certificati non autorizzati (solo per testing)
-      rejectUnauthorized: process.env.NODE_ENV === "production",
-      minVersion: "TLSv1.2",
+      rejectUnauthorized: false, // Accetta tutti i certificati
+      ciphers: 'SSLv3',
+      minVersion: "TLSv1",
     },
+    // Ignora certificati autofirmati
+    ignoreTLS: false,
+    requireTLS: !secure, // Richiedi TLS solo se non è già secure
   });
 }
 
