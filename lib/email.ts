@@ -30,7 +30,7 @@ export async function sendSupportEmail(payload: EmailPayload) {
     console.log(`📨 Sending email via Resend to: ${recipients.join(", ")}`);
     
     const { data, error } = await resend.emails.send({
-      from: from,
+      from: from!,  // Aggiungi ! per dire a TypeScript che non è undefined
       to: recipients,
       subject: payload.subject,
       text: payload.text,
