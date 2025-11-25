@@ -461,6 +461,7 @@ export function ProductPageContent() {
                   suppressHydrationWarning
                   camera-controls
                   src={card.model}
+                  poster={`/posters/${card.model.split('/').pop()?.replace('.glb', '.jpg')}`}
                   loading="lazy"
                   reveal="auto"
                   interaction-prompt="none"
