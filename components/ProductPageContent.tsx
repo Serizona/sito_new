@@ -205,12 +205,12 @@ const productCopy = {
     features: {
       title: "Funzionalità principali",
       cards: [
-        { title: "Segmentazione AI", body: "Rilevamento automatico di organi, vasi e lesioni da TC/RM con inferenza rapida e accuratezza." },
-        { title: "3D interattivo", body: "Visualizzazione 3D in tempo reale con rotazione, zoom, regolazione dell’opacità e preset anatomici distretto-specifici." },
-        { title: "Privacy by design", body: "Anonimizzazione automatica all’import e gestione dei dati nel rispetto della privacy." },
-        { title: "Viewer DICOM 2D", body: "Visualizzazione del DICOM con strumenti radiologici standard e tools aggiuntivi." },
-        { title: "Strumenti di editing", body: "Rifinitura manuale delle maschere AI o servizio di ricostruzione assistita da radiologi esperti." },
-        { title: "Revisione collaborativa", body: "Ricostruzioni 3D interattive per valutazioni cliniche." },
+        { title: "Privacy by design", body: "Anonimizzazione automatica all'importazione e gestione sicura dei dati nel pieno rispetto della privacy." },
+        { title: "Segmentazione AI", body: "Rilevamento automatico di organi, vasi e lesioni da TC/RM con algoritmi avanzati, inferenza rapida e alta accuratezza." },
+        { title: "Viewer DICOM 2D", body: "Visualizzazione completa degli studi DICOM con strumenti radiologici standard e funzionalità avanzate." },
+        { title: "Strumenti di editing", body: "Raffinamento manuale delle maschere AI tramite pennello per correzioni e aggiustamenti di precisione." },
+        { title: "Ricostruzione Assistita", body: "Rifinitura manuale delle maschere AI o servizio di ricostruzione assistita da radiologi esperti." },
+        { title: "3D interattivo", body: "Visualizzazione 3D in tempo reale con controlli di rotazione, zoom, opacità e preset anatomici specifici per distretto." },
       ],
     },
     benefits: {
