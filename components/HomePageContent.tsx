@@ -45,7 +45,7 @@ export function HomePageContent() {
               </div>
             </div>
             <div className="flex flex-col items-center justify-center text-center">
-              <div className="relative w-full max-w-[720px]">
+              <div className="relative w-full max-w-[820px]">
                 <ModelViewer
                   src="/models/logo3d.glb"
                   autoRotate={true}
@@ -58,7 +58,7 @@ export function HomePageContent() {
                     "interaction-prompt": "none",
                     "disable-default-environment": true,
                   }}
-                  style={{ width: "120%", height: "460px", background: "transparent" }}
+                  style={{ width: "135%", height: "540px", background: "transparent" }}
                 />
               </div>
             </div>
