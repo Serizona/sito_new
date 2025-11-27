@@ -30,15 +30,15 @@ export function HeaderNav({ active, cta }: HeaderNavProps) {
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
       <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-1">
+        <Link href="/" className="flex items-center gap-2">
           <Image
             src="/logo.png"
             alt="IntusAI"
-            width={240}
-            height={100}
+            width={280}
+            height={120}
             quality={100}
             priority
-            className="h-12 w-auto drop-shadow-sm"
+            className="h-14 w-auto drop-shadow-sm"
           />
           <span className="font-semibold tracking-wide">IntusAI</span>
         </Link>
