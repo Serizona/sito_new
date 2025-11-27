@@ -45,7 +45,7 @@ export function HomePageContent() {
               </div>
             </div>
             <div className="flex flex-col items-center justify-center text-center">
-              <div className="relative w-full max-w-[820px]">
+              <div className="relative w-full max-w-[820px] lg:-ml-12">
                 <ModelViewer
                   src="/models/logo3d.glb"
                   autoRotate={true}
