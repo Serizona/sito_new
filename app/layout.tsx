@@ -9,8 +9,11 @@ export const metadata: Metadata = {
   description:
     "IntusAI builds software that turns medical images into reliable decisions.",
   icons: {
-    icon: "/logo-transparent.png",
-    shortcut: "/logo-transparent.png",
+    icon: [
+      { url: "/logo-favicon.png", type: "image/png", sizes: "32x32" },
+      { url: "/logo-transparent.png", type: "image/png", sizes: "192x192" },
+    ],
+    shortcut: "/logo-favicon.png",
     apple: "/logo-transparent.png",
   },
 };
