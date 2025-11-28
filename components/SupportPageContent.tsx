@@ -1,9 +1,8 @@
 "use client";
 
-import Image from "next/image";
 import { FormEvent, useState } from "react";
 import { useLanguage } from "@/components/LanguageContext";
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { HeaderNav } from "@/components/HeaderNav";
 import { translations } from "@/lib/translations";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
@@ -105,7 +104,6 @@ export function SupportPageContent() {
   }
   const supportFallback = translations.en.supportPage;
   const supportPage = dict.supportPage ?? supportFallback;
-  const nav = supportPage.nav ?? supportFallback.nav;
   const hero = supportPage.hero ?? supportFallback.hero;
   const cards = {
     manual: supportPage.cards?.manual ?? supportFallback.cards.manual,
@@ -131,46 +129,11 @@ export function SupportPageContent() {
       ...(supportPage.contactSection?.form ?? {}),
     },
   };
-  const t = { nav, hero, cards, manualForm, contactSection };
+  const t = { hero, cards, manualForm, contactSection };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#eef3ff] via-white to-[#e8fff4] text-slate-900">
-      <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
-        <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
-          <a href="/" className="flex items-center gap-1">
-            <Image
-              src="/logo.png"
-              alt="IntusAI"
-              width={240}
-              height={100}
-              quality={100}
-              priority
-              className="h-12 w-auto drop-shadow-sm"
-            />
-            <span className="font-semibold tracking-wide">IntusAI</span>
-          </a>
-          <nav className="hidden md:flex items-center gap-6 text-sm">
-            <a href="/" className="hover:text-slate-700">
-              {nav.company}
-            </a>
-            <a href="/product/vic" className="hover:text-slate-700">
-              {nav.product}
-            </a>
-            <a href="/dataset" className="hover:text-slate-700">
-              {nav.dataset}
-            </a>
-            <a href="/support" className="text-blue-700">
-              {nav.support}
-            </a>
-          </nav>
-          <div className="hidden sm:flex items-center gap-3">
-            <LanguageSwitcher />
-            <a href="/support#contact" className="rounded-full bg-blue-700 text-white px-4 py-2 text-sm hover:bg-blue-800">
-              {nav.emailSupport}
-            </a>
-          </div>
-        </div>
-      </header>
+      <HeaderNav active="support" cta={{ href: "/support#contact", labelKey: "emailSupport" }} />
 
       <main className="mx-auto max-w-5xl px-4 py-16 lg:py-24">
         <div className="text-center">

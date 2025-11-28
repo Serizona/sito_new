@@ -40,7 +40,7 @@ export function HeaderNav({ active, cta }: HeaderNavProps) {
             priority
             className="h-14 w-auto drop-shadow-sm"
           />
-          <span className="font-semibold tracking-wide">IntusAI</span>
+          <span className="text-xl md:text-2xl font-bold tracking-wide text-slate-900">IntusAI</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm">
           {navItems.map((item) => (
