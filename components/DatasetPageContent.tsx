@@ -84,7 +84,7 @@ export function DatasetPageContent() {
               ) : null}
             </div>
 
-            <div className="relative">
+            {/* <div className="relative">
               <div className="absolute -left-6 -right-6 -top-6 -bottom-6 rounded-[32px] border border-white/5 bg-white/5 blur-3xl" />
               <div className="relative overflow-hidden rounded-[28px] border border-white/15 bg-white/10 p-8 shadow-[0_30px_80px_rgba(7,17,45,0.35)] backdrop-blur">
                 <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-emerald-400 via-blue-400 to-emerald-300" />
@@ -121,7 +121,7 @@ export function DatasetPageContent() {
                   </a>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </section>
 

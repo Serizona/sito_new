@@ -8,7 +8,7 @@ import { HeaderNav } from "@/components/HeaderNav";
 const productCopy = {
   en: {
     hero: {
-      badge: "ViC • Visual Intelligence for Care",
+      badge: "ViC",
       title: "VirtualClone (ViC) turns",
       highlight: "images",
       afterHighlight: "into decisions.",
@@ -124,7 +124,7 @@ const productCopy = {
   },
   it: { 
     hero: {
-      badge: "ViC • Visual Intelligence for Care",
+      badge: "ViC",
       title: "VirtualClone (ViC) trasforma",
       highlight: "le immagini",
       afterHighlight: "in decisioni.",
@@ -457,25 +457,32 @@ export function ProductPageContent() {
                 </span>
               </div>
               <div className="relative aspect-[16/9]">
-                <model-viewer
-                  suppressHydrationWarning
-                  camera-controls
-                  src={card.model}
-                  poster={`/posters/${card.model.split('/').pop()?.replace('.glb', '.jpg')}`}
-                  loading="lazy"
-                  reveal="auto"
-                  interaction-prompt="none"
-                  environment-image="neutral"
-                  exposure="0.95"
-                  shadow-intensity="0.45"
-                  camera-orbit="0deg 70deg auto"
-                  field-of-view="20deg"
-                  data-mv-hover
-                  data-theta-delta={["14", "12", "13", "12"][idx] ?? "14"}
-                  data-fov-hover="16"
-                  className="transition-transform duration-300 ease-out group-hover:scale-[1.06]"
-                  style={{ width: "100%", height: "150%", backgroundColor: "transparent", transformOrigin: "50% 50%" }}
-                />
+                {idx === 3 ? (
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-100/80 backdrop-blur-sm rounded-b-3xl z-10">
+                    <span className="text-xs font-semibold tracking-widest uppercase text-slate-400 mb-2">Coming Soon</span>
+                    <span className="text-2xl">🫁</span>
+                  </div>
+                ) : (
+                  <model-viewer
+                    suppressHydrationWarning
+                    camera-controls
+                    src={card.model}
+                    poster={`/posters/${card.model.split('/').pop()?.replace('.glb', '.jpg')}`}
+                    loading="lazy"
+                    reveal="auto"
+                    interaction-prompt="none"
+                    environment-image="neutral"
+                    exposure="0.95"
+                    shadow-intensity="0.45"
+                    camera-orbit="0deg 70deg auto"
+                    field-of-view="20deg"
+                    data-mv-hover
+                    data-theta-delta={["14", "12", "13", "12"][idx] ?? "14"}
+                    data-fov-hover="16"
+                    className="transition-transform duration-300 ease-out group-hover:scale-[1.06]"
+                    style={{ width: "100%", height: "150%", backgroundColor: "transparent", transformOrigin: "50% 50%" }}
+                  />
+                )}
               </div>
             </article>
           ))}
