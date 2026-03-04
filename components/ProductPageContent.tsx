@@ -430,7 +430,7 @@ export function ProductPageContent() {
           {content.reconstructions.cards.map((card, idx) => (
             <article
               key={card.title}
-              className="group relative overflow-hidden rounded-3xl bg-white border border-slate-200 transition-shadow duration-300 hover:shadow-xl flex flex-col"
+              className="group relative overflow-hidden rounded-3xl bg-white border border-slate-200 transition-shadow duration-300 hover:shadow-xl"
             >
               <div className="pointer-events-none absolute right-4 top-4 z-10 opacity-0 transition duration-200 group-hover:opacity-100">
                 <span className="inline-flex items-center gap-2 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-800 shadow-md shadow-blue-100/60">
@@ -456,7 +456,7 @@ export function ProductPageContent() {
                   •
                 </span>
               </div>
-              <div className={idx === 3 ? "relative flex-1" : "relative aspect-[16/9]"}>
+              <div className={idx === 3 ? "relative aspect-[16/9] min-h-[300px]" : "relative aspect-[16/9]"}>
                 {idx === 3 ? (
                   <div className="absolute inset-0 flex items-center justify-center bg-slate-100/80 backdrop-blur-sm">
                     <span className="text-xs font-semibold tracking-widest uppercase text-slate-400">Coming Soon</span>
