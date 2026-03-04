@@ -456,13 +456,12 @@ export function ProductPageContent() {
                   •
                 </span>
               </div>
-              {idx === 3 && (
-                <div className="absolute inset-0 flex flex-col items-center justify-center bg-slate-100/80 backdrop-blur-sm z-10">
-                  <span className="text-xs font-semibold tracking-widest uppercase text-slate-400">Coming Soon</span>
-                </div>
-              )}
               <div className="relative aspect-[16/9]">
-                {idx !== 3 && (
+                {idx === 3 ? (
+                  <div className="absolute inset-0 flex items-center justify-center bg-slate-100/80 backdrop-blur-sm">
+                    <span className="text-xs font-semibold tracking-widest uppercase text-slate-400">Coming Soon</span>
+                  </div>
+                ) : (
                   <model-viewer
                     suppressHydrationWarning
                     camera-controls
