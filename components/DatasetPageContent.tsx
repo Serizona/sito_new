@@ -26,14 +26,14 @@ export function DatasetPageContent() {
             </p>
             <h1 className="mt-6 text-4xl md:text-5xl font-black tracking-tight text-slate-900">{dataset.hero.title}</h1>
             <p className="mx-auto mt-5 max-w-3xl text-lg text-slate-700">{dataset.hero.description}</p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
+            {/* <div className="mt-8 flex flex-wrap justify-center gap-4">
               <a
                 href="#ircad"
                 className="rounded-full bg-[#0047ff] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/40 transition hover:-translate-y-0.5 hover:bg-[#003ae0]"
               >
                 {dataset.hero.explore}
               </a>
-            </div>
+            </div> */}
           </div>
         </section>
 
