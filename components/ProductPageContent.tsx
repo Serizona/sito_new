@@ -456,7 +456,7 @@ export function ProductPageContent() {
                   •
                 </span>
               </div>
-              <div className={idx === 3 ? "relative aspect-[16/9] min-h-[300px]" : "relative aspect-[16/9]"}>
+              <div className={idx === 3 ? "relative h-[450px]" : "relative aspect-[16/9]"}>
                 {idx === 3 ? (
                   <div className="absolute inset-0 flex items-center justify-center bg-slate-100/80 backdrop-blur-sm">
                     <span className="text-xs font-semibold tracking-widest uppercase text-slate-400">Coming Soon</span>
