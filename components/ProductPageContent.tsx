@@ -311,7 +311,7 @@ export function ProductPageContent() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
-      <HeaderNav active="product" cta={{ href: "#demo", labelKey: "requestDemo" }} />
+      <HeaderNav active="product" />
 
       <section id="vic" className="relative overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 py-16 lg:py-24">

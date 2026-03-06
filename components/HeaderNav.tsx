@@ -43,15 +43,25 @@ export function HeaderNav({ active, cta }: HeaderNavProps) {
           <span className="text-xl md:text-2xl font-bold tracking-wide text-slate-900">IntusAI</span>
         </Link>
         <nav className="hidden md:flex items-center gap-6 text-sm">
-          {navItems.map((item) => (
-            <Link
-              key={item.key}
-              href={item.href}
-              className={item.key === active ? "text-blue-700 font-semibold" : "hover:text-slate-700"}
-            >
-              {nav[item.key]}
-            </Link>
-          ))}
+          {navItems.map((item) =>
+            item.key === "dataset" ? (
+              <span
+                key={item.key}
+                className="text-slate-300 cursor-not-allowed select-none"
+                title="Coming soon"
+              >
+                {nav[item.key]}
+              </span>
+            ) : (
+              <Link
+                key={item.key}
+                href={item.href}
+                className={item.key === active ? "text-blue-700 font-semibold" : "hover:text-slate-700"}
+              >
+                {nav[item.key]}
+              </Link>
+            )
+          )}
         </nav>
         <div className="hidden sm:flex items-center gap-3">
           <LanguageSwitcher />
