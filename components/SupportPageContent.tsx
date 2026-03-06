@@ -80,6 +80,7 @@ export function SupportPageContent() {
       contactEmail: getValue(formData.get("contactEmail")),
       contactMessage: getValue(formData.get("contactMessage")),
       contactPrivacy: formData.has("contactPrivacy"),
+      contactMarketing: formData.has("contactMarketing"),
     };
 
     try {
@@ -268,9 +269,8 @@ export function SupportPageContent() {
                 <h2 className="mt-3 text-3xl lg:text-4xl font-bold text-slate-900">{t.contactSection.title}</h2>
                 <p className="mt-3 text-slate-600">{t.contactSection.intro}</p>
               </div>
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div>
                 <ContactCard title={t.contactSection.hqTitle} subtitle={t.contactSection.hqCity} body={t.contactSection.hqAddress} />
-                <ContactCard title={t.contactSection.phoneTitle} subtitle={t.contactSection.phoneValue} body={t.contactSection.phoneHours} />
               </div>
               <ContactCard title={t.contactSection.emailTitle} subtitle={t.contactSection.emailValue} body="" />
               <div className="relative">
@@ -316,10 +316,16 @@ export function SupportPageContent() {
                 required
               />
 
-              <label className="flex items-start gap-3 text-sm text-slate-700">
-                <input type="checkbox" name="contactPrivacy" required className="mt-1 h-4 w-4 rounded border-slate-300 text-blue-700 focus:ring-blue-600" />
-                <span dangerouslySetInnerHTML={{ __html: t.contactSection.form.privacy }} />
-              </label>
+              <div className="flex flex-col gap-4 text-sm text-slate-700">
+                <label className="flex items-start gap-3">
+                  <input type="checkbox" name="contactPrivacy" required className="mt-1 h-4 w-4 rounded border-slate-300 text-blue-700 focus:ring-blue-600" />
+                  <span dangerouslySetInnerHTML={{ __html: t.contactSection.form.privacy }} />
+                </label>
+                <label className="flex items-start gap-3">
+                  <input type="checkbox" name="contactMarketing" className="mt-1 h-4 w-4 rounded border-slate-300 text-blue-700 focus:ring-blue-600" />
+                  <span>{t.contactSection.form.marketingConsent}</span>
+                </label>
+              </div>
 
               <button
                 type="submit"
@@ -343,6 +349,9 @@ export function SupportPageContent() {
           <div className="flex items-center gap-4">
             <a href="/privacy" className="hover:text-slate-700">
               Privacy
+            </a>
+            <a href="/cookies" className="hover:text-slate-700">
+              Cookies
             </a>
             <a href="mailto:info@intusai.com" className="hover:text-slate-700">
               info@intusai.com

@@ -539,10 +539,10 @@ export function ProductPageContent() {
             <a href="/" className="hover:text-slate-900">
               Company
             </a>
-            <a href="#" className="hover:text-slate-900">
+            <a href="/privacy" className="hover:text-slate-900">
               Privacy
             </a>
-            <a href="#" className="hover:text-slate-900">
+            <a href="/cookies" className="hover:text-slate-900">
               Cookies
             </a>
           </div>

@@ -173,6 +173,7 @@
           placeholderMessage: "Describe the clinical scenario, timeline, or special requests.",
           privacy:
             'I agree to the <a href="/privacy">privacy policy</a> and to be contacted about my request.',
+          marketingConsent: "I would like to receive occasional product updates and clinical validation notes.",
           submit: "Send message",
         },
       },
@@ -352,6 +353,7 @@
           placeholderMessage: "Descrivi scenario clinico, tempistiche o richieste specifiche.",
           privacy:
             "Accetto l'<a href=\"/privacy\">informativa privacy</a> e di essere contattato per la mia richiesta.",
+          marketingConsent: "Desidero ricevere aggiornamenti sul prodotto.",
           submit: "Invia messaggio",
         },
       },

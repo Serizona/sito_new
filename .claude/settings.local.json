@@ -1,7 +1,12 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx gltf-pipeline:*)"
+      "Bash(npx gltf-pipeline:*)",
+      "Bash(nvm install 20)",
+      "Bash(nvm use 20)",
+      "Bash(node --version)",
+      "Bash(vercel env add RESEND_API_KEY production)",
+      "Bash(vercel env add SUPPORT_EMAILS production)"
     ],
     "deny": [],
     "ask": []
