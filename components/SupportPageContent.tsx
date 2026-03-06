@@ -216,15 +216,15 @@ export function SupportPageContent() {
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               <FormField label={`${t.manualForm.fields.country} *`} id="country" placeholder={t.manualForm.placeholders.country} required />
-              <FormField label={t.manualForm.fields.useCase} id="useCase" placeholder={t.manualForm.placeholders.useCase} />
             </div>
+            {/* <FormField label={t.manualForm.fields.useCase} id="useCase" placeholder={t.manualForm.placeholders.useCase} />
             <FormField
               label={t.manualForm.fields.notes}
               id="notes"
               placeholder={t.manualForm.placeholders.notes}
               as="textarea"
               rows={4}
-            />
+            /> */}
 
             <div className="flex flex-col gap-4 text-sm text-slate-700">
               <label className="flex items-start gap-3">
