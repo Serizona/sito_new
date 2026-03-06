@@ -168,8 +168,8 @@
           name: "Full name",
           email: "Work email",
           message: "Message",
-          placeholderName: "Dr. Elisa Conti",
-          placeholderEmail: "elisa.conti@hospital.org",
+          placeholderName: "Maria Rossi",
+          placeholderEmail: "nome@ospedale.it",
           placeholderMessage: "Describe the clinical scenario, timeline, or special requests.",
           privacy:
             'I agree to the <a href="/privacy">privacy policy</a> and to be contacted about my request.',
@@ -347,8 +347,8 @@
           name: "Nome e cognome",
           email: "Email professionale",
           message: "Messaggio",
-          placeholderName: "Dr.ssa Elisa Conti",
-          placeholderEmail: "elisa.conti@ospedale.it",
+          placeholderName: "Maria Rossi",
+          placeholderEmail: "nome@ospedale.it",
           placeholderMessage: "Descrivi scenario clinico, tempistiche o richieste specifiche.",
           privacy:
             "Accetto l'<a href=\"/privacy\">informativa privacy</a> e di essere contattato per la mia richiesta.",
