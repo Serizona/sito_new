@@ -326,14 +326,14 @@ export function ProductPageContent() {
               {content.hero.afterHighlight}
             </h1>
             <p className="mt-5 text-lg text-slate-700">{content.hero.description}</p>
-            <div className="mt-7 flex flex-wrap gap-3">
+            {/* <div className="mt-7 flex flex-wrap gap-3">
               <a href="#demo" className="rounded-full bg-blue-700 text-white px-5 py-3 text-sm font-medium hover:bg-blue-800 transition">
                 {content.hero.ctaPrimary}
               </a>
               <a href="#features" className="rounded-full border border-slate-300 px-5 py-3 text-sm font-medium hover:bg-slate-50">
                 {content.hero.ctaSecondary}
               </a>
-            </div>
+            </div> */}
             <div className="mt-10 grid grid-cols-3 gap-4">
               {content.hero.stats.map((stat) => (
                 <div key={stat.label} className="rounded-2xl border border-slate-200 bg-white p-4 text-center">
@@ -458,7 +458,7 @@ export function ProductPageContent() {
               </div>
               <div className={idx === 3 ? "relative h-[450px]" : "relative aspect-[16/9]"}>
                 {idx === 3 ? (
-                  <div className="absolute inset-0 flex items-center justify-center bg-slate-100/80 backdrop-blur-sm">
+                  <div className="absolute inset-0 flex items-center justify-center bg-white">
                     <span className="text-xs font-semibold tracking-widest uppercase text-slate-400">Coming Soon</span>
                   </div>
                 ) : (
