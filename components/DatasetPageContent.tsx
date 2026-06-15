@@ -99,8 +99,8 @@ export function DatasetPageContent() {
             <a href="/cookies" className="hover:text-slate-700">
               Cookies
             </a>
-            <a href="mailto:info@intusai.com" className="hover:text-slate-700">
-              info@intusai.com
+            <a href="mailto:info@intus-ai.com" className="hover:text-slate-700">
+              info@intus-ai.com
             </a>
           </div>
         </div>

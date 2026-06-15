@@ -61,7 +61,7 @@ export default function PrivacyPage() {
             <p>P.IVA / C.F. 14342480960</p>
             <p>PEC: intus.ai@pec.it</p>
           </div>
-          <P>Per qualsiasi richiesta relativa alla protezione dei dati personali è possibile scrivere a: <a href="mailto:info@intusai.com" className="text-blue-700 hover:underline">info@intusai.com</a>.</P>
+          <P>Per qualsiasi richiesta relativa alla protezione dei dati personali è possibile scrivere a: <a href="mailto:info@intus-ai.com" className="text-blue-700 hover:underline">info@intus-ai.com</a>.</P>
         </Section>
 
         <Section title="2. Tipologie di dati trattati">
@@ -147,7 +147,7 @@ export default function PrivacyPage() {
           <p>© {new Date().getFullYear()} IntusAI S.r.l. — All rights reserved.</p>
           <div className="flex items-center gap-4">
             <Link href="/cookies" className="hover:text-slate-700">Cookies</Link>
-            <a href="mailto:info@intusai.com" className="hover:text-slate-700">info@intusai.com</a>
+            <a href="mailto:info@intus-ai.com" className="hover:text-slate-700">info@intus-ai.com</a>
           </div>
         </div>
       </footer>

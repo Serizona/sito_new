@@ -103,7 +103,7 @@
         badge: "Support",
         title: "We are here to help your team succeed with ViC.",
         intro:
-          'Choose one of the options below or write to <a href="mailto:info@intusai.com">info@intusai.com</a> for tailored assistance.',
+          'Choose one of the options below or write to <a href="mailto:info@intus-ai.com">info@intus-ai.com</a> for tailored assistance.',
       },
       cards: {
         manual: {
@@ -148,7 +148,7 @@
           'I confirm I have read the <a href="/privacy">privacy policy</a> and agree to be contacted by IntusAI about ViC.',
         consentSecondary: "I would like to receive occasional product updates and clinical validation notes.",
         submit: "Submit request",
-        emailHint: 'Prefer email? Write to <a href="mailto:info@intusai.com">info@intusai.com</a>.',
+        emailHint: 'Prefer email? Write to <a href="mailto:info@intus-ai.com">info@intus-ai.com</a>.',
       },
       contactSection: {
         badge: "Contact us",
@@ -161,7 +161,7 @@
         phoneValue: "0000 000000",
         phoneHours: "Mon-Fri, 09:00-18:00 CET",
         emailTitle: "Email",
-        emailValue: "info@intusai.com",
+        emailValue: "info@intus-ai.com",
         form: {
           badge: "Write to us",
           title: "Tell us about your request",
@@ -283,7 +283,7 @@
         badge: "Supporto",
         title: "Siamo qui per aiutare il tuo team con ViC.",
         intro:
-          'Scegli una delle opzioni oppure scrivi a <a href="mailto:info@intusai.com">info@intusai.com</a> per un supporto dedicato.',
+          'Scegli una delle opzioni oppure scrivi a <a href="mailto:info@intus-ai.com">info@intus-ai.com</a> per un supporto dedicato.',
       },
       cards: {
         manual: {
@@ -328,7 +328,7 @@
           "Confermo di aver letto l'<a href=\"/privacy\">informativa privacy</a> e accetto di essere contattato da IntusAI riguardo a ViC.",
         consentSecondary: "Desidero ricevere aggiornamenti sul prodotto.",
         submit: "Invia richiesta",
-        emailHint: "Preferisci la mail? Scrivi a <a href=\"mailto:info@intusai.com\">info@intusai.com</a>.",
+        emailHint: "Preferisci la mail? Scrivi a <a href=\"mailto:info@intus-ai.com\">info@intus-ai.com</a>.",
       },
       contactSection: {
         badge: "Contattaci",
@@ -341,7 +341,7 @@
         phoneValue: "0000 000000",
         phoneHours: "Lun-Ven, 09:00-18:00 CET",
         emailTitle: "Email",
-        emailValue: "info@intusai.com",
+        emailValue: "info@intus-ai.com",
         form: {
           badge: "Scrivici",
           title: "Parlaci di cosa hai bisogno",

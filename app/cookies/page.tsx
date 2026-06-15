@@ -60,7 +60,7 @@ export default function CookiesPage() {
             <p>Via Fratelli Bronzetti 8</p>
             <p>20129 Milano – Italia</p>
             <p>P.IVA / C.F. 14342480960</p>
-            <p>Email: <a href="mailto:info@intusai.com" className="text-blue-700 hover:underline">info@intusai.com</a></p>
+            <p>Email: <a href="mailto:info@intus-ai.com" className="text-blue-700 hover:underline">info@intus-ai.com</a></p>
           </div>
         </Section>
 
@@ -127,7 +127,7 @@ export default function CookiesPage() {
         <Section title="7. Diritti dell'utente">
           <P>Gli utenti possono esercitare i diritti previsti dal GDPR, tra cui:</P>
           <UL items={["accesso ai dati", "rettifica", "cancellazione", "limitazione del trattamento", "opposizione"]} />
-          <P>Le richieste possono essere inviate a: <a href="mailto:info@intusai.com" className="text-blue-700 hover:underline font-semibold">info@intusai.com</a></P>
+          <P>Le richieste possono essere inviate a: <a href="mailto:info@intus-ai.com" className="text-blue-700 hover:underline font-semibold">info@intus-ai.com</a></P>
           <P>Gli utenti hanno inoltre il diritto di proporre reclamo al <strong>Garante per la protezione dei dati personali</strong>.</P>
         </Section>
 
@@ -141,7 +141,7 @@ export default function CookiesPage() {
           <p>© {new Date().getFullYear()} IntusAI S.r.l. — All rights reserved.</p>
           <div className="flex items-center gap-4">
             <Link href="/privacy" className="hover:text-slate-700">Privacy</Link>
-            <a href="mailto:info@intusai.com" className="hover:text-slate-700">info@intusai.com</a>
+            <a href="mailto:info@intus-ai.com" className="hover:text-slate-700">info@intus-ai.com</a>
           </div>
         </div>
       </footer>
