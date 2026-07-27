@@ -22,7 +22,7 @@ import { NextRequest, NextResponse } from "next/server";
  * Viene impostato un cookie che ti fa navigare normalmente per 7 giorni.
  */
 
-const MODE: "down" | "maintenance" | "live" = "down";
+const MODE: "down" | "maintenance" | "live" = "maintenance";
 
 const BYPASS_COOKIE = "intusai-bypass";
 const BYPASS_PARAM = "bypass";
@@ -63,12 +63,16 @@ export default function proxy(request: NextRequest) {
     "cache-control": "no-store, no-cache, must-revalidate, max-age=0",
     "cdn-cache-control": "no-store",
     "vercel-cdn-cache-control": "no-store",
-    "x-robots-tag": "noindex",
   };
 
   if (MODE === "maintenance") {
-    // un'ora: segnale di indisponibilità temporanea per i crawler
+    // un'ora: segnale di indisponibilità temporanea per i crawler.
+    // NIENTE noindex qui: 503 + Retry-After dice "torna piu' tardi" e conserva
+    // il posizionamento, mentre noindex direbbe a Google di deindicizzare —
+    // i due segnali si contraddicono.
     headers["retry-after"] = "3600";
+  } else {
+    headers["x-robots-tag"] = "noindex";
   }
 
   // le API rispondono in JSON, non in HTML
