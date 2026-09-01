@@ -12,6 +12,8 @@ type ModelViewerProps = ModelViewerBaseProps & {
   reveal?: "auto" | "interaction" | "manual" | string;
   importance?: "high" | "low" | "auto";
   "camera-controls"?: boolean;
+  "disable-pan"?: boolean;
+  "disable-zoom"?: boolean;
   "auto-rotate"?: boolean;
   "auto-rotate-delay"?: string | number;
   "auto-rotate-speed"?: string;

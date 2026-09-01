@@ -66,6 +66,10 @@ type District = {
   legend: number[];
   orbit: string;
   fov: string;
+  /** centro di rotazione esplicito, quando il bounding box del file non e' affidabile */
+  target?: string;
+  /** mesh da ricolorare a runtime perche' nel .glb condividono un materiale */
+  recolor?: Array<{ index: number; hex: number; opaque?: boolean }>;
 };
 
 const DISTRICTS: District[] = [
@@ -117,8 +121,16 @@ const DISTRICTS: District[] = [
     it: "Rene",
     en: "Kidney",
     shells: [2, 10],
-    orbit: "0deg 75deg auto",
+    // Il file contiene una mesh "Cube" di 2 unita' piantata all'origine, mentre
+    // l'anatomia sta attorno a (-8.6, -252, -137.5). Il bounding box complessivo
+    // risulta alto 349 invece di 193 e centrato nel vuoto fra i due, percio'
+    // l'inquadratura automatica rimpicciolisce e scentra il modello: centro di
+    // rotazione e raggio vanno imposti a mano sull'ingombro della sola anatomia.
+    orbit: "0deg 75deg 500m",
+    target: "-8.6m -252m -137.5m",
     fov: "24deg",
+    // l'aorta condivide il materiale del rene destro e verrebbe resa marrone
+    recolor: [{ index: 6, hex: 0xd83418, opaque: true }],
     structures: {
       // indice 0 = "Cube": elemento di scena, volutamente senza etichetta
       // le quattro cisti (1, 8, 9, 15) condividono un'unica etichetta, quindi
@@ -166,14 +178,30 @@ const copy = {
   },
 } as const;
 
+type ThreeMaterial = {
+  clone: () => ThreeMaterial;
+  color?: { setHex: (hex: number) => void };
+  transparent?: boolean;
+  opacity?: number;
+  depthWrite?: boolean;
+};
+
 type ThreeMesh = {
   isMesh?: boolean;
   userData: { associations?: { meshes?: number }; noHit?: boolean };
+  material?: ThreeMaterial | ThreeMaterial[];
 };
 
 type ModelViewerElement = HTMLElement & {
   surfaceFromPoint?: (x: number, y: number) => string | null;
-  model?: object;
+  model?: {
+    materials?: Array<{
+      pbrMetallicRoughness?: {
+        baseColorFactor: number[];
+        setBaseColorFactor: (rgba: number[]) => void;
+      };
+    }>;
+  };
 };
 
 /** mesh three.js corrispondenti agli indici glTF richiesti */
@@ -239,7 +267,54 @@ export function AnatomyAtlas() {
     };
     viewer.addEventListener("progress", onProgress);
     return () => viewer.removeEventListener("progress", onProgress);
-  }, []);
+  }, [districtId]);
+
+  /**
+   * Ricolore a caricamento avvenuto. Serve per le mesh che nel .glb
+   * condividono un materiale con un'altra struttura (l'aorta con il rene
+   * destro): la scene-graph API pubblica lavora per materiale e le
+   * ricolorerebbe entrambe, quindi alla singola mesh si assegna una copia
+   * del materiale. Se qualcosa non torna si esce senza toccare nulla: il
+   * modello resta com'e' nel file.
+   */
+  useEffect(() => {
+    const viewer = viewerRef.current;
+    const overrides = district.recolor;
+    if (!viewer || !overrides?.length) return;
+
+    const onLoad = () => {
+      shellsRef.current = null; // il grafo e' nuovo, la cache non vale piu'
+      let recolored = false;
+      for (const { index, hex, opaque } of overrides) {
+        const [mesh] = findMeshes(viewer, [index]);
+        const current = mesh?.material;
+        if (!mesh || !current || Array.isArray(current) || !current.color) continue;
+
+        const copy = current.clone();
+        copy.color?.setHex(hex);
+        if (opaque) {
+          copy.transparent = false;
+          copy.opacity = 1;
+          copy.depthWrite = true;
+        }
+        mesh.material = copy;
+        recolored = true;
+      }
+
+      // model-viewer disegna su richiesta, e l'ultimo fotogramma lo produce
+      // PRIMA di emettere "load": senza chiederne un altro la mesh ricolorata
+      // resta del colore vecchio finche' l'utente non tocca il modello.
+      // setBaseColorFactor riassegna il valore corrente — nessun effetto
+      // visivo — ma passa dall'onUpdate interno, che accoda il disegno.
+      if (recolored) {
+        const pbr = viewer.model?.materials?.[0]?.pbrMetallicRoughness;
+        pbr?.setBaseColorFactor([...pbr.baseColorFactor]);
+      }
+    };
+
+    viewer.addEventListener("load", onLoad);
+    return () => viewer.removeEventListener("load", onLoad);
+  }, [district]);
 
   const probe = useCallback(
     (clientX: number, clientY: number) => {
@@ -393,6 +468,7 @@ export function AnatomyAtlas() {
             src={district.src}
             alt={`${lang === "it" ? "Modello 3D" : "3D model"} — ${lang === "it" ? district.it : district.en}`}
             camera-controls
+            disable-pan
             loading="lazy"
             reveal="auto"
             interaction-prompt="none"
@@ -400,6 +476,7 @@ export function AnatomyAtlas() {
             exposure="0.95"
             shadow-intensity="0.35"
             camera-orbit={district.orbit}
+            camera-target={district.target}
             field-of-view={district.fov}
             style={{ width: "100%", height: "100%", backgroundColor: "transparent" }}
           />
