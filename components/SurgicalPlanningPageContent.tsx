@@ -560,6 +560,8 @@ export function SurgicalPlanningPageContent() {
                   <model-viewer
                     suppressHydrationWarning
                     camera-controls
+                    disable-zoom
+                    disable-pan
                     src={card.model}
                     poster={`/posters/${card.model.split('/').pop()?.replace('.glb', '.jpg')}`}
                     loading="lazy"
