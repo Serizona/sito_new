@@ -1,25 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { useLanguage } from "@/components/LanguageContext";
 import { HeaderNav } from "@/components/HeaderNav";
 import ModelViewer from "@/components/ModelViewer";
+import { ScrollHint } from "@/components/ScrollHint";
 import { SiteFooter } from "@/components/SiteFooter";
 
 export function HomePageContent() {
   const { dict } = useLanguage();
   const { home } = dict;
 
-  // L'indicatore va fissato al viewport, non al fondo dell'hero: l'hero e'
-  // alto 852px e ancorato li' finirebbe sotto la piega su schermi da 800px o
-  // coperto dal footer fisso su quelli da 900. Sparisce appena si scorre.
-  const [showHint, setShowHint] = useState(true);
-  useEffect(() => {
-    const onScroll = () => setShowHint(window.scrollY < 120);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
@@ -80,19 +70,7 @@ export function HomePageContent() {
 
       </section>
 
-      {/* Indicatore di scorrimento. bottom-[70px] da md in su per stare sopra
-          il footer fisso, alto 53px. */}
-      <a
-        href="#about"
-        className={`fixed inset-x-0 bottom-6 z-30 mx-auto flex w-fit flex-col items-center gap-1.5 text-slate-400 transition-opacity duration-300 hover:text-slate-600 md:bottom-[70px] ${
-          showHint ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
-      >
-        <span className="text-[11px] font-medium uppercase tracking-[0.25em]">{home.hero.scrollHint}</span>
-        <svg viewBox="0 0 20 20" aria-hidden="true" className="h-5 w-5 animate-bounce" fill="none" stroke="currentColor" strokeWidth="1.8">
-          <path d="M5 7.5 10 12.5 15 7.5" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
-      </a>
+      <ScrollHint label={home.hero.scrollHint} />
 
       <section id="about" className="mx-auto max-w-7xl px-4 py-12 scroll-mt-28">
         <div className="grid lg:grid-cols-2 gap-10 items-start">
