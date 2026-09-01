@@ -369,7 +369,7 @@ export function ProductPageContent() {
               <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent">{content.hero.highlight}</span>{" "}
               {content.hero.afterHighlight}
             </h1>
-            <div className="mt-12 flex flex-wrap gap-3">
+            <div className="mt-16 flex flex-wrap gap-3">
               <a
                 href="#anatomy-explorer"
                 className="rounded-full bg-blue-700 text-white px-5 py-3 text-sm font-medium hover:bg-blue-800 transition"
