@@ -29,6 +29,7 @@ export const translations = {
           "Intus.AI designs software for clinical teams. Our flagship product, VirtualClone (ViC), brings AI segmentation and accurate 3D-visualization to surgical planning.",
         discover: "Discover ViC",
         about: "About Intus.AI",
+        scrollHint: "Scroll",
       },
       about: {
         title: "About Intus.AI",
@@ -237,6 +238,7 @@ export const translations = {
           "Intus.AI sviluppa software avanzati per i team clinici. Il nostro prodotto di punta, VirtualClone (ViC), integra segmentazione AI e visualizzazione 3D nella pianificazione chirurgica.",
         discover: "Scopri ViC",
         about: "Su Intus.AI",
+        scrollHint: "Scorri",
       },
       about: {
         title: "Su Intus.AI",
