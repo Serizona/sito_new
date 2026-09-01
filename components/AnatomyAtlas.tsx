@@ -159,7 +159,6 @@ const DISTRICTS: District[] = [
 
 const copy = {
   it: {
-    eyebrow: "Atlante interattivo",
     title: "Esplora l'anatomia",
     hint: "Passa il mouse sul modello per identificare le strutture. Trascina per ruotare.",
     hintTouch: "Tocca il modello per identificare le strutture. Trascina per ruotare.",
@@ -168,7 +167,6 @@ const copy = {
     loading: "Caricamento del modello",
   },
   en: {
-    eyebrow: "Interactive atlas",
     title: "Explore the anatomy",
     hint: "Hover the model to identify structures. Drag to rotate.",
     hintTouch: "Tap the model to identify structures. Drag to rotate.",
@@ -423,13 +421,13 @@ export function AnatomyAtlas() {
   const loading = progress > 0 && progress < 1;
 
   return (
-    <div className="mt-10 overflow-hidden rounded-3xl border border-slate-200 bg-white">
-      <div className="flex flex-wrap items-end justify-between gap-4 border-b border-slate-200 px-6 py-5">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600">{t.eyebrow}</p>
-          <h3 className="mt-1 text-xl font-semibold text-[#0f2f63]">{t.title}</h3>
-          <p className="mt-1 text-sm text-slate-500">{isTouch ? t.hintTouch : t.hint}</p>
-        </div>
+    /* Nessun riquadro attorno: l'atlante fa parte della pagina, non e' un
+       widget appoggiato sopra. Anche l'occhiello e il titolo interni sono
+       spariti — il titolo della pagina li copre gia'. Restano i comandi in
+       linea, il visore su una lastra bianca e la legenda come testo a lato. */
+    <div className="mt-8">
+      <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
+        <p className="text-sm text-slate-500">{isTouch ? t.hintTouch : t.hint}</p>
         <div className="flex flex-wrap gap-2" role="group" aria-label={t.title}>
           {DISTRICTS.map((d) => {
             const selected = d.id === district.id;
@@ -439,10 +437,10 @@ export function AnatomyAtlas() {
                 type="button"
                 onClick={() => setDistrictId(d.id)}
                 aria-pressed={selected}
-                className={`rounded-full px-4 py-2 text-sm font-medium transition ${
+                className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${
                   selected
-                    ? "bg-blue-700 text-white shadow-md shadow-blue-500/25"
-                    : "border border-slate-300 text-slate-700 hover:bg-slate-50"
+                    ? "bg-[#0f2f63] text-white"
+                    : "bg-white text-slate-700 ring-1 ring-slate-200 hover:bg-slate-100"
                 }`}
               >
                 {lang === "it" ? d.it : d.en}
@@ -452,11 +450,11 @@ export function AnatomyAtlas() {
         </div>
       </div>
 
-      <div className="grid lg:grid-cols-[1fr_280px]">
+      <div className="mt-5 grid gap-8 lg:grid-cols-[1fr_15rem] lg:items-start">
         <div
           ref={boxRef}
           data-atlas-box
-          className="relative h-[380px] lg:h-[460px]"
+          className="relative h-[380px] overflow-hidden rounded-3xl bg-white lg:h-[520px]"
           onPointerMove={handlePointerMove}
           onPointerLeave={() => setHover(null)}
           onClick={handleClick}
@@ -469,6 +467,7 @@ export function AnatomyAtlas() {
             alt={`${lang === "it" ? "Modello 3D" : "3D model"} — ${lang === "it" ? district.it : district.en}`}
             camera-controls
             disable-pan
+            disable-zoom
             loading="lazy"
             reveal="auto"
             interaction-prompt="none"
@@ -504,16 +503,14 @@ export function AnatomyAtlas() {
           )}
         </div>
 
-        <div className="border-t border-slate-200 px-6 py-5 lg:border-l lg:border-t-0">
+        <div className="lg:pt-2">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">{t.legend}</p>
           <ul className="mt-3 space-y-1.5">
             {legend.map(({ key, label, color }) => (
               <li
                 key={key}
-                className={`flex items-center gap-2.5 rounded-lg px-2 py-1 text-sm transition ${
-                  activeGroup === label
-                    ? "bg-slate-100 font-semibold text-slate-900"
-                    : "text-slate-600"
+                className={`flex items-center gap-2.5 rounded-lg py-1 text-sm transition ${
+                  activeGroup === label ? "font-semibold text-slate-900" : "text-slate-600"
                 }`}
               >
                 <span
@@ -524,7 +521,7 @@ export function AnatomyAtlas() {
               </li>
             ))}
           </ul>
-          <p className="mt-5 border-t border-slate-200 pt-4 text-xs text-slate-400">{t.demoNote}</p>
+          <p className="mt-5 text-xs text-slate-400">{t.demoNote}</p>
         </div>
       </div>
     </div>

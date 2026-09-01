@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLanguage } from "@/components/LanguageContext";
 import { HeaderNav } from "@/components/HeaderNav";
 import { RegulatoryBanner } from "@/components/RegulatoryBanner";
@@ -17,6 +17,7 @@ const productCopy = {
       afterHighlight: "into 3D models.",
       jumpAnatomy: "ViC – Anatomy Explorer",
       jumpSurgical: "ViC – Surgical Planning",
+      scrollHint: "Scroll",
       stats: [
         { label: "DICOM", caption: "Compliance" },
         { label: "AI", caption: "Segmentation" },
@@ -140,6 +141,7 @@ const productCopy = {
       afterHighlight: "in modelli 3D.",
       jumpAnatomy: "ViC – Anatomy Explorer",
       jumpSurgical: "ViC – Surgical Planning",
+      scrollHint: "Scorri",
       stats: [
         { label: "DICOM", caption: "Conformità" },
         { label: "AI", caption: "Segmentazione" },
@@ -264,6 +266,16 @@ export function SurgicalPlanningPageContent() {
   const content: ProductCopy = productCopy[lang] ?? productCopy.en;
   const rotateHint = lang === "it" ? "Trascina per ruotare" : "Drag to rotate";
 
+  // stesso indicatore della home: fissato al viewport, non al fondo dell'hero,
+  // altrimenti finisce sotto la piega sugli schermi bassi
+  const [showHint, setShowHint] = useState(true);
+  useEffect(() => {
+    const onScroll = () => setShowHint(window.scrollY < 120);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   useEffect(() => {
     const cards = document.querySelectorAll("model-viewer[data-mv-hover]");
     const cleanup: Array<() => void> = [];
@@ -383,7 +395,7 @@ export function SurgicalPlanningPageContent() {
             className="w-auto opacity-95"
           />
         </div>
-        <div className="absolute right-0 top-[3vh] w-[62vw] h-[92vh] md:w-[64vw] md:h-[110vh] z-0">
+        <div className="absolute right-0 top-[2vh] w-[72vw] h-[104vh] md:w-[74vw] md:h-[124vh] z-0">
           <model-viewer
             suppressHydrationWarning
             src="/models/vic_hero.glb"
@@ -410,6 +422,19 @@ export function SurgicalPlanningPageContent() {
         </div>
         <div className="pointer-events-none absolute right-[-20vw] top-0 h-[90vh] w-[70vw] rounded-[40px] bg-gradient-to-tr from-emerald-200/40 via-transparent to-blue-200/50 blur-3xl z-[-1]" />
       </section>
+
+      {/* bottom-[70px] da md in su per stare sopra il footer fisso da 53px */}
+      <a
+        href="#surgical-planning"
+        className={`fixed inset-x-0 bottom-6 z-30 mx-auto flex w-fit flex-col items-center gap-1.5 text-slate-400 transition-opacity duration-300 hover:text-slate-600 md:bottom-[70px] ${
+          showHint ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      >
+        <span className="text-[11px] font-medium uppercase tracking-[0.25em]">{content.hero.scrollHint}</span>
+        <svg viewBox="0 0 20 20" aria-hidden="true" className="h-5 w-5 animate-bounce" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <path d="M5 7.5 10 12.5 15 7.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </a>
 
       {/* ---------------- ViC – Surgical Planning (in certificazione) ---------------- */}
       {/* Una sezione sola: prima erano due blocchi con padding e larghezze
