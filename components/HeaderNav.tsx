@@ -70,7 +70,7 @@ export function HeaderNav({ active, activeProduct, cta }: HeaderNavProps) {
 
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
-      <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between">
+      <div className="flex items-center justify-between px-5 py-2.5 sm:px-8">
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/logo.png"
@@ -79,7 +79,7 @@ export function HeaderNav({ active, activeProduct, cta }: HeaderNavProps) {
             height={120}
             quality={100}
             priority
-            className="h-14 w-auto drop-shadow-sm"
+            className="h-10 w-auto drop-shadow-sm"
           />
           <span className="text-xl md:text-2xl font-bold tracking-wide text-slate-900">IntusAI</span>
         </Link>

@@ -88,7 +88,13 @@ export function SupportPageContent() {
           <p className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-1 text-xs uppercase tracking-[0.3em] text-slate-500">
             {t.hero.badge}
           </p>
-          <h1 className="mt-4 text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">{t.hero.title}</h1>
+          {/* 40px e non text-5xl: a 48px il titolo misura 1101px contro i 992
+              utili del contenitore e "su ViC." finiva da solo sulla seconda
+              riga. A 40px sta in 917px. Sotto lg va a capo comunque, e
+              text-balance evita che resti una riga orfana. */}
+          <h1 className="mt-4 text-3xl sm:text-4xl lg:text-[2.5rem] font-extrabold leading-tight tracking-tight text-balance text-slate-900">
+            {t.hero.title}
+          </h1>
           <p
             className="mt-4 text-lg text-slate-600"
             dangerouslySetInnerHTML={{ __html: t.hero.intro }}

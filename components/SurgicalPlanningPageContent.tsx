@@ -428,26 +428,38 @@ export function SurgicalPlanningPageContent() {
           <RegulatoryBanner variant="extended" />
         </div>
 
-        {/* Impilati invece che affiancati: due paragrafi brevi accanto a un
-            elenco di cinque voci lasciavano meta' colonna vuota. Ora i
-            paragrafi stanno su due colonne e l'elenco su tre, cosi' i blocchi
-            riempiono la larghezza e hanno altezze paragonabili. */}
+        {/* Paragrafi impilati, non affiancati: sono due frasi consecutive e
+            leggerle saltando da una colonna all'altra spezzava il discorso.
+            A piena larghezza stanno su una riga ciascuna. */}
         <div className="mt-12">
           <h3 className="text-2xl font-semibold text-[#0f2f63]">{content.intro.title}</h3>
-          <div className="mt-4 grid gap-x-10 gap-y-4 lg:grid-cols-2">
-            {content.intro.paragraphs.map((paragraph, idx) => (
-              <p key={idx} className="text-slate-700">
-                {paragraph}
-              </p>
-            ))}
-          </div>
+          {content.intro.paragraphs.map((paragraph, idx) => (
+            <p key={idx} className="mt-4 text-slate-700">
+              {paragraph}
+            </p>
+          ))}
         </div>
 
-        <div className="mt-10 rounded-3xl border border-slate-200 bg-slate-50 p-6 lg:p-8">
-          <h4 className="font-semibold text-slate-900">{content.intro.listTitle}</h4>
-          <ul className="mt-4 grid gap-x-10 gap-y-3 text-slate-700 sm:grid-cols-2 lg:grid-cols-3">
+        {/* "In sintesi" come fila di card, stesso trattamento della pagina
+            Anatomy Explorer: il riquadro unico che raccoglieva l'elenco
+            leggeva come una tabella e restava sbilanciato accanto al testo. */}
+        <div className="mt-12">
+          <h3 className="text-lg font-semibold text-slate-900">{content.intro.listTitle}</h3>
+          <ul className="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {content.intro.list.map((item) => (
-              <li key={item}>• {item}</li>
+              <li
+                key={item}
+                className="rounded-3xl border border-slate-200 bg-white p-5 transition hover:-translate-y-[2px] hover:shadow-lg"
+              >
+                <svg viewBox="0 0 20 20" aria-hidden="true" className="h-5 w-5 text-blue-600" fill="currentColor">
+                  <path
+                    fillRule="evenodd"
+                    d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 0 1 1.4-1.4l3.8 3.8 6.8-6.8a1 1 0 0 1 1.4 0Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <p className="mt-3 text-sm text-slate-700">{item}</p>
+              </li>
             ))}
           </ul>
         </div>
