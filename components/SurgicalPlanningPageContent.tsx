@@ -348,8 +348,11 @@ export function SurgicalPlanningPageContent() {
         <RegulatoryBanner variant="short" />
       </div>
 
-      <section id="vic" className="relative overflow-hidden">
-        <div className="relative mx-auto max-w-7xl px-4 py-16 lg:py-24">
+      {/* L'hero riempie la vista iniziale: 102px sono barra (61) e banner
+          regolatorio (41), misurati. svh e non vh cosi' su mobile non sfora
+          per via della barra del browser. */}
+      <section id="vic" className="relative flex min-h-[calc(100svh-102px)] items-center overflow-hidden">
+        <div className="relative mx-auto w-full max-w-7xl px-4 py-16 lg:py-20">
           <div className="lg:max-w-[54%] relative z-10">
             <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-600">
               <span className="inline-block h-2 w-2 rounded-full bg-blue-600" />

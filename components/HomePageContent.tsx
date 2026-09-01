@@ -25,13 +25,14 @@ export function HomePageContent() {
     <div className="min-h-screen bg-white text-slate-900">
       <HeaderNav active="company" cta={{ href: "/product/surgical-planning", labelKey: "exploreProduct" }} />
 
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#f5f8ff] via-white to-[#eefdf5]">
+      {/* 61px = altezza della barra, misurata. Qui non c'e' il banner. */}
+      <section className="relative flex min-h-[calc(100svh-61px)] items-center overflow-hidden bg-gradient-to-br from-[#f5f8ff] via-white to-[#eefdf5]">
         <div className="pointer-events-none absolute inset-0">
           <div className="absolute -top-64 -left-40 h-[520px] w-[520px] rounded-full bg-blue-200/40 blur-[120px]" />
           <div className="absolute bottom-[-180px] right-[-120px] h-[420px] w-[420px] rounded-full bg-emerald-200/30 blur-[120px]" />
         </div>
 
-        <div className="relative mx-auto max-w-7xl px-4 py-16 lg:py-24">
+        <div className="relative mx-auto w-full max-w-7xl px-4 py-16 lg:py-20">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
               <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.05] text-slate-900">
