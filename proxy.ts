@@ -22,7 +22,7 @@ import { NextRequest, NextResponse } from "next/server";
  * Viene impostato un cookie che ti fa navigare normalmente per 7 giorni.
  */
 
-const MODE: "down" | "maintenance" | "live" = "maintenance";
+const MODE: "down" | "maintenance" | "live" = "live";
 
 const BYPASS_COOKIE = "intusai-bypass";
 const BYPASS_PARAM = "bypass";
