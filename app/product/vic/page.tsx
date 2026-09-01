@@ -2,7 +2,7 @@
 import { ProductPageContent } from "@/components/ProductPageContent";
 
 export const metadata: Metadata = {
-  title: "VirtualClone (ViC) | IntusAI",
+  title: "VirtualClone (ViC) | Intus.AI",
   description:
     "Upload DICOM/NRRD, automatic anonymization and AI segmentation to get a clean, interactive 3D patient twin fast.",
 };

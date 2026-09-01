@@ -28,7 +28,9 @@ const BYPASS_COOKIE = "intusai-bypass";
 const BYPASS_PARAM = "bypass";
 
 export default function proxy(request: NextRequest) {
-  if (MODE === "live") {
+  // in locale (`npm run dev`) il sito si vede sempre, anche a sito giu':
+  // altrimenti non si potrebbe lavorare sulle pagine mentre sono offline
+  if (MODE === "live" || process.env.NODE_ENV === "development") {
     return NextResponse.next();
   }
 
@@ -154,7 +156,7 @@ const maintenancePage = `<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>IntusAI — Sito in manutenzione</title>
+<title>Intus.AI — Sito in manutenzione</title>
 <link rel="icon" href="/logo-favicon.png" type="image/png" sizes="32x32">
 <style>
   *, *::before, *::after { box-sizing: border-box; }
@@ -232,7 +234,7 @@ const maintenancePage = `<!doctype html>
 </head>
 <body>
 <main>
-  <p class="mark">Intus<span>AI</span></p>
+  <p class="mark">Intus<span>.AI</span></p>
   <p class="badge">Manutenzione</p>
   <h1>Stiamo lavorando al sito</h1>
   <p>Il sito è temporaneamente offline per manutenzione. Torniamo online a breve.</p>

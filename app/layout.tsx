@@ -5,9 +5,9 @@ import Script from "next/script";
 import { LanguageProvider } from "@/components/LanguageContext";
 
 export const metadata: Metadata = {
-  title: "IntusAI",
+  title: "Intus.AI",
   description:
-    "IntusAI builds software that turns medical images into reliable decisions.",
+    "Intus.AI builds software that turns medical images into reliable decisions.",
   icons: {
     icon: [
       { url: "/logo-favicon.png", type: "image/png", sizes: "32x32" },

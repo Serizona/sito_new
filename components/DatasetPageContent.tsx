@@ -4,6 +4,7 @@ import Image from "next/image";
 import { SliceViewer } from "@/components/SliceViewer";
 import { useLanguage } from "@/components/LanguageContext";
 import { HeaderNav } from "@/components/HeaderNav";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export function DatasetPageContent() {
   const { dict } = useLanguage();
@@ -89,22 +90,7 @@ export function DatasetPageContent() {
 
       </main>
 
-      <footer className="border-t border-slate-200">
-        <div className="mx-auto max-w-7xl px-4 py-6 flex flex-col gap-2 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} IntusAI S.r.l. — All rights reserved.</p>
-          <div className="flex items-center gap-4">
-            <a href="/privacy" className="hover:text-slate-700">
-              Privacy
-            </a>
-            <a href="/cookies" className="hover:text-slate-700">
-              Cookies
-            </a>
-            <a href="mailto:info@intus-ai.com" className="hover:text-slate-700">
-              info@intus-ai.com
-            </a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

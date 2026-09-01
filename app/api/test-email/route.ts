@@ -23,8 +23,8 @@ export async function GET() {
     
     // Invia email di test
     const result = await sendEmail({
-      subject: "Test Email - IntusAI",
-      text: "Questa è un'email di test dal sistema IntusAI.\n\nSe la ricevi, la configurazione Resend funziona correttamente! ✅",
+      subject: "Test Email - Intus.AI",
+      text: "Questa è un'email di test dal sistema Intus.AI.\n\nSe la ricevi, la configurazione Resend funziona correttamente! ✅",
     });
 
     return NextResponse.json({ 

@@ -1,4 +1,4 @@
-﻿export const translations = {
+export const translations = {
   en: {
     nav: {
       company: "Company",
@@ -15,16 +15,16 @@
         titleLine1: "We turn medical images",
         titleLine2: "into decisions.",
         description:
-          "IntusAI designs software for clinical teams. Our flagship product, VirtualClone (ViC), brings AI segmentation and accurate 3D-visualization to surgical planning.",
+          "Intus.AI designs software for clinical teams. Our flagship product, VirtualClone (ViC), brings AI segmentation and accurate 3D-visualization to surgical planning.",
         discover: "Discover ViC",
-        about: "About IntusAI",
+        about: "About Intus.AI",
       },
       about: {
-        title: "About IntusAI",
+        title: "About Intus.AI",
         paragraph1:
           "We build tools that make imaging clearer and faster. By combining machine learning, clinical collaboration and careful product design, we help teams plan with confidence, communicate better and save time in high-stakes workflows.",
         paragraph2:
-          "Our work focuses on abdominal-thoracic surgery, with robust support for liver, pancreas, kidney and lungs planning.",
+          "Our work focuses on thoraco-abdominal surgery, with tools designed to support pre-operative planning.",
         list: [
           "AI segmentation and 3D visualization",
           "DICOM/NRRD interoperability",
@@ -33,7 +33,7 @@
         ],
       },
       why: {
-        title: "Why IntusAI",
+        title: "Why Intus.AI",
         cards: [
           { title: "Clinical focus", body: "Designed with surgeons for planning and pre-operative guidance." },
           { title: "Time to value", body: "Fast inference, clear UI." },
@@ -41,12 +41,17 @@
         ],
         cta: "Explore VirtualClone (ViC)",
       },
+      regulatory: {
+        title: "Regulatory and scientific pathway",
+        body:
+          "We develop ViC as Software as a Medical Device (SaMD) in accordance with Regulation (EU) 2017/745, with Class IIa CE MDR certification in progress, an ISO 13485 quality management system under implementation, and the support of a scientific committee of specialists from leading surgical and transplant centres.",
+      },
       contact: {
         badge: "Contact us",
         title: "Want to see ViC in action?",
         description:
-          "Our team can guide you through onboarding, integrations, or custom workflows. Reach out from the dedicated support page.",
-        cta: "Go to support page",
+          "Request a demonstration in our demo environment: our team will guide you through the platform and collect your clinical feedback.",
+        cta: "Request a demo",
       },
     },
     dataset: {
@@ -54,7 +59,7 @@
         badge: "High-quality surgical imaging dataset",
         title: "Algorithms trained on high-quality medical images.",
         description:
-          "IntusAI trains its ViC networks on a proprietary, multicenter dataset with more than 2,600 annotated abdominal and thoracic CT scans. The fidelity of that source data keeps our segmentation, visualization and decision layers dependable in surgical workflows.",
+          "Intus.AI trains its ViC networks on a proprietary, multicenter dataset with more than 2,600 annotated abdominal and thoracic CT scans. The fidelity of that source data keeps our segmentation, visualization and decision layers dependable in surgical workflows.",
         explore: "Download Dataset",
       },
       stats: {
@@ -101,58 +106,25 @@
       },
       hero: {
         badge: "Support",
-        title: "We are here to help your team succeed with ViC.",
+        title: "We're here to answer your questions about ViC.",
         intro:
-          'Choose one of the options below or write to <a href="mailto:info@intus-ai.com">info@intus-ai.com</a> for tailored assistance.',
+          'Choose one of the options or write to <a href="mailto:info@intus-ai.com">info@intus-ai.com</a>.',
       },
       cards: {
         manual: {
-          title: "Request User Manual",
-          body: "Get the latest VirtualClone (ViC) user manual.",
-          cta: "Request user manual",
+          title: "User manual",
+          body: "ViC's user manual will be made available on this page after the completion of the CE MDR certification process.",
         },
         contact: {
           title: "Contact us",
           body:
-            "Need help with onboarding, integrations, or clinical validation? Our support engineers and clinical specialists can guide you end-to-end.",
+            "Want to request a demonstration or learn more about ViC? Our engineers and clinical specialists can follow you end-to-end.",
           cta: "Contact us",
         },
       },
-      manualForm: {
-        badge: "Manual request",
-        title: "Request the latest ViC User Manual",
-        description: "Fill in the form and we will share the current documentation package within two business days.",
-        fields: {
-          firstName: "First name",
-          lastName: "Last name",
-          hospital: "Hospital / Institution",
-          department: "Department / Role",
-          email: "Work email",
-          phone: "Phone (optional)",
-          country: "Country",
-          useCase: "Primary use case",
-          notes: "Additional notes",
-        },
-        placeholders: {
-          firstName: "Maria",
-          lastName: "Rossi",
-          hospital: "IRCCS San Raffaele",
-          department: "Hepatobiliary Surgery",
-          email: "name@hospital.org",
-          phone: "+39 02 1234567",
-          country: "Italy",
-          useCase: "Liver transplant planning",
-          notes: "Share clinical scenario, preferred onboarding dates, or regulatory needs.",
-        },
-        consentPrimary:
-          'I confirm I have read the <a href="/privacy">privacy policy</a> and agree to be contacted by IntusAI about ViC.',
-        consentSecondary: "I would like to receive occasional product updates and clinical validation notes.",
-        submit: "Submit request",
-        emailHint: 'Prefer email? Write to <a href="mailto:info@intus-ai.com">info@intus-ai.com</a>.',
-      },
       contactSection: {
         badge: "Contact us",
-        title: "Talk directly with IntusAI",
+        title: "Talk directly with Intus.AI",
         intro: "We respond within two business days. Tell us how we can help your surgical planning workflow or integration.",
         hqTitle: "Headquarters",
         hqCity: "Milan, Italy",
@@ -170,7 +142,9 @@
           message: "Message",
           placeholderName: "Maria Rossi",
           placeholderEmail: "nome@ospedale.it",
-          placeholderMessage: "Describe the clinical scenario, timeline, or special requests.",
+          placeholderMessage: "Describe your interest: demonstration, evaluation programme, ViC – Anatomy Explorer for education, other.",
+          healthcareProfessional:
+            "I declare that I am a healthcare professional or that I act on behalf of a healthcare, academic or research institution.",
           privacy:
             'I agree to the <a href="/privacy">privacy policy</a> and to be contacted about my request.',
           marketingConsent: "I would like to receive occasional product updates and clinical validation notes.",
@@ -195,7 +169,7 @@
         badge: "Dataset chirurgico di alta qualità",
         title: "Algoritmi addestrati su immagini di alta qualità.",
         description:
-          "IntusAI addestra le reti ViC su un dataset multicentrico con oltre 2.600 TAC addominali e toraciche annotate. L'alta qualità delle immagini garantisce risultati affidabili in termini di segmentazione, visualizzazione e supporto decisionale nei flussi chirurgici.",
+          "Intus.AI addestra le reti ViC su un dataset multicentrico con oltre 2.600 TAC addominali e toraciche annotate. L'alta qualità delle immagini garantisce risultati affidabili in termini di segmentazione, visualizzazione e supporto decisionale nei flussi chirurgici.",
         explore: "Scarica il Dataset",
       },
       stats: {
@@ -237,16 +211,16 @@
         titleLine1: "Trasformiamo le immagini",
         titleLine2: "in decisioni.",
         description:
-          "IntusAI sviluppa software avanzati per i team clinici. Il nostro prodotto di punta, VirtualClone (ViC), integra segmentazione AI e visualizzazione 3D nella pianificazione chirurgica.",
+          "Intus.AI sviluppa software avanzati per i team clinici. Il nostro prodotto di punta, VirtualClone (ViC), integra segmentazione AI e visualizzazione 3D nella pianificazione chirurgica.",
         discover: "Scopri ViC",
-        about: "Su IntusAI",
+        about: "Su Intus.AI",
       },
       about: {
-        title: "Su IntusAI",
+        title: "Su Intus.AI",
         paragraph1:
           "Sviluppiamo strumenti che rendono l'imaging più chiaro e rapido. Uniamo machine learning, collaborazione clinica e design accurato per aiutare i team a pianificare con fiducia, comunicare meglio e risparmiare tempo in contesti critici.",
         paragraph2:
-          "Il nostro lavoro si concentra sulla chirurgia addomino-toracica, fornendo un supporto solido per guidare la pianificazione pre-operatoria.",
+          "Il nostro lavoro si concentra sulla chirurgia toraco-addominale, con strumenti progettati per supportare la pianificazione pre-operatoria.",
         list: [
           "Segmentazione AI e visualizzazione 3D",
           "Interoperabilità DICOM/NRRD",
@@ -255,7 +229,7 @@
         ],
       },
       why: {
-        title: "Perché IntusAI",
+        title: "Perché Intus.AI",
         cards: [
           { title: "Focus clinico", body: "Progettato con i chirurghi per la pianificazione e la guida pre-operatoria." },
           { title: "Time to value", body: "Inferenza rapida, interfaccia chiara." },
@@ -263,12 +237,17 @@
         ],
         cta: "Esplora VirtualClone (ViC)",
       },
+      regulatory: {
+        title: "Percorso regolatorio e scientifico",
+        body:
+          "Sviluppiamo ViC come dispositivo medico software (SaMD) secondo il Regolamento (UE) 2017/745, con certificazione CE MDR Classe IIa in corso, un sistema qualità ISO 13485 in implementazione e il supporto di un comitato scientifico di specialisti provenienti da centri chirurgici e trapiantologici di riferimento.",
+      },
       contact: {
         badge: "Contattaci",
         title: "Vuoi vedere ViC in azione?",
         description:
-          "Il nostro team può guidarti nell'onboarding, nelle integrazioni o in workflow personalizzati.\nContattaci dalla pagina di supporto dedicata.",
-        cta: "Vai al supporto",
+          "Richiedi una dimostrazione in ambiente demo: il nostro team ti guiderà nell'utilizzo della piattaforma e raccoglierà il tuo feedback clinico.",
+        cta: "Richiedi una demo",
       },
     },
     supportPage: {
@@ -281,58 +260,25 @@
       },
       hero: {
         badge: "Supporto",
-        title: "Siamo qui per aiutare il tuo team con ViC.",
+        title: "Siamo qui per rispondere alle tue domande su ViC.",
         intro:
-          'Scegli una delle opzioni oppure scrivi a <a href="mailto:info@intus-ai.com">info@intus-ai.com</a> per un supporto dedicato.',
+          'Scegli una delle opzioni oppure scrivi a <a href="mailto:info@intus-ai.com">info@intus-ai.com</a>.',
       },
       cards: {
         manual: {
-          title: "Richiedi il manuale utente",
-          body: "Ricevi l'ultima versione del manuale di VirtualClone (ViC).",
-          cta: "Richiedi il manuale",
+          title: "Manuale utente",
+          body: "Il manuale utente di ViC sarà reso disponibile su questa pagina a seguito del completamento del processo di certificazione CE MDR.",
         },
         contact: {
           title: "Contattaci",
           body:
-            "Hai bisogno di aiuto per onboarding, integrazioni o validazioni cliniche? I nostri ingegneri e specialisti clinici possono seguirti end-to-end.",
+            "Vuoi richiedere una dimostrazione o saperne di più su ViC? I nostri ingegneri e specialisti clinici possono seguirti end-to-end.",
           cta: "Parla con noi",
         },
       },
-      manualForm: {
-        badge: "Richiesta manuale",
-        title: "Ricevi l'ultima versione del manuale ViC",
-        description: "Compila il form e ti invieremo il manuale aggiornato entro due giorni lavorativi.",
-        fields: {
-          firstName: "Nome",
-          lastName: "Cognome",
-          hospital: "Ospedale / Istituto",
-          department: "Reparto / Ruolo",
-          email: "Email professionale",
-          phone: "Telefono (opzionale)",
-          country: "Paese",
-          useCase: "Use case principale",
-          notes: "Note aggiuntive",
-        },
-        placeholders: {
-          firstName: "Maria",
-          lastName: "Rossi",
-          hospital: "IRCCS San Raffaele",
-          department: "Chirurgia epatobiliare",
-          email: "nome@ospedale.it",
-          phone: "+39 02 1234567",
-          country: "Italia",
-          useCase: "Pianificazione trapianto di fegato",
-          notes: "Descrivi scenario clinico, tempistiche o richieste caso-specifiche.",
-        },
-        consentPrimary:
-          "Confermo di aver letto l'<a href=\"/privacy\">informativa privacy</a> e accetto di essere contattato da IntusAI riguardo a ViC.",
-        consentSecondary: "Desidero ricevere aggiornamenti sul prodotto.",
-        submit: "Invia richiesta",
-        emailHint: "Preferisci la mail? Scrivi a <a href=\"mailto:info@intus-ai.com\">info@intus-ai.com</a>.",
-      },
       contactSection: {
         badge: "Contattaci",
-        title: "Parla direttamente con IntusAI",
+        title: "Parla direttamente con Intus.AI",
         intro: "Rispondiamo entro due giorni lavorativi. Raccontaci come possiamo supportare il tuo workflow o le tue richieste.",
         hqTitle: "Sede",
         hqCity: "Milano, Italia",
@@ -350,7 +296,9 @@
           message: "Messaggio",
           placeholderName: "Maria Rossi",
           placeholderEmail: "nome@ospedale.it",
-          placeholderMessage: "Descrivi scenario clinico, tempistiche o richieste specifiche.",
+          placeholderMessage: "Descrivi il tuo interesse: dimostrazione, programma di valutazione, ViC – Anatomy Explorer per la formazione, altro.",
+          healthcareProfessional:
+            "Dichiaro di essere un professionista sanitario o di operare per conto di una struttura sanitaria, universitaria o di ricerca.",
           privacy:
             "Accetto l'<a href=\"/privacy\">informativa privacy</a> e di essere contattato per la mia richiesta.",
           marketingConsent: "Desidero ricevere aggiornamenti sul prodotto.",

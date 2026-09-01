@@ -3,72 +3,23 @@
 import { FormEvent, useState } from "react";
 import { useLanguage } from "@/components/LanguageContext";
 import { HeaderNav } from "@/components/HeaderNav";
+import { RegulatoryBanner } from "@/components/RegulatoryBanner";
+import { SiteFooter } from "@/components/SiteFooter";
 import { translations } from "@/lib/translations";
 
 type FormStatus = "idle" | "loading" | "success" | "error";
 
 export function SupportPageContent() {
   const { dict, lang } = useLanguage();
-  const [manualStatus, setManualStatus] = useState<FormStatus>("idle");
   const [contactStatus, setContactStatus] = useState<FormStatus>("idle");
 
   const getValue = (entry: FormDataEntryValue | null) => (typeof entry === "string" ? entry.trim() : "");
-  const getOptional = (entry: FormDataEntryValue | null) => {
-    const value = getValue(entry);
-    return value.length > 0 ? value : undefined;
-  };
-
-  const manualMessages = {
-    success: lang === "it" ? "Richiesta inviata correttamente. Ti contatteremo via email." : "Request sent successfully. We'll follow up via email.",
-    error: lang === "it" ? "Impossibile inviare la richiesta. Riprova tra qualche minuto." : "Unable to send the request. Please try again later.",
-    sending: lang === "it" ? "Invio in corso..." : "Sending...",
-  };
 
   const contactMessages = {
     success: lang === "it" ? "Messaggio inviato. Ti risponderemo presto." : "Message sent. We'll get back to you shortly.",
     error: lang === "it" ? "Invio non riuscito. Riprova più tardi." : "Unable to send the message. Please try again later.",
     sending: lang === "it" ? "Invio in corso..." : "Sending...",
   };
-
-  async function handleManualSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const formElement = event.currentTarget;
-    setManualStatus("loading");
-    const formData = new FormData(formElement);
-    const payload = {
-      firstName: getValue(formData.get("firstName")),
-      lastName: getValue(formData.get("lastName")),
-      hospital: getValue(formData.get("hospital")),
-      department: getValue(formData.get("department")),
-      workEmail: getValue(formData.get("workEmail")),
-      country: getValue(formData.get("country")),
-      phone: getOptional(formData.get("phone")),
-      useCase: getOptional(formData.get("useCase")),
-      notes: getOptional(formData.get("notes")),
-      privacy: formData.has("privacy"),
-      marketing: formData.has("marketing"),
-    };
-
-    try {
-      const response = await fetch("/api/support/manual", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) {
-        throw new Error("Request failed");
-      }
-
-      setManualStatus("success");
-      formElement.reset();
-    } catch (error) {
-      console.error(error);
-      setManualStatus("error");
-    }
-  }
 
   async function handleContactSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -79,6 +30,7 @@ export function SupportPageContent() {
       contactName: getValue(formData.get("contactName")),
       contactEmail: getValue(formData.get("contactEmail")),
       contactMessage: getValue(formData.get("contactMessage")),
+      contactHealthcare: formData.has("contactHealthcare"),
       contactPrivacy: formData.has("contactPrivacy"),
       contactMarketing: formData.has("contactMarketing"),
     };
@@ -103,24 +55,13 @@ export function SupportPageContent() {
       setContactStatus("error");
     }
   }
+
   const supportFallback = translations.en.supportPage;
   const supportPage = dict.supportPage ?? supportFallback;
   const hero = supportPage.hero ?? supportFallback.hero;
   const cards = {
     manual: supportPage.cards?.manual ?? supportFallback.cards.manual,
     contact: supportPage.cards?.contact ?? supportFallback.cards.contact,
-  };
-  const manualForm = {
-    ...supportFallback.manualForm,
-    ...(supportPage.manualForm ?? {}),
-    fields: {
-      ...supportFallback.manualForm.fields,
-      ...(supportPage.manualForm?.fields ?? {}),
-    },
-    placeholders: {
-      ...supportFallback.manualForm.placeholders,
-      ...(supportPage.manualForm?.placeholders ?? {}),
-    },
   };
   const contactSection = {
     ...supportFallback.contactSection,
@@ -130,11 +71,12 @@ export function SupportPageContent() {
       ...(supportPage.contactSection?.form ?? {}),
     },
   };
-  const t = { hero, cards, manualForm, contactSection };
+  const t = { hero, cards, contactSection };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#eef3ff] via-white to-[#e8fff4] text-slate-900">
       <HeaderNav active="support" cta={{ href: "/support#contact", labelKey: "emailSupport" }} />
+      <RegulatoryBanner variant="short" />
 
       <main className="mx-auto max-w-5xl px-4 py-16 lg:py-24">
         <div className="text-center">
@@ -149,114 +91,40 @@ export function SupportPageContent() {
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2 items-stretch">
-          {[t.cards.manual, t.cards.contact].map((card, idx) => (
-            <div
-              key={card.title}
-              className="flex h-full flex-col gap-4 rounded-3xl border border-slate-200/80 bg-white/90 p-8 shadow-lg shadow-slate-200/70 backdrop-blur"
-            >
-              <div className="flex items-center gap-3">
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-white shadow-inner">
-                  {idx === 0 ? (
-                    <svg viewBox="0 0 32 32" className="h-6 w-6 text-slate-900" fill="none" stroke="currentColor" strokeWidth="1.3">
-                      <rect x="7" y="6" width="18" height="20" rx="2.5" />
-                      <path d="M7 11h18" />
-                      <path d="M12 6v20" />
-                    </svg>
-                  ) : (
-                    <svg viewBox="0 0 32 32" className="h-6 w-6 text-slate-900" fill="none" stroke="currentColor" strokeWidth="1.3">
-                      <rect x="5" y="7" width="22" height="16" rx="3" />
-                      <path d="M5 10.5 16 18l11-7.5" />
-                    </svg>
-                  )}
-                </div>
-                <h2 className="text-2xl font-semibold">{card.title}</h2>
+          {/* Manuale utente: nessun form finche' la certificazione CE MDR non e' completata */}
+          <div className="flex h-full flex-col gap-4 rounded-3xl border border-slate-200/80 bg-white/90 p-8 shadow-lg shadow-slate-200/70 backdrop-blur">
+            <div className="flex items-center gap-3">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-white shadow-inner">
+                <svg viewBox="0 0 32 32" className="h-6 w-6 text-slate-900" fill="none" stroke="currentColor" strokeWidth="1.3">
+                  <rect x="7" y="6" width="18" height="20" rx="2.5" />
+                  <path d="M7 11h18" />
+                  <path d="M12 6v20" />
+                </svg>
               </div>
-              <p className="mt-3 text-slate-600">{card.body}</p>
-              <a
-                href={idx === 0 ? "#manual-request" : "#contact"}
-                className="mt-auto inline-flex items-center justify-center rounded-full bg-blue-700 px-5 py-3 text-sm font-semibold text-white shadow-md shadow-blue-500/30 transition hover:-translate-y-0.5 hover:bg-blue-800"
-              >
-                {card.cta}
-              </a>
+              <h2 className="text-2xl font-semibold">{t.cards.manual.title}</h2>
             </div>
-          ))}
-        </div>
-
-        <section
-          id="manual-request"
-          className="mt-16 scroll-mt-32 rounded-3xl border border-slate-200 bg-white/80 p-8 shadow-lg shadow-slate-200/60 backdrop-blur"
-        >
-          <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.4em] text-blue-700">{t.manualForm.badge}</p>
-            <h2 className="mt-3 text-3xl font-bold text-slate-900">{t.manualForm.title}</h2>
-            <p className="mt-3 text-slate-600">{t.manualForm.description}</p>
+            <p className="mt-3 text-slate-600">{t.cards.manual.body}</p>
           </div>
 
-          <form className="mt-8 grid gap-6" onSubmit={handleManualSubmit}>
-            <div className="grid gap-6 md:grid-cols-2">
-              <FormField label={`${t.manualForm.fields.firstName} *`} id="firstName" placeholder={t.manualForm.placeholders.firstName} required />
-              <FormField label={`${t.manualForm.fields.lastName} *`} id="lastName" placeholder={t.manualForm.placeholders.lastName} required />
-            </div>
-            <div className="grid gap-6 md:grid-cols-2">
-              <FormField label={`${t.manualForm.fields.hospital} *`} id="hospital" placeholder={t.manualForm.placeholders.hospital} required />
-              <FormField label={`${t.manualForm.fields.department} *`} id="department" placeholder={t.manualForm.placeholders.department} required />
-            </div>
-            <div className="grid gap-6 md:grid-cols-2">
-              <FormField
-                type="email"
-                label={`${t.manualForm.fields.email} *`}
-                id="workEmail"
-                placeholder={t.manualForm.placeholders.email}
-                required
-              />
-              <FormField
-                label={t.manualForm.fields.phone}
-                id="phone"
-                placeholder={t.manualForm.placeholders.phone}
-              />
-            </div>
-            <div className="grid gap-6 md:grid-cols-2">
-              <FormField label={`${t.manualForm.fields.country} *`} id="country" placeholder={t.manualForm.placeholders.country} required />
-            </div>
-            {/* <FormField label={t.manualForm.fields.useCase} id="useCase" placeholder={t.manualForm.placeholders.useCase} />
-            <FormField
-              label={t.manualForm.fields.notes}
-              id="notes"
-              placeholder={t.manualForm.placeholders.notes}
-              as="textarea"
-              rows={4}
-            /> */}
-
-            <div className="flex flex-col gap-4 text-sm text-slate-700">
-              <label className="flex items-start gap-3">
-                <input type="checkbox" name="privacy" required className="mt-1 h-4 w-4 rounded border-slate-300 text-blue-700 focus:ring-blue-600" />
-                <span dangerouslySetInnerHTML={{ __html: t.manualForm.consentPrimary }} />
-              </label>
-              <label className="flex items-start gap-3">
-                <input type="checkbox" name="marketing" className="mt-1 h-4 w-4 rounded border-slate-300 text-blue-700 focus:ring-blue-600" />
-                <span>{t.manualForm.consentSecondary}</span>
-              </label>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-4">
-              <button
-                type="submit"
-                className="rounded-full bg-blue-700 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-800 disabled:opacity-60"
-                disabled={manualStatus === "loading"}
-              >
-                {manualStatus === "loading" ? manualMessages.sending : t.manualForm.submit}
-              </button>
-              <p
-                className="text-sm text-slate-500"
-                dangerouslySetInnerHTML={{ __html: t.manualForm.emailHint }}
-              />
-              <div className="text-sm" aria-live="polite">
-                {manualStatus === "success" && <span className="text-emerald-600">{manualMessages.success}</span>}
-                {manualStatus === "error" && <span className="text-rose-600">{manualMessages.error}</span>}
+          <div className="flex h-full flex-col gap-4 rounded-3xl border border-slate-200/80 bg-white/90 p-8 shadow-lg shadow-slate-200/70 backdrop-blur">
+            <div className="flex items-center gap-3">
+              <div className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-white shadow-inner">
+                <svg viewBox="0 0 32 32" className="h-6 w-6 text-slate-900" fill="none" stroke="currentColor" strokeWidth="1.3">
+                  <rect x="5" y="7" width="22" height="16" rx="3" />
+                  <path d="M5 10.5 16 18l11-7.5" />
+                </svg>
               </div>
+              <h2 className="text-2xl font-semibold">{t.cards.contact.title}</h2>
             </div>
-          </form>
-        </section>
+            <p className="mt-3 text-slate-600">{t.cards.contact.body}</p>
+            <a
+              href="#contact"
+              className="mt-auto inline-flex items-center justify-center rounded-full bg-blue-700 px-5 py-3 text-sm font-semibold text-white shadow-md shadow-blue-500/30 transition hover:-translate-y-0.5 hover:bg-blue-800"
+            >
+              {t.cards.contact.cta}
+            </a>
+          </div>
+        </div>
 
         <section
           id="contact"
@@ -276,7 +144,7 @@ export function SupportPageContent() {
               <div className="relative">
                 <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-blue-600/10 to-emerald-500/10 blur-3xl" />
                 <iframe
-                  title="IntusAI HQ map"
+                  title="Intus.AI HQ map"
                   src="https://www.google.com/maps?q=Via%20San%20Senatore%2C%20Milano&z=16&output=embed"
                   className="relative h-64 w-full rounded-3xl border border-slate-200 bg-white"
                   loading="lazy"
@@ -317,6 +185,11 @@ export function SupportPageContent() {
               />
 
               <div className="flex flex-col gap-4 text-sm text-slate-700">
+                {/* dichiarazione obbligatoria: le demo sono riservate ai professionisti sanitari */}
+                <label className="flex items-start gap-3">
+                  <input type="checkbox" name="contactHealthcare" required className="mt-1 h-4 w-4 rounded border-slate-300 text-blue-700 focus:ring-blue-600" />
+                  <span>{t.contactSection.form.healthcareProfessional}</span>
+                </label>
                 <label className="flex items-start gap-3">
                   <input type="checkbox" name="contactPrivacy" required className="mt-1 h-4 w-4 rounded border-slate-300 text-blue-700 focus:ring-blue-600" />
                   <span dangerouslySetInnerHTML={{ __html: t.contactSection.form.privacy }} />
@@ -343,22 +216,7 @@ export function SupportPageContent() {
         </section>
       </main>
 
-      <footer className="border-t border-slate-200">
-        <div className="mx-auto max-w-7xl px-4 py-6 flex flex-col gap-2 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} IntusAI S.r.l. — All rights reserved.</p>
-          <div className="flex items-center gap-4">
-            <a href="/privacy" className="hover:text-slate-700">
-              Privacy
-            </a>
-            <a href="/cookies" className="hover:text-slate-700">
-              Cookies
-            </a>
-            <a href="mailto:info@intus-ai.com" className="hover:text-slate-700">
-              info@intus-ai.com
-            </a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

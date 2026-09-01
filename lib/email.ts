@@ -40,7 +40,7 @@ export async function sendEmail(payload: EmailPayload) {
   try {
     const result = await sendWithRetry(async () => {
       return await resend.emails.send({
-        from: 'IntusAI <onboarding@resend.dev>',
+        from: 'Intus.AI <onboarding@resend.dev>',
         to: recipients,
         subject: payload.subject,
         text: payload.text,

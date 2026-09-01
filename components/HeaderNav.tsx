@@ -33,7 +33,7 @@ export function HeaderNav({ active, cta }: HeaderNavProps) {
         <Link href="/" className="flex items-center gap-2">
           <Image
             src="/logo.png"
-            alt="IntusAI"
+            alt="Intus.AI"
             width={280}
             height={120}
             quality={100}

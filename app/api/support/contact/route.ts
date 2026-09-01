@@ -7,6 +7,7 @@ type ContactPayload = {
   contactName?: string;
   contactEmail?: string;
   contactMessage?: string;
+  contactHealthcare?: boolean;
   contactPrivacy?: boolean;
 };
 
@@ -31,6 +32,7 @@ export async function POST(request: Request) {
       "New contact request:",
       `Name: ${payload.contactName}`,
       `Email: ${payload.contactEmail}`,
+      `Healthcare professional / institution: ${payload.contactHealthcare ? "Yes" : "No"}`,
       `Consented to privacy: ${payload.contactPrivacy ? "Yes" : "No"}`,
       "",
       "Message:",

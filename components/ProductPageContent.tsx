@@ -4,6 +4,8 @@ import Image from "next/image";
 import { useEffect } from "react";
 import { useLanguage } from "@/components/LanguageContext";
 import { HeaderNav } from "@/components/HeaderNav";
+import { RegulatoryBanner } from "@/components/RegulatoryBanner";
+import { SiteFooter } from "@/components/SiteFooter";
 
 const productCopy = {
   en: {
@@ -13,20 +15,41 @@ const productCopy = {
       highlight: "images",
       afterHighlight: "into decisions.",
       description:
-        "Automatically anonymized DICOM/NRRD, segmented by AI and transformed into an interactive 3D model for pre-operative planning.",
-      ctaPrimary: "See ViC in action",
-      ctaSecondary: "See features",
+        "One platform, two tools: ViC – Anatomy Explorer for education and communication, available today; ViC – Surgical Planning, a medical device software undergoing CE certification.",
+      jumpAnatomy: "ViC – Anatomy Explorer",
+      jumpSurgical: "ViC – Surgical Planning",
       stats: [
         { label: "DICOM", caption: "Compliance" },
         { label: "AI", caption: "Segmentation" },
         { label: "3D", caption: "Planning" },
       ],
     },
+    anatomy: {
+      status: "Available today",
+      title: "ViC – Anatomy Explorer",
+      description:
+        "ViC – Anatomy Explorer brings VirtualClone's 3D reconstructions to education and communication: interactive thoraco-abdominal anatomy, teaching cases and visual material for training, educational tumour boards and patient communication.",
+      list: [
+        "Interactive 3D models by anatomical district",
+        "Anonymised teaching cases with quizzes and annotations",
+        "Web access, no installation",
+        "Ideal for universities, residency programmes and surgical training",
+      ],
+      disclaimer:
+        "ViC – Anatomy Explorer is not a medical device and is not intended for diagnosis, prevention or treatment: it is an education and communication tool.",
+    },
+    surgical: {
+      status: "Undergoing CE certification",
+      sectionTitle: "ViC – Surgical Planning",
+      title: "VirtualClone (ViC) – Surgical Planning: from images to the patient's 3D model.",
+      description:
+        "DICOM/NRRD files are AI-segmented and turned into an interactive 3D model, designed to support pre-operative planning.",
+    },
     intro: {
-      title: "What is VirtualClone (ViC)?",
+      title: "What is VirtualClone (ViC) – Surgical Planning?",
       paragraphs: [
-        "ViC is an AI-powered multimodal DICOM viewer that automatically detects and segments organs, vessels, and lesions, generating an accurate 3D model.",
-        "It enables clinicians to analyze parenchyma–vessel relationships, assess resectability, and plan a pre-operative strategy.",
+        "ViC is an AI-based multimodal DICOM viewer that automatically detects and segments organs, vessels and lesions to produce an accurate 3D model.",
+        "It is designed to let clinicians visualize and understand parenchyma–vessel relationships and to support the definition of the pre-operative plan.",
       ],
       listTitle: "At a glance",
       list: [
@@ -51,18 +74,19 @@ const productCopy = {
         },
         {
           title: "Assisted reconstruction",
-          body: "Refine masks manually or request Assisted Reconstruction from IntusAI specialists for precision adjustments.",
+          body: "Refine masks manually or request Assisted Reconstruction from Intus.AI specialists for precision adjustments.",
         },
         {
           title: "3D visualization",
           body: "Generate a patient-specific 3D reconstruction with opacity controls, presets, and interactive viewers.",
         },
       ],
+      note: "Anonymised cases shown for demonstration purposes.",
     },
     reconstructions: {
-      title: "3D reconstructions tailored to each case.",
+      title: "Patient-specific 3D reconstructions.",
       description:
-        "Each reconstruction focuses on the specific thoraco-abdominal district required for surgical planning, each designed to support pre-operative planning.",
+        "Each reconstruction focuses on the thoraco-abdominal district of interest and is designed to support pre-operative planning.",
       cards: [
         {
           title: "Liver 3D Reconstruction",
@@ -89,11 +113,12 @@ const productCopy = {
     features: {
       title: "Core features",
       cards: [
-        { title: "AI segmentation", body: "Automatic detection of organs, vessels and lesions from CT/MR with fast inference and accuracy." },
-        { title: "Interactive 3D", body: "Real-time 3D visualization with rotation, zoom, opacity adjustment, and district-specific anatomical presets." },
         { title: "Privacy by design", body: "Automatic anonymization on import and data handling fully compliant with privacy standards." },
+        { title: "AI segmentation", body: "Automatic detection of organs, vessels and lesions from CT/MRI with advanced, fast and scientifically validated algorithms." },
         { title: "2D DICOM viewer", body: "DICOM visualization with standard radiology tools and additional utilities." },
-        { title: "Editing tools", body: "Manual refinement of AI masks or assisted reconstruction performed by expert radiologists." },
+        { title: "Editing tools", body: "Manual correction of masks with automated and standard tools." },
+        { title: "Assisted reconstruction", body: "The platform is designed to allow users to request specialist support for the review and refinement of reconstructions. Available with the certified release." },
+        { title: "Interactive 3D", body: "Real-time 3D visualization with rotation, zoom, opacity adjustment, and district-specific anatomical presets." },
         { title: "Collaborative review", body: "Interactive 3D reconstructions for clinical assessment and teamwork." },
       ],
     },
@@ -116,33 +141,54 @@ const productCopy = {
     },
     contact: {
       badge: "Contact us",
-      title: "Want to see ViC in action or discuss deployment?",
+      title: "Want to see ViC in action?",
       description:
-        "Our team can guide you through onboarding, integrations, or custom workflows. Reach out from the dedicated support page.",
-      cta: "Go to support page",
+        "Request a demonstration in our demo environment: our team will guide you through the platform and collect your clinical feedback.",
+      cta: "Request a demo",
     },
   },
-  it: { 
+  it: {
     hero: {
       badge: "ViC",
       title: "VirtualClone (ViC) trasforma",
       highlight: "le immagini",
       afterHighlight: "in decisioni.",
       description:
-        "DICOM/NRRD anonimizzati automaticamente, segmentati dall'AI e trasformati in un modello 3D interattivo per la pianificazione pre-operatoria.",
-      ctaPrimary: "Richiedi una demo",
-      ctaSecondary: "Vedi le funzionalità",
+        "Una piattaforma, due strumenti: ViC – Anatomy Explorer per la formazione e la comunicazione, disponibile oggi; ViC – Surgical Planning, software dispositivo medico in corso di certificazione CE.",
+      jumpAnatomy: "ViC – Anatomy Explorer",
+      jumpSurgical: "ViC – Surgical Planning",
       stats: [
         { label: "DICOM", caption: "Conformità" },
         { label: "AI", caption: "Segmentazione" },
         { label: "3D", caption: "Pianificazione" },
       ],
     },
+    anatomy: {
+      status: "Disponibile oggi",
+      title: "ViC – Anatomy Explorer",
+      description:
+        "ViC – Anatomy Explorer porta le ricostruzioni 3D di VirtualClone nella formazione e nella comunicazione: anatomia toraco-addominale interattiva, casi didattici e materiale visivo per l'insegnamento, tumor board formativi e colloquio con il paziente.",
+      list: [
+        "Modelli 3D interattivi per distretto anatomico",
+        "Casi didattici anonimizzati con quiz e annotazioni",
+        "Accesso web, nessuna installazione",
+        "Ideale per università, scuole di specializzazione e programmi di formazione chirurgica",
+      ],
+      disclaimer:
+        "ViC – Anatomy Explorer non è un dispositivo medico e non è destinato alla diagnosi, alla prevenzione o al trattamento: è uno strumento di formazione e comunicazione.",
+    },
+    surgical: {
+      status: "In corso di certificazione CE",
+      sectionTitle: "ViC – Surgical Planning",
+      title: "VirtualClone (ViC) – Surgical Planning: dalle immagini al modello 3D del paziente.",
+      description:
+        "DICOM/NRRD segmentati dall'AI e trasformati in un modello 3D interattivo, progettato per supportare la pianificazione pre-operatoria.",
+    },
     intro: {
-      title: "Cos’è VirtualClone (ViC)?",
+      title: "Cos’è VirtualClone (ViC) – Surgical Planning",
       paragraphs: [
         "ViC è un viewer DICOM multimodale basato sull'AI che rileva e segmenta automaticamente organi, vasi e lesioni per produrre un modello 3D accurato.",
-        "Permette al clinico di analizzare i rapporti parenchima–vasi, valutare la fattibilità della resezione e definire il piano pre-operatorio.",
+        "È progettato per consentire al clinico di visualizzare e comprendere i rapporti parenchima–vasi e per supportare la definizione del piano pre-operatorio.",
       ],
       listTitle: "In sintesi",
       list: [
@@ -174,11 +220,12 @@ const productCopy = {
           body: "Genera una ricostruzione 3D specifica del paziente con controlli di opacità, preset e funzionalità specifiche del distretto d'interesse.",
         },
       ],
+      note: "Casi anonimizzati mostrati a scopo dimostrativo.",
     },
     reconstructions: {
       title: "Ricostruzioni 3D su misura per ogni caso.",
       description:
-        "Ogni ricostruzione si concentra sul distretto toraco-addominale richiesto per la pianificazione chirurgica ed è progettata per supportare il planning preoperatorio.",
+        "Ogni ricostruzione si concentra sul distretto toraco-addominale di interesse ed è progettata per supportare il planning preoperatorio.",
       cards: [
         {
           title: "Ricostruzione 3D distretto epatico",
@@ -206,11 +253,12 @@ const productCopy = {
       title: "Funzionalità principali",
       cards: [
         { title: "Privacy by design", body: "Anonimizzazione automatica all'importazione e gestione sicura dei dati nel pieno rispetto della privacy." },
-        { title: "Segmentazione AI", body: "Rilevamento automatico di organi, vasi e lesioni da TC/RM con algoritmi avanzati, inferenza rapida e alta accuratezza." },
+        { title: "Segmentazione AI", body: "Rilevamento automatico di organi, vasi e lesioni da TC/RM con algoritmi avanzati, rapidi e scientificamente validati." },
         { title: "Viewer DICOM 2D", body: "Visualizzazione completa degli studi DICOM con strumenti radiologici standard e funzionalità avanzate." },
         { title: "Strumenti di editing", body: "Correzione manuale delle maschere con tool automatizzati e standard." },
-        { title: "Ricostruzione Assistita", body: "Possibilità di richiedere la Ricostruzione Assistita da parte di specialisti per aggiustamenti di precisione o eventuali richieste particolari." },
+        { title: "Ricostruzione Assistita", body: "La piattaforma prevede la possibilità di richiedere il supporto di specialisti per la revisione e la rifinitura delle ricostruzioni. Funzionalità disponibile con la versione certificata." },
         { title: "3D interattivo", body: "Visualizzazione 3D in tempo reale con controlli di rotazione, zoom, opacità e preset anatomici specifici per distretto." },
+        { title: "Revisione collaborativa", body: "Ricostruzioni 3D interattive per la valutazione clinica e il lavoro di squadra." },
       ],
     },
     benefits: {
@@ -232,10 +280,10 @@ const productCopy = {
     },
     contact: {
       badge: "Contattaci",
-      title: "Vuoi vedere ViC in azione o discuterne il deployment?",
+      title: "Vuoi vedere ViC in azione?",
       description:
-        "Il nostro team può guidarti nell'onboarding, nelle integrazioni o in workflow personalizzati.\nContattaci dalla pagina di supporto dedicata.",
-      cta: "Vai al supporto",
+        "Richiedi una dimostrazione in ambiente demo: il nostro team ti guiderà nell'utilizzo della piattaforma e raccoglierà il tuo feedback clinico.",
+      cta: "Richiedi una demo",
     },
   },
 } as const;
@@ -312,6 +360,7 @@ export function ProductPageContent() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <HeaderNav active="product" />
+      <RegulatoryBanner variant="short" />
 
       <section id="vic" className="relative overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 py-16 lg:py-24">
@@ -326,14 +375,20 @@ export function ProductPageContent() {
               {content.hero.afterHighlight}
             </h1>
             <p className="mt-5 text-lg text-slate-700">{content.hero.description}</p>
-            {/* <div className="mt-7 flex flex-wrap gap-3">
-              <a href="#demo" className="rounded-full bg-blue-700 text-white px-5 py-3 text-sm font-medium hover:bg-blue-800 transition">
-                {content.hero.ctaPrimary}
+            <div className="mt-7 flex flex-wrap gap-3">
+              <a
+                href="#anatomy-explorer"
+                className="rounded-full bg-blue-700 text-white px-5 py-3 text-sm font-medium hover:bg-blue-800 transition"
+              >
+                {content.hero.jumpAnatomy}
               </a>
-              <a href="#features" className="rounded-full border border-slate-300 px-5 py-3 text-sm font-medium hover:bg-slate-50">
-                {content.hero.ctaSecondary}
+              <a
+                href="#surgical-planning"
+                className="rounded-full border border-slate-300 px-5 py-3 text-sm font-medium hover:bg-slate-50"
+              >
+                {content.hero.jumpSurgical}
               </a>
-            </div> */}
+            </div>
             <div className="mt-10 grid grid-cols-3 gap-4">
               {content.hero.stats.map((stat) => (
                 <div key={stat.label} className="rounded-2xl border border-slate-200 bg-white p-4 text-center">
@@ -383,6 +438,50 @@ export function ProductPageContent() {
         <div className="pointer-events-none absolute right-[-20vw] top-0 h-[90vh] w-[70vw] rounded-[40px] bg-gradient-to-tr from-emerald-200/40 via-transparent to-blue-200/50 blur-3xl z-[-1]" />
       </section>
 
+      {/* ---------------- ViC – Anatomy Explorer (disponibile oggi) ---------------- */}
+      <section id="anatomy-explorer" className="scroll-mt-24 border-y border-slate-200 bg-slate-50">
+        <div className="mx-auto max-w-7xl px-4 py-16">
+          <div className="grid lg:grid-cols-2 gap-10 items-start">
+            <div>
+              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-emerald-700">
+                <span className="inline-block h-2 w-2 rounded-full bg-emerald-500" />
+                {content.anatomy.status}
+              </span>
+              <h2 className="mt-4 text-3xl lg:text-4xl font-semibold text-[#0f2f63]">{content.anatomy.title}</h2>
+              <p className="mt-4 text-slate-700">{content.anatomy.description}</p>
+            </div>
+            <div className="rounded-3xl border border-slate-200 bg-white p-6">
+              <ul className="space-y-2 text-slate-700">
+                {content.anatomy.list.map((item) => (
+                  <li key={item}>• {item}</li>
+                ))}
+              </ul>
+              <p className="mt-6 border-t border-slate-200 pt-4 text-sm text-slate-500">
+                {content.anatomy.disclaimer}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ---------------- ViC – Surgical Planning (in certificazione) ---------------- */}
+      <section id="surgical-planning" className="scroll-mt-24 mx-auto max-w-7xl px-4 pt-16">
+        <span className="inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-amber-700">
+          <span className="inline-block h-2 w-2 rounded-full bg-amber-500" />
+          {content.surgical.status}
+        </span>
+        <h2 className="mt-4 text-3xl lg:text-4xl font-semibold text-[#0f2f63]">{content.surgical.sectionTitle}</h2>
+
+        <div className="mt-6">
+          <RegulatoryBanner variant="extended" />
+        </div>
+
+        <div className="mt-10 max-w-3xl">
+          <p className="text-2xl lg:text-3xl font-semibold text-slate-900">{content.surgical.title}</p>
+          <p className="mt-4 text-lg text-slate-700">{content.surgical.description}</p>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-7xl px-4 py-12">
         <div className="grid lg:grid-cols-2 gap-10 items-start">
           <div>
@@ -417,6 +516,7 @@ export function ProductPageContent() {
               </article>
             ))}
           </div>
+          <p className="mt-8 text-sm text-slate-400">{content.workflow.note}</p>
         </div>
       </section>
 
@@ -523,7 +623,7 @@ export function ProductPageContent() {
           <p className="mt-3 text-slate-300">{content.contact.description}</p>
           <div className="mt-8">
             <a
-              href="/support"
+              href="/support#contact"
               className="inline-flex items-center justify-center rounded-full bg-white text-slate-900 px-6 py-3 text-sm font-semibold hover:bg-slate-100"
             >
               {content.contact.cta}
@@ -532,22 +632,7 @@ export function ProductPageContent() {
         </div>
       </section>
 
-      <footer className="border-t border-slate-200">
-        <div className="mx-auto max-w-7xl px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-slate-500">© {new Date().getFullYear()} IntusAI S.r.l. — All rights reserved</p>
-          <div className="flex items-center gap-4 text-sm">
-            <a href="/" className="hover:text-slate-900">
-              Company
-            </a>
-            <a href="/privacy" className="hover:text-slate-900">
-              Privacy
-            </a>
-            <a href="/cookies" className="hover:text-slate-900">
-              Cookies
-            </a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

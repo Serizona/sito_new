@@ -1,9 +1,10 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "Cookie Policy | IntusAI",
-  description: "Cookie Policy di IntusAI S.r.l. – intusai.com",
+  title: "Cookie Policy | Intus.AI",
+  description: "Cookie Policy di Intus.AI S.r.l. – intusai.com",
 };
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
@@ -136,15 +137,7 @@ export default function CookiesPage() {
         </Section>
       </main>
 
-      <footer className="border-t border-slate-200 mt-12">
-        <div className="mx-auto max-w-4xl px-4 py-6 flex flex-col gap-2 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} IntusAI S.r.l. — All rights reserved.</p>
-          <div className="flex items-center gap-4">
-            <Link href="/privacy" className="hover:text-slate-700">Privacy</Link>
-            <a href="mailto:info@intus-ai.com" className="hover:text-slate-700">info@intus-ai.com</a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter width="narrow" />
     </div>
   );
 }

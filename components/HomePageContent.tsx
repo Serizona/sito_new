@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import { useLanguage } from "@/components/LanguageContext";
 import { HeaderNav } from "@/components/HeaderNav";
 import ModelViewer from "@/components/ModelViewer";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export function HomePageContent() {
   const { dict } = useLanguage();
@@ -106,6 +106,14 @@ export function HomePageContent() {
         </div>
       </section>
 
+      {/* Percorso regolatorio e scientifico — dopo "Perché Intus.AI", prima della CTA finale */}
+      <section id="regulatory" className="mx-auto max-w-7xl px-4 py-16 scroll-mt-28">
+        <div className="rounded-3xl border border-slate-200 bg-white p-8 lg:p-10">
+          <h2 className="text-2xl lg:text-3xl font-semibold text-[#0f2f63]">{home.regulatory.title}</h2>
+          <p className="mt-4 max-w-4xl text-slate-700 leading-relaxed">{home.regulatory.body}</p>
+        </div>
+      </section>
+
       <section id="contact" className="bg-slate-900 text-white">
         <div className="mx-auto max-w-4xl px-4 py-16 text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.4em] text-blue-200">{home.contact.badge}</p>
@@ -113,7 +121,7 @@ export function HomePageContent() {
           <p className="mt-3 text-slate-300">{home.contact.description}</p>
           <div className="mt-8">
             <a
-              href="/support"
+              href="/support#contact"
               className="inline-flex items-center justify-center rounded-full bg-white text-slate-900 px-6 py-3 text-sm font-semibold hover:bg-slate-100"
             >
               {home.contact.cta}
@@ -122,19 +130,7 @@ export function HomePageContent() {
         </div>
       </section>
 
-      <footer className="border-t border-slate-200">
-        <div className="mx-auto max-w-7xl px-4 py-10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-slate-500">© {new Date().getFullYear()} IntusAI S.r.l. — All rights reserved</p>
-          <div className="flex items-center gap-4 text-sm">
-            <a href="/privacy" className="hover:text-slate-200 md:hover:text-slate-900">
-              Privacy
-            </a>
-            <a href="/cookies" className="hover:text-slate-200 md:hover:text-slate-900">
-              Cookies
-            </a>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

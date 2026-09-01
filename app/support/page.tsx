@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import { SupportPageContent } from "@/components/SupportPageContent";
 
 export const metadata: Metadata = {
-  title: "Support | IntusAI",
-  description: "Find documentation or reach the IntusAI team for tailored help.",
+  title: "Support | Intus.AI",
+  description: "Find documentation or reach the Intus.AI team for tailored help.",
 };
 
 
