@@ -448,18 +448,24 @@ export function ProductPageContent() {
           <h2 className="mt-4 text-3xl lg:text-4xl font-semibold text-[#0f2f63]">{content.anatomy.title}</h2>
           <p className="mt-4 text-slate-700">{content.anatomy.description}</p>
 
-          <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 lg:p-8">
-            {/* quattro punti su quattro colonne: a piena larghezza due colonne
-                lasciavano meta' riquadro vuoto */}
-            <ul className="grid gap-x-8 gap-y-3 text-slate-700 sm:grid-cols-2 lg:grid-cols-4">
-              {content.anatomy.list.map((item) => (
-                <li key={item}>• {item}</li>
-              ))}
-            </ul>
-            <p className="mt-6 border-t border-slate-200 pt-4 text-sm text-slate-500">
-              {content.anatomy.disclaimer}
-            </p>
-          </div>
+          <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {content.anatomy.list.map((item) => (
+              <li
+                key={item}
+                className="rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-[2px] hover:shadow-lg"
+              >
+                <svg viewBox="0 0 20 20" aria-hidden="true" className="h-5 w-5 text-emerald-500" fill="currentColor">
+                  <path
+                    fillRule="evenodd"
+                    d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 0 1 1.4-1.4l3.8 3.8 6.8-6.8a1 1 0 0 1 1.4 0Z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+                <p className="mt-3 text-sm text-slate-700">{item}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-8 text-sm text-slate-500">{content.anatomy.disclaimer}</p>
         </div>
       </section>
 
