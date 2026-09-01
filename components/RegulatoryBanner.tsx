@@ -63,12 +63,12 @@ export function RegulatoryBanner({
       <aside
         id={REGULATORY_ANCHOR}
         role="note"
-        className="scroll-mt-28 rounded-2xl border border-amber-300/80 bg-amber-50 p-5 text-slate-800 sm:p-6"
+        className="scroll-mt-28 rounded-2xl border border-blue-200 bg-blue-50 p-5 text-slate-800 sm:p-6"
       >
         <div className="flex gap-3">
-          <InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-amber-600" />
+          <InfoIcon className="mt-0.5 h-5 w-5 shrink-0 text-blue-600" />
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-700">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-700">
               {t.extendedLabel}
             </p>
             <p className="mt-2 text-sm leading-relaxed text-slate-700">{t.extended}</p>
@@ -79,9 +79,9 @@ export function RegulatoryBanner({
   }
 
   return (
-    <div role="note" className="border-b border-amber-200 bg-amber-50/90">
-      <div className="mx-auto flex max-w-7xl items-start gap-2.5 px-4 py-2.5 text-xs leading-relaxed text-amber-900 sm:items-center">
-        <InfoIcon className="mt-0.5 h-4 w-4 shrink-0 text-amber-600 sm:mt-0" />
+    <div role="note" className="border-b border-slate-200 bg-slate-100">
+      <div className="mx-auto flex max-w-7xl items-start justify-center gap-2.5 px-4 py-2.5 text-center text-xs leading-relaxed text-slate-700 sm:items-center">
+        <InfoIcon className="mt-0.5 h-4 w-4 shrink-0 text-blue-600 sm:mt-0" />
         <p>
           {t.short}
           {withLink && (
@@ -89,7 +89,7 @@ export function RegulatoryBanner({
               {" "}
               <a
                 href={EXTENDED_HREF}
-                className="font-semibold underline underline-offset-2 hover:text-amber-950"
+                className="font-semibold text-blue-700 underline underline-offset-2 hover:text-blue-900"
               >
                 {t.shortLink}
               </a>

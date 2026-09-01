@@ -75,8 +75,13 @@ export function SupportPageContent() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#eef3ff] via-white to-[#e8fff4] text-slate-900">
-      <HeaderNav active="support" cta={{ href: "/support#contact", labelKey: "emailSupport" }} />
-      <RegulatoryBanner variant="short" />
+      {/* Header e banner regolatorio scorrono insieme: il banner deve restare
+          sempre visibile, e avvolgerli in un unico contenitore sticky evita di
+          inchiodare l'altezza dell'header in un offset. */}
+      <div className="sticky top-0 z-50">
+        <HeaderNav active="support" cta={{ href: "/support#contact", labelKey: "emailSupport" }} />
+        <RegulatoryBanner variant="short" />
+      </div>
 
       <main className="mx-auto max-w-5xl px-4 py-16 lg:py-24">
         <div className="text-center">

@@ -354,8 +354,13 @@ export function ProductPageContent() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
-      <HeaderNav active="product" />
-      <RegulatoryBanner variant="short" />
+      {/* Header e banner regolatorio scorrono insieme: il banner deve restare
+          sempre visibile, e avvolgerli in un unico contenitore sticky evita di
+          inchiodare l'altezza dell'header in un offset. */}
+      <div className="sticky top-0 z-50">
+        <HeaderNav active="product" />
+        <RegulatoryBanner variant="short" />
+      </div>
 
       <section id="vic" className="relative overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-4 py-16 lg:py-24">
