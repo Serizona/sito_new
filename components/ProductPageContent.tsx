@@ -489,23 +489,28 @@ export function ProductPageContent() {
           <RegulatoryBanner variant="extended" />
         </div>
 
-        <div className="mt-12 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
-          <div>
-            <h3 className="text-2xl font-semibold text-[#0f2f63]">{content.intro.title}</h3>
+        {/* Impilati invece che affiancati: due paragrafi brevi accanto a un
+            elenco di cinque voci lasciavano meta' colonna vuota. Ora i
+            paragrafi stanno su due colonne e l'elenco su tre, cosi' i blocchi
+            riempiono la larghezza e hanno altezze paragonabili. */}
+        <div className="mt-12">
+          <h3 className="text-2xl font-semibold text-[#0f2f63]">{content.intro.title}</h3>
+          <div className="mt-4 grid gap-x-10 gap-y-4 lg:grid-cols-2">
             {content.intro.paragraphs.map((paragraph, idx) => (
-              <p key={idx} className="mt-4 text-slate-700">
+              <p key={idx} className="text-slate-700">
                 {paragraph}
               </p>
             ))}
           </div>
-          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 lg:p-8">
-            <h4 className="font-semibold text-slate-900">{content.intro.listTitle}</h4>
-            <ul className="mt-3 space-y-2 text-slate-700">
-              {content.intro.list.map((item) => (
-                <li key={item}>• {item}</li>
-              ))}
-            </ul>
-          </div>
+        </div>
+
+        <div className="mt-10 rounded-3xl border border-slate-200 bg-slate-50 p-6 lg:p-8">
+          <h4 className="font-semibold text-slate-900">{content.intro.listTitle}</h4>
+          <ul className="mt-4 grid gap-x-10 gap-y-3 text-slate-700 sm:grid-cols-2 lg:grid-cols-3">
+            {content.intro.list.map((item) => (
+              <li key={item}>• {item}</li>
+            ))}
+          </ul>
         </div>
       </section>
 
