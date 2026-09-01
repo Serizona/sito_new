@@ -15,8 +15,6 @@ const productCopy = {
       title: "VirtualClone (ViC) turns",
       highlight: "images",
       afterHighlight: "into 3D models.",
-      description:
-        "One platform, two tools: ViC – Anatomy Explorer for education and communication, available today; ViC – Surgical Planning, a medical device software undergoing CE certification.",
       jumpAnatomy: "ViC – Anatomy Explorer",
       jumpSurgical: "ViC – Surgical Planning",
       stats: [
@@ -153,8 +151,6 @@ const productCopy = {
       title: "VirtualClone (ViC) trasforma",
       highlight: "le immagini",
       afterHighlight: "in modelli 3D.",
-      description:
-        "Una piattaforma, due strumenti: ViC – Anatomy Explorer per la formazione e la comunicazione, disponibile oggi; ViC – Surgical Planning, software dispositivo medico in corso di certificazione CE.",
       jumpAnatomy: "ViC – Anatomy Explorer",
       jumpSurgical: "ViC – Surgical Planning",
       stats: [
@@ -373,8 +369,7 @@ export function ProductPageContent() {
               <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent">{content.hero.highlight}</span>{" "}
               {content.hero.afterHighlight}
             </h1>
-            <p className="mt-5 text-lg text-slate-700">{content.hero.description}</p>
-            <div className="mt-7 flex flex-wrap gap-3">
+            <div className="mt-12 flex flex-wrap gap-3">
               <a
                 href="#anatomy-explorer"
                 className="rounded-full bg-blue-700 text-white px-5 py-3 text-sm font-medium hover:bg-blue-800 transition"
