@@ -2,11 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLanguage } from "@/components/LanguageContext";
 import { HeaderNav } from "@/components/HeaderNav";
 import { RegulatoryBanner } from "@/components/RegulatoryBanner";
-import { ScrollHint } from "@/components/ScrollHint";
 import { SiteFooter } from "@/components/SiteFooter";
 
 const productCopy = {
@@ -267,6 +266,16 @@ export function SurgicalPlanningPageContent() {
   const content: ProductCopy = productCopy[lang] ?? productCopy.en;
   const rotateHint = lang === "it" ? "Trascina per ruotare" : "Drag to rotate";
 
+  // stesso indicatore della home: fissato al viewport, non al fondo dell'hero,
+  // altrimenti finisce sotto la piega sugli schermi bassi
+  const [showHint, setShowHint] = useState(true);
+  useEffect(() => {
+    const onScroll = () => setShowHint(window.scrollY < 120);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   useEffect(() => {
     const cards = document.querySelectorAll("model-viewer[data-mv-hover]");
     const cleanup: Array<() => void> = [];
@@ -417,7 +426,18 @@ export function SurgicalPlanningPageContent() {
         <div className="pointer-events-none absolute right-[-20vw] top-0 h-[90vh] w-[70vw] rounded-[40px] bg-gradient-to-tr from-emerald-200/40 via-transparent to-blue-200/50 blur-3xl z-[-1]" />
       </section>
 
-      <ScrollHint label={content.hero.scrollHint} />
+      {/* bottom-[70px] da md in su per stare sopra il footer fisso da 53px */}
+      <a
+        href="#surgical-planning"
+        className={`fixed inset-x-0 bottom-6 z-30 mx-auto flex w-fit flex-col items-center gap-1.5 text-slate-400 transition-opacity duration-300 hover:text-slate-600 md:bottom-[70px] ${
+          showHint ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      >
+        <span className="text-[11px] font-medium uppercase tracking-[0.25em]">{content.hero.scrollHint}</span>
+        <svg viewBox="0 0 20 20" aria-hidden="true" className="h-5 w-5 animate-bounce" fill="none" stroke="currentColor" strokeWidth="1.8">
+          <path d="M5 7.5 10 12.5 15 7.5" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </a>
 
       {/* ---------------- ViC – Surgical Planning (in certificazione) ---------------- */}
       {/* Una sezione sola: prima erano due blocchi con padding e larghezze
