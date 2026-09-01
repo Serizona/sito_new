@@ -441,23 +441,26 @@ export function ProductPageContent() {
       {/* ---------------- ViC – Anatomy Explorer (disponibile oggi) ---------------- */}
       <section id="anatomy-explorer" className="scroll-mt-24 border-y border-slate-200 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 py-16">
-          <div className="max-w-3xl">
+          {/* testo e riquadro alla stessa larghezza: allineati a sinistra,
+              due blocchi di larghezza diversa sfalsavano la colonna */}
+          <div className="max-w-4xl">
             <span className="inline-flex items-center gap-2 rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-emerald-700">
               <span className="inline-block h-2 w-2 rounded-full bg-emerald-500" />
               {content.anatomy.status}
             </span>
             <h2 className="mt-4 text-3xl lg:text-4xl font-semibold text-[#0f2f63]">{content.anatomy.title}</h2>
             <p className="mt-4 text-slate-700">{content.anatomy.description}</p>
-          </div>
-          <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 lg:p-8">
-            <ul className="grid gap-2 text-slate-700 sm:grid-cols-2 sm:gap-x-10">
-              {content.anatomy.list.map((item) => (
-                <li key={item}>• {item}</li>
-              ))}
-            </ul>
-            <p className="mt-6 border-t border-slate-200 pt-4 text-sm text-slate-500">
-              {content.anatomy.disclaimer}
-            </p>
+
+            <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-6 lg:p-8">
+              <ul className="grid gap-x-8 gap-y-3 text-slate-700 sm:grid-cols-2">
+                {content.anatomy.list.map((item) => (
+                  <li key={item}>• {item}</li>
+                ))}
+              </ul>
+              <p className="mt-6 border-t border-slate-200 pt-4 text-sm text-slate-500">
+                {content.anatomy.disclaimer}
+              </p>
+            </div>
           </div>
         </div>
       </section>
