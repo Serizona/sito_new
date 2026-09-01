@@ -70,6 +70,10 @@ export function HomePageContent() {
                     "environment-image": "neutral",
                     "interaction-prompt": "none",
                     "disable-default-environment": true,
+                    // niente zoom con la rotella: passandoci sopra la pagina
+                    // smetteva di scorrere. La rotazione resta.
+                    "disable-zoom": true,
+                    "disable-pan": true,
                   }}
                   style={{ width: "150%", height: "660px", background: "transparent" }}
                 />
