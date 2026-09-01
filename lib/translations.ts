@@ -9,10 +9,17 @@ export const translations = {
       anatomyExplorerNote: "Available today",
       dataset: "Dataset",
       support: "Support",
+      comingSoon: "Coming soon",
       exploreProduct: "Explore ViC",
       talkToUs: "Talk to us",
       requestDemo: "See ViC in action",
       emailSupport: "Email support",
+    },
+    footer: {
+      rights: "All rights reserved.",
+      company: "Company",
+      privacy: "Privacy",
+      cookies: "Cookies",
     },
     home: {
       hero: {
@@ -29,6 +36,7 @@ export const translations = {
           "We build tools that make imaging clearer and faster. By combining machine learning, clinical collaboration and careful product design, we help teams plan with confidence, communicate better and save time in high-stakes workflows.",
         paragraph2:
           "Our work focuses on thoraco-abdominal surgery, with tools designed to support pre-operative planning.",
+        listTitle: "What we do",
         list: [
           "AI segmentation and 3D visualization",
           "DICOM/NRRD interoperability",
@@ -167,10 +175,17 @@ export const translations = {
       anatomyExplorerNote: "Disponibile oggi",
       dataset: "Dataset",
       support: "Supporto",
+      comingSoon: "Prossimamente",
       exploreProduct: "Esplora ViC",
       talkToUs: "Contattaci",
-      requestDemo: "See ViC in action",
+      requestDemo: "Vedi ViC in azione",
       emailSupport: "Scrivi al supporto",
+    },
+    footer: {
+      rights: "Tutti i diritti riservati.",
+      company: "Azienda",
+      privacy: "Privacy",
+      cookies: "Cookie",
     },
     dataset: {
       hero: {
@@ -229,6 +244,7 @@ export const translations = {
           "Sviluppiamo strumenti che rendono l'imaging più chiaro e rapido. Uniamo machine learning, collaborazione clinica e design accurato per aiutare i team a pianificare con fiducia, comunicare meglio e risparmiare tempo in contesti critici.",
         paragraph2:
           "Il nostro lavoro si concentra sulla chirurgia toraco-addominale, con strumenti progettati per supportare la pianificazione pre-operatoria.",
+        listTitle: "Cosa facciamo",
         list: [
           "Segmentazione AI e visualizzazione 3D",
           "Interoperabilità DICOM/NRRD",
@@ -240,7 +256,7 @@ export const translations = {
         title: "Perché Intus.AI",
         cards: [
           { title: "Focus clinico", body: "Progettato con i chirurghi per la pianificazione e la guida pre-operatoria." },
-          { title: "Time to value", body: "Inferenza rapida, interfaccia chiara." },
+          { title: "Tempi rapidi", body: "Inferenza rapida, interfaccia chiara." },
           { title: "Interoperabilità", body: "Formati standard e integrazioni paziente-specifico." },
         ],
         cta: "Esplora VirtualClone (ViC)",

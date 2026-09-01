@@ -45,7 +45,7 @@ export function HomePageContent() {
               </div>
             </div>
             <div className="flex flex-col items-center justify-center text-center">
-              <div className="relative w-full max-w-[820px] lg:-ml-24 xl:-ml-32">
+              <div className="relative w-full max-w-[980px] lg:-ml-28 xl:-ml-40">
                 <ModelViewer
                   src="/models/logo3d.glb"
                   autoRotate={true}
@@ -58,7 +58,7 @@ export function HomePageContent() {
                     "interaction-prompt": "none",
                     "disable-default-environment": true,
                   }}
-                  style={{ width: "135%", height: "540px", background: "transparent" }}
+                  style={{ width: "150%", height: "660px", background: "transparent" }}
                 />
               </div>
             </div>
@@ -74,7 +74,7 @@ export function HomePageContent() {
             <p className="mt-4 text-slate-700">{home.about.paragraph2}</p>
           </div>
           <div className="rounded-3xl border border-slate-200 bg-white p-6">
-            <h3 className="text-lg font-semibold text-slate-900">What we do</h3>
+            <h3 className="text-lg font-semibold text-slate-900">{home.about.listTitle}</h3>
             <ul className="mt-3 space-y-2 text-slate-700">
               {home.about.list.map((item) => (
                 <li key={item}>• {item}</li>

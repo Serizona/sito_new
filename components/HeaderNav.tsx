@@ -153,7 +153,7 @@ export function HeaderNav({ active, activeProduct, cta }: HeaderNavProps) {
             )}
           </div>
 
-          <span className="text-slate-300 cursor-not-allowed select-none" title="Coming soon">
+          <span className="text-slate-300 cursor-not-allowed select-none" title={nav.comingSoon}>
             {nav.dataset}
           </span>
 

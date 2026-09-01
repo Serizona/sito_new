@@ -477,7 +477,7 @@ export function SurgicalPlanningPageContent() {
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4 text-left">
             {content.workflow.steps.map((step, idx) => (
               <article key={step.title} className="rounded-[28px] border border-white/10 bg-white/5 p-6 text-white shadow-lg shadow-black/20">
-                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-200">Step {idx + 1}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-200">{lang === "it" ? "Passo" : "Step"} {idx + 1}</p>
                 <h3 className="mt-3 text-lg font-semibold">{step.title}</h3>
                 <p className="mt-2 text-sm text-slate-200">{step.body}</p>
               </article>
@@ -526,7 +526,7 @@ export function SurgicalPlanningPageContent() {
               <div className={idx === 3 ? "relative h-[450px]" : "relative aspect-[16/9]"}>
                 {idx === 3 ? (
                   <div className="absolute inset-0 flex items-center justify-center bg-white">
-                    <span className="text-xs font-semibold tracking-widest uppercase text-slate-400">Coming Soon</span>
+                    <span className="text-xs font-semibold tracking-widest uppercase text-slate-400">{lang === "it" ? "Prossimamente" : "Coming soon"}</span>
                   </div>
                 ) : (
                   <model-viewer

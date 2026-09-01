@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useLanguage } from "@/components/LanguageContext";
 
 /**
  * Footer unico del sito.
@@ -17,6 +20,11 @@ const VAT = "P.IVA/C.F. 14342480960";
 const EMAIL = "info@intus-ai.com";
 
 export function SiteFooter({ width = "wide" }: { width?: "wide" | "narrow" }) {
+  // era un componente server, quindi "All rights reserved" e i nomi dei link
+  // restavano in inglese anche in italiano
+  const { dict } = useLanguage();
+  const t = dict.footer;
+
   // "wide": nessun contenitore centrato, cosi' i dati societari finiscono a
   // filo sinistro e i link a filo destro, come la barra in alto. "narrow"
   // resta centrato per privacy e cookies, che hanno il testo su max-w-4xl.
@@ -38,17 +46,17 @@ export function SiteFooter({ width = "wide" }: { width?: "wide" | "narrow" }) {
             <a href={`mailto:${EMAIL}`} className="hover:text-slate-700">
               {EMAIL}
             </a>{" "}
-            — All rights reserved.
+            — {t.rights}
           </p>
           <div className="flex shrink-0 items-center gap-5">
             <Link href="/" className="hover:text-slate-700">
-              Company
+              {t.company}
             </Link>
             <Link href="/privacy" className="hover:text-slate-700">
-              Privacy
+              {t.privacy}
             </Link>
             <Link href="/cookies" className="hover:text-slate-700">
-              Cookies
+              {t.cookies}
             </Link>
           </div>
           </div>
