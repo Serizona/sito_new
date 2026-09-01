@@ -77,7 +77,13 @@ export function AnatomyExplorerPageContent() {
             {t.status}
           </span>
           <h1 className="mt-4 text-3xl sm:text-4xl lg:text-[2.5rem] font-semibold tracking-tight leading-tight text-[#0f2f63]">{t.title}</h1>
-          <p className="mt-4 text-lg text-slate-700">{t.description}</p>
+
+          {/* L'atlante viene per primo: e' la cosa che si prova, e mostrarla
+              subito dopo il titolo vale piu' di descriverla. Testo e card
+              spiegano dopo. */}
+          <AnatomyAtlas />
+
+          <p className="mt-16 text-lg text-slate-700">{t.description}</p>
 
           <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {t.list.map((item) => (
@@ -99,10 +105,6 @@ export function AnatomyExplorerPageContent() {
 
           <p className="mt-8 text-sm text-slate-500">{t.disclaimer}</p>
         </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 py-16">
-        <AnatomyAtlas />
       </section>
 
       <section className="bg-slate-900 text-white">
