@@ -25,7 +25,8 @@ const productCopy = {
     },
     surgical: {
       status: "Undergoing CE certification",
-      title: "VirtualClone (ViC) – Surgical Planning: from images to the patient's 3D model.",
+      title: "VirtualClone (ViC) – Surgical Planning",
+      subtitle: "From images to the patient's 3D model.",
       description:
         "DICOM/NRRD files are AI-segmented and turned into an interactive 3D model, designed to support pre-operative planning.",
     },
@@ -147,7 +148,8 @@ const productCopy = {
     },
     surgical: {
       status: "In corso di certificazione CE",
-      title: "VirtualClone (ViC) – Surgical Planning: dalle immagini al modello 3D del paziente.",
+      title: "VirtualClone (ViC) – Surgical Planning",
+      subtitle: "Dalle immagini al modello 3D del paziente.",
       description:
         "DICOM/NRRD segmentati dall'AI e trasformati in un modello 3D interattivo, progettato per supportare la pianificazione pre-operatoria.",
     },
@@ -422,7 +424,10 @@ export function SurgicalPlanningPageContent() {
         <h2 className="mt-4 text-3xl lg:text-4xl font-semibold tracking-tight leading-tight text-[#0f2f63]">
           {content.surgical.title}
         </h2>
-        <p className="mt-4 text-lg text-slate-700">{content.surgical.description}</p>
+        <p className="mt-3 text-xl lg:text-2xl font-medium leading-snug text-slate-700">
+          {content.surgical.subtitle}
+        </p>
+        <p className="mt-4 max-w-3xl text-lg text-slate-600">{content.surgical.description}</p>
 
         <div className="mt-8">
           <RegulatoryBanner variant="extended" />
