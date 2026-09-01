@@ -12,9 +12,8 @@ const productCopy = {
   en: {
     hero: {
       badge: "ViC",
-      title: "VirtualClone (ViC) turns",
-      highlight: "images",
-      afterHighlight: "into 3D models.",
+      title: "VirtualClone (ViC):",
+      highlight: "Visualise. Explore. Plan.",
       jumpAnatomy: "ViC – Anatomy Explorer",
       jumpSurgical: "ViC – Surgical Planning",
       scrollHint: "Scroll",
@@ -136,9 +135,8 @@ const productCopy = {
   it: {
     hero: {
       badge: "ViC",
-      title: "VirtualClone (ViC) trasforma",
-      highlight: "le immagini",
-      afterHighlight: "in modelli 3D.",
+      title: "VirtualClone (ViC):",
+      highlight: "Visualizza. Esplora. Pianifica.",
       jumpAnatomy: "ViC – Anatomy Explorer",
       jumpSurgical: "ViC – Surgical Planning",
       scrollHint: "Scorri",
@@ -360,8 +358,9 @@ export function SurgicalPlanningPageContent() {
             </div>
             <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.05]">
               {content.hero.title}{" "}
-              <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent">{content.hero.highlight}</span>{" "}
-              {content.hero.afterHighlight}
+              <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent">
+                {content.hero.highlight}
+              </span>
             </h1>
             <div className="mt-16 flex flex-wrap gap-3">
               <a
