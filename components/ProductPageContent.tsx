@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect } from "react";
 import { useLanguage } from "@/components/LanguageContext";
 import { HeaderNav } from "@/components/HeaderNav";
+import { AnatomyAtlas } from "@/components/AnatomyAtlas";
 import { RegulatoryBanner } from "@/components/RegulatoryBanner";
 import { SiteFooter } from "@/components/SiteFooter";
 
@@ -466,6 +467,8 @@ export function ProductPageContent() {
             ))}
           </ul>
           <p className="mt-8 text-sm text-slate-500">{content.anatomy.disclaimer}</p>
+
+          <AnatomyAtlas />
         </div>
       </section>
 
