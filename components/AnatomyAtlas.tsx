@@ -29,7 +29,29 @@ import { useLanguage } from "@/components/LanguageContext";
  * sondaggio singolo, senza rompersi.
  */
 
-type Structure = { color: string; it: string; en: string };
+type Structure = {
+  color: string;
+  /** nome mostrato al passaggio del mouse: qui il lato va distinto */
+  it: string;
+  en: string;
+  /**
+   * Voce di legenda. Piu' strutture che condividono lo stesso gruppo
+   * compaiono nell'albero come una riga sola — l'albero elenca i tipi di
+   * struttura, il lato si legge passandoci sopra.
+   */
+  group?: { color: string; it: string; en: string };
+};
+
+/**
+ * Gruppi di legenda del distretto renale. Il colore segue la convenzione
+ * anatomica (arterie rosse, vene blu) e non quello delle singole mesh: nel
+ * .glb il lato destro ha arteria blu e vene rosse, cioe' invertite rispetto
+ * al sinistro. Da far verificare: o i nomi mesh o i colori sono sbagliati
+ * nel file sorgente.
+ */
+const ARTERIES = { color: "#d83418", it: "Arterie renali", en: "Renal arteries" };
+const VEINS = { color: "#8ca6f4", it: "Vene renali", en: "Renal veins" };
+const URINARY = { color: "#cfe567", it: "Vie urinarie", en: "Urinary tracts" };
 
 type District = {
   id: string;
@@ -103,23 +125,23 @@ const DISTRICTS: District[] = [
       // in legenda compaiono come una voce sola
       1: { color: "#d9a425", it: "Cisti renali", en: "Renal cysts" },
       2: { color: "#b86654", it: "Rene destro", en: "Right kidney" },
-      3: { color: "#cfe567", it: "Via urinaria destra", en: "Right urinary tract" },
-      4: { color: "#d83418", it: "Vene renali destre", en: "Right renal veins" },
+      3: { color: "#cfe567", it: "Via urinaria destra", en: "Right urinary tract", group: URINARY },
+      4: { color: "#d83418", it: "Vene renali destre", en: "Right renal veins", group: VEINS },
       5: { color: "#8ca6f4", it: "Vena cava", en: "Vena cava" },
       // l'aorta e' un'arteria: pastiglia rossa come le altre arteriose, anche
       // se nel .glb condivide il materiale del rene destro e viene resa marrone
       6: { color: "#d83418", it: "Aorta", en: "Aorta" },
-      7: { color: "#d83418", it: "Arteria renale sinistra", en: "Left renal artery" },
+      7: { color: "#d83418", it: "Arteria renale sinistra", en: "Left renal artery", group: ARTERIES },
       8: { color: "#d9a425", it: "Cisti renali", en: "Renal cysts" },
       9: { color: "#d9a425", it: "Cisti renali", en: "Renal cysts" },
       10: { color: "#b86654", it: "Rene sinistro", en: "Left kidney" },
       11: { color: "#8fed8f", it: "Lesione", en: "Lesion" },
-      12: { color: "#cfe567", it: "Via urinaria sinistra", en: "Left urinary tract" },
-      13: { color: "#8ca6f4", it: "Vene renali sinistre", en: "Left renal veins" },
-      14: { color: "#8ca6f4", it: "Arteria renale destra", en: "Right renal artery" },
+      12: { color: "#cfe567", it: "Via urinaria sinistra", en: "Left urinary tract", group: URINARY },
+      13: { color: "#8ca6f4", it: "Vene renali sinistre", en: "Left renal veins", group: VEINS },
+      14: { color: "#8ca6f4", it: "Arteria renale destra", en: "Right renal artery", group: ARTERIES },
       15: { color: "#d9a425", it: "Cisti renali", en: "Renal cysts" },
     },
-    legend: [2, 10, 11, 1, 3, 12, 6, 5, 7, 14, 4, 13],
+    legend: [2, 10, 11, 1, 3, 6, 7, 5, 4],
   },
 ];
 
@@ -293,20 +315,34 @@ export function AnatomyAtlas() {
   );
 
   const active = hover ? district.structures[hover.index] : null;
-  const activeLabel = hover ? (lang === "it" ? active?.it : active?.en) : null;
+  // il tooltip usa sempre il nome specifico: e' li' che si legge il lato
+  const activeLabel = active ? (lang === "it" ? active.it : active.en) : null;
+  const activeGroup = active
+    ? lang === "it"
+      ? (active.group?.it ?? active.it)
+      : (active.group?.en ?? active.en)
+    : null;
 
-  // in legenda le etichette ripetute (es. due cisti per lato) compaiono una volta
+  /**
+   * Voci dell'albero. Le strutture con lo stesso gruppo — o con la stessa
+   * etichetta, come le quattro cisti — si fondono in una riga sola.
+   */
   const legend = useMemo(() => {
     const seen = new Set<string>();
-    return district.legend
-      .map((index) => ({ index, structure: district.structures[index] }))
-      .filter(({ structure }) => {
-        if (!structure) return false;
-        const label = lang === "it" ? structure.it : structure.en;
-        if (seen.has(label)) return false;
-        seen.add(label);
-        return true;
-      });
+    const rows: Array<{ key: string; label: string; color: string }> = [];
+
+    for (const index of district.legend) {
+      const structure = district.structures[index];
+      if (!structure) continue;
+
+      const source = structure.group ?? structure;
+      const label = lang === "it" ? source.it : source.en;
+      if (seen.has(label)) continue;
+
+      seen.add(label);
+      rows.push({ key: `${index}`, label, color: source.color });
+    }
+    return rows;
   }, [district, lang]);
 
   const loading = progress > 0 && progress < 1;
@@ -394,24 +430,22 @@ export function AnatomyAtlas() {
         <div className="border-t border-slate-200 px-6 py-5 lg:border-l lg:border-t-0">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">{t.legend}</p>
           <ul className="mt-3 space-y-1.5">
-            {legend.map(({ index, structure }) => {
-              const label = lang === "it" ? structure.it : structure.en;
-              const isActive = activeLabel === label;
-              return (
-                <li
-                  key={index}
-                  className={`flex items-center gap-2.5 rounded-lg px-2 py-1 text-sm transition ${
-                    isActive ? "bg-slate-100 font-semibold text-slate-900" : "text-slate-600"
-                  }`}
-                >
-                  <span
-                    className="inline-block h-2.5 w-2.5 shrink-0 rounded-full"
-                    style={{ backgroundColor: structure.color }}
-                  />
-                  {label}
-                </li>
-              );
-            })}
+            {legend.map(({ key, label, color }) => (
+              <li
+                key={key}
+                className={`flex items-center gap-2.5 rounded-lg px-2 py-1 text-sm transition ${
+                  activeGroup === label
+                    ? "bg-slate-100 font-semibold text-slate-900"
+                    : "text-slate-600"
+                }`}
+              >
+                <span
+                  className="inline-block h-2.5 w-2.5 shrink-0 rounded-full"
+                  style={{ backgroundColor: color }}
+                />
+                {label}
+              </li>
+            ))}
           </ul>
           <p className="mt-5 border-t border-slate-200 pt-4 text-xs text-slate-400">{t.demoNote}</p>
         </div>
