@@ -41,7 +41,6 @@ const productCopy = {
     },
     surgical: {
       status: "Undergoing CE certification",
-      sectionTitle: "ViC – Surgical Planning",
       title: "VirtualClone (ViC) – Surgical Planning: from images to the patient's 3D model.",
       description:
         "DICOM/NRRD files are AI-segmented and turned into an interactive 3D model, designed to support pre-operative planning.",
@@ -180,7 +179,6 @@ const productCopy = {
     },
     surgical: {
       status: "In corso di certificazione CE",
-      sectionTitle: "ViC – Surgical Planning",
       title: "VirtualClone (ViC) – Surgical Planning: dalle immagini al modello 3D del paziente.",
       description:
         "DICOM/NRRD segmentati dall'AI e trasformati in un modello 3D interattivo, progettato per supportare la pianificazione pre-operatoria.",
@@ -482,18 +480,14 @@ export function ProductPageContent() {
           <span className="inline-block h-2 w-2 rounded-full bg-amber-500" />
           {content.surgical.status}
         </span>
-        <h2 className="mt-4 text-3xl lg:text-4xl font-semibold text-[#0f2f63]">{content.surgical.sectionTitle}</h2>
+        <h2 className="mt-4 text-3xl lg:text-4xl font-semibold leading-tight text-[#0f2f63]">
+          {content.surgical.title}
+        </h2>
+        <p className="mt-4 text-lg text-slate-700">{content.surgical.description}</p>
 
-        <div className="mt-6">
+        <div className="mt-8">
           <RegulatoryBanner variant="extended" />
         </div>
-
-        {/* occhiello: piu' piccolo del titolo di sezione, cosi' non compete.
-            A tutta larghezza sta su una riga sola e non si spezza a meta' */}
-        <p className="mt-10 text-xl lg:text-2xl font-medium leading-snug text-slate-900">
-          {content.surgical.title}
-        </p>
-        <p className="mt-3 max-w-4xl text-lg text-slate-700">{content.surgical.description}</p>
 
         <div className="mt-12 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
           <div>
@@ -516,7 +510,7 @@ export function ProductPageContent() {
       </section>
 
       <section id="workflow" className="bg-slate-900 text-white">
-        <div className="mx-auto max-w-6xl px-4 py-16 text-center">
+        <div className="mx-auto max-w-7xl px-4 py-16 text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.4em] text-blue-200">{content.workflow.badge}</p>
           <h2 className="mt-4 text-3xl lg:text-4xl font-semibold">{content.workflow.title}</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4 text-left">
