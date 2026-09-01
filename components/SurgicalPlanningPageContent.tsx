@@ -427,7 +427,7 @@ export function SurgicalPlanningPageContent() {
         <p className="mt-3 text-xl lg:text-2xl font-medium leading-snug text-slate-700">
           {content.surgical.subtitle}
         </p>
-        <p className="mt-4 max-w-3xl text-lg text-slate-600">{content.surgical.description}</p>
+        <p className="mt-4 text-lg text-slate-600">{content.surgical.description}</p>
 
         <div className="mt-8">
           <RegulatoryBanner variant="extended" />
