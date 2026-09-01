@@ -25,7 +25,7 @@ export function DatasetPageContent() {
             <p className="inline-flex items-center gap-2 rounded-full border border-white/70 bg-white/80 px-4 py-1 text-xs font-semibold text-slate-600 shadow-sm backdrop-blur">
               {dataset.hero.badge}
             </p>
-            <h1 className="mt-6 text-4xl md:text-5xl font-black tracking-tight text-slate-900">{dataset.hero.title}</h1>
+            <h1 className="mt-6 text-3xl sm:text-4xl lg:text-[2.5rem] font-semibold tracking-tight text-[#0f2f63]">{dataset.hero.title}</h1>
             <p className="mx-auto mt-5 max-w-3xl text-lg text-slate-700">{dataset.hero.description}</p>
             {/* <div className="mt-8 flex flex-wrap justify-center gap-4">
               <a
@@ -44,7 +44,7 @@ export function DatasetPageContent() {
           <div className="grid gap-8 rounded-[32px] border border-slate-200 bg-white/90 p-8 shadow-[0_40px_120px_rgba(15,35,80,0.08)]">
             <div className="grid gap-8 md:grid-cols-2">
               <div>
-                <h2 className="text-3xl font-semibold text-slate-900">{dataset.stats.title}</h2>
+                <h2 className="text-3xl lg:text-4xl font-semibold tracking-tight text-[#0f2f63]">{dataset.stats.title}</h2>
                 <p className="mt-4 text-slate-600">{dataset.stats.description}</p>
               </div>
               <div className="rounded-[36px] border border-slate-100 bg-slate-50/80 p-6 mt-6 md:mt-0">
@@ -78,7 +78,7 @@ export function DatasetPageContent() {
                   <span className="h-2 w-2 rounded-full bg-emerald-300 shadow-[0_0_0_4px_rgba(16,185,129,0.15)]" />
                   {dataset.ircad.badge}
                 </span>
-                <h2 className="text-3xl md:text-4xl font-bold leading-tight">{dataset.ircad.title}</h2>
+                <h2 className="text-3xl lg:text-4xl font-semibold tracking-tight leading-tight">{dataset.ircad.title}</h2>
                 <p className="text-base md:text-lg text-white/80">{dataset.ircad.description}</p>
                 {dataset.ircad.note ? (
                   <p className="text-base md:text-lg text-white/70 italic">{dataset.ircad.note}</p>

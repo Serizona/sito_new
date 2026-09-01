@@ -341,7 +341,7 @@ export function SurgicalPlanningPageContent() {
               <span className="inline-block h-2 w-2 rounded-full bg-blue-600" />
               {content.hero.badge}
             </div>
-            <h1 className="mt-4 text-4xl lg:text-6xl font-extrabold leading-[1.05]">
+            <h1 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.05]">
               {content.hero.title}{" "}
               <span className="bg-gradient-to-r from-blue-700 to-blue-500 bg-clip-text text-transparent">{content.hero.highlight}</span>{" "}
               {content.hero.afterHighlight}
@@ -419,7 +419,7 @@ export function SurgicalPlanningPageContent() {
           <span className="inline-block h-2 w-2 rounded-full bg-amber-500" />
           {content.surgical.status}
         </span>
-        <h2 className="mt-4 text-3xl lg:text-4xl font-semibold leading-tight text-[#0f2f63]">
+        <h2 className="mt-4 text-3xl lg:text-4xl font-semibold tracking-tight leading-tight text-[#0f2f63]">
           {content.surgical.title}
         </h2>
         <p className="mt-4 text-lg text-slate-700">{content.surgical.description}</p>
@@ -468,7 +468,7 @@ export function SurgicalPlanningPageContent() {
       <section id="workflow" className="bg-slate-900 text-white">
         <div className="mx-auto max-w-7xl px-4 py-16 text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.4em] text-blue-200">{content.workflow.badge}</p>
-          <h2 className="mt-4 text-3xl lg:text-4xl font-semibold">{content.workflow.title}</h2>
+          <h2 className="mt-4 text-3xl lg:text-4xl font-semibold tracking-tight">{content.workflow.title}</h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4 text-left">
             {content.workflow.steps.map((step, idx) => (
               <article key={step.title} className="rounded-[28px] border border-white/10 bg-white/5 p-6 text-white shadow-lg shadow-black/20">
@@ -484,7 +484,7 @@ export function SurgicalPlanningPageContent() {
 
       <section id="models" className="mx-auto max-w-7xl px-4 py-16">
         <div className="text-center">
-          <h2 className="text-3xl lg:text-5xl font-semibold text-slate-900 tracking-tight">{content.reconstructions.title}</h2>
+          <h2 className="text-3xl lg:text-4xl font-semibold tracking-tight text-[#0f2f63]">{content.reconstructions.title}</h2>
           <p className="mt-3 text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">{content.reconstructions.description}</p>
         </div>
 
@@ -550,34 +550,36 @@ export function SurgicalPlanningPageContent() {
         </div>
       </section>
 
-      {/* Niente riquadri: filetti sottili e testo, come le griglie di
-          caratteristiche di apple.com. Impaginato con le colonne CSS e non
-          con una griglia perche' le voci sono sette: una griglia da tre
-          lasciava una card orfana nell'ultima riga, mentre le colonne si
-          bilanciano da sole in altezza. */}
+      {/* Righe a tutta larghezza, non riquadri: le funzionalita' sono sette e
+          qualunque griglia lascia un buco nell'ultima riga, mentre in righe il
+          numero dispari non conta. Termine a sinistra e descrizione a destra,
+          separati da filetti: e' l'impaginazione degli specchietti tecnici. */}
       <section id="features" className="border-y border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-20 lg:py-24">
-          <h2 className="max-w-3xl text-3xl sm:text-4xl font-semibold leading-tight tracking-tight text-[#0f2f63]">
+        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-24">
+          <h2 className="text-3xl lg:text-4xl font-semibold tracking-tight text-[#0f2f63]">
             {content.features.title}
           </h2>
-          <div className="mt-12 gap-x-14 md:columns-2 lg:columns-3">
+          <dl className="mt-10 border-t border-slate-200">
             {content.features.cards.map((card) => (
-              <div key={card.title} className="mb-10 break-inside-avoid border-t border-slate-200 pt-5">
-                <h3 className="text-lg font-semibold text-slate-900">{card.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600">{card.body}</p>
+              <div
+                key={card.title}
+                className="grid gap-1.5 border-b border-slate-200 py-6 md:grid-cols-[minmax(0,17rem)_1fr] md:gap-12"
+              >
+                <dt className="text-lg font-semibold text-slate-900">{card.title}</dt>
+                <dd className="max-w-3xl leading-relaxed text-slate-600">{card.body}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </div>
       </section>
 
       <section id="benefits" className="border-y border-slate-200 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 py-16">
-          <h2 className="text-2xl lg:text-3xl font-semibold text-[#0f2f63]">{content.benefits.title}</h2>
+          <h2 className="text-3xl lg:text-4xl font-semibold tracking-tight text-[#0f2f63]">{content.benefits.title}</h2>
           <div className="mt-8 grid md:grid-cols-3 gap-6">
             {content.benefits.cards.map((card) => (
               <article key={card.title} className="rounded-3xl border border-slate-200 bg-white p-6">
-                <h3 className="font-semibold text-blue-700">{card.title}</h3>
+                <h3 className="text-lg font-semibold text-slate-900">{card.title}</h3>
                 <p className="mt-2 text-sm text-slate-700">{card.body}</p>
               </article>
             ))}
@@ -588,7 +590,7 @@ export function SurgicalPlanningPageContent() {
       <section className="bg-slate-900 text-white">
         <div className="mx-auto max-w-5xl px-4 py-16 text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.4em] text-blue-200">{content.contact.badge}</p>
-          <h2 className="mt-4 text-3xl lg:text-4xl font-semibold">{content.contact.title}</h2>
+          <h2 className="mt-4 text-3xl lg:text-4xl font-semibold tracking-tight">{content.contact.title}</h2>
           <p className="mt-3 text-slate-300">{content.contact.description}</p>
           <div className="mt-8">
             <a

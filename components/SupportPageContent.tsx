@@ -92,7 +92,7 @@ export function SupportPageContent() {
               utili del contenitore e "su ViC." finiva da solo sulla seconda
               riga. A 40px sta in 917px. Sotto lg va a capo comunque, e
               text-balance evita che resti una riga orfana. */}
-          <h1 className="mt-4 text-3xl sm:text-4xl lg:text-[2.5rem] font-extrabold leading-tight tracking-tight text-balance text-slate-900">
+          <h1 className="mt-4 text-3xl sm:text-4xl lg:text-[2.5rem] font-semibold tracking-tight leading-tight text-balance text-[#0f2f63]">
             {t.hero.title}
           </h1>
           <p
@@ -112,7 +112,7 @@ export function SupportPageContent() {
                   <path d="M12 6v20" />
                 </svg>
               </div>
-              <h2 className="text-2xl font-semibold">{t.cards.manual.title}</h2>
+              <h2 className="text-2xl font-semibold text-slate-900">{t.cards.manual.title}</h2>
             </div>
             <p className="mt-3 text-slate-600">{t.cards.manual.body}</p>
           </div>
@@ -125,7 +125,7 @@ export function SupportPageContent() {
                   <path d="M5 10.5 16 18l11-7.5" />
                 </svg>
               </div>
-              <h2 className="text-2xl font-semibold">{t.cards.contact.title}</h2>
+              <h2 className="text-2xl font-semibold text-slate-900">{t.cards.contact.title}</h2>
             </div>
             <p className="mt-3 text-slate-600">{t.cards.contact.body}</p>
             <a
@@ -145,7 +145,7 @@ export function SupportPageContent() {
             <div className="space-y-8">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.4em] text-blue-700">{t.contactSection.badge}</p>
-                <h2 className="mt-3 text-3xl lg:text-4xl font-bold text-slate-900">{t.contactSection.title}</h2>
+                <h2 className="mt-3 text-3xl lg:text-4xl font-semibold tracking-tight text-[#0f2f63]">{t.contactSection.title}</h2>
                 <p className="mt-3 text-slate-600">{t.contactSection.intro}</p>
               </div>
               <div>

@@ -22,7 +22,7 @@ export function HomePageContent() {
         <div className="relative mx-auto max-w-7xl px-4 py-16 lg:py-24">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
-              <h1 className="mt-6 text-5xl md:text-6xl lg:text-[64px] font-black leading-[1.05] text-slate-900">
+              <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.05] text-slate-900">
                 {home.hero.titleLine1}
                 <span className="block bg-gradient-to-r from-slate-900 via-slate-800 to-slate-600 bg-clip-text text-transparent">
                   {home.hero.titleLine2}
@@ -69,12 +69,12 @@ export function HomePageContent() {
       <section id="about" className="mx-auto max-w-7xl px-4 py-12 scroll-mt-28">
         <div className="grid lg:grid-cols-2 gap-10 items-start">
           <div>
-            <h2 className="text-2xl lg:text-3xl font-semibold">{home.about.title}</h2>
+            <h2 className="text-3xl lg:text-4xl font-semibold tracking-tight text-[#0f2f63]">{home.about.title}</h2>
             <p className="mt-4 text-slate-700">{home.about.paragraph1}</p>
             <p className="mt-4 text-slate-700">{home.about.paragraph2}</p>
           </div>
           <div className="rounded-3xl border border-slate-200 bg-white p-6">
-            <h3 className="font-semibold">What we do</h3>
+            <h3 className="text-lg font-semibold text-slate-900">What we do</h3>
             <ul className="mt-3 space-y-2 text-slate-700">
               {home.about.list.map((item) => (
                 <li key={item}>• {item}</li>
@@ -86,11 +86,11 @@ export function HomePageContent() {
 
       <section id="why" className="border-y border-slate-200 bg-slate-50">
         <div className="mx-auto max-w-7xl px-4 py-16">
-          <h2 className="text-2xl lg:text-3xl font-semibold">{home.why.title}</h2>
+          <h2 className="text-3xl lg:text-4xl font-semibold tracking-tight text-[#0f2f63]">{home.why.title}</h2>
           <div className="mt-8 grid md:grid-cols-3 gap-6">
             {home.why.cards.map((card) => (
               <article key={card.title} className="rounded-3xl border border-slate-200 bg-white p-6">
-                <h3 className="font-semibold text-blue-700">{card.title}</h3>
+                <h3 className="text-lg font-semibold text-slate-900">{card.title}</h3>
                 <p className="mt-2 text-sm text-slate-700">{card.body}</p>
               </article>
             ))}
@@ -109,7 +109,7 @@ export function HomePageContent() {
       {/* Percorso regolatorio e scientifico — dopo "Perché Intus.AI", prima della CTA finale */}
       <section id="regulatory" className="mx-auto max-w-7xl px-4 py-16 scroll-mt-28">
         <div className="rounded-3xl border border-slate-200 bg-white p-8 lg:p-10">
-          <h2 className="text-2xl lg:text-3xl font-semibold text-[#0f2f63]">{home.regulatory.title}</h2>
+          <h2 className="text-3xl lg:text-4xl font-semibold tracking-tight text-[#0f2f63]">{home.regulatory.title}</h2>
           <p className="mt-4 max-w-4xl text-slate-700 leading-relaxed">{home.regulatory.body}</p>
         </div>
       </section>
@@ -117,7 +117,7 @@ export function HomePageContent() {
       <section id="contact" className="bg-slate-900 text-white">
         <div className="mx-auto max-w-4xl px-4 py-16 text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.4em] text-blue-200">{home.contact.badge}</p>
-          <h2 className="mt-4 text-3xl lg:text-4xl font-semibold">{home.contact.title}</h2>
+          <h2 className="mt-4 text-3xl lg:text-4xl font-semibold tracking-tight">{home.contact.title}</h2>
           <p className="mt-3 text-slate-300">{home.contact.description}</p>
           <div className="mt-8">
             <a

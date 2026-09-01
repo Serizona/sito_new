@@ -76,7 +76,7 @@ export function AnatomyExplorerPageContent() {
             <span className="inline-block h-2 w-2 rounded-full bg-emerald-500" />
             {t.status}
           </span>
-          <h1 className="mt-4 text-4xl lg:text-5xl font-extrabold leading-tight text-[#0f2f63]">{t.title}</h1>
+          <h1 className="mt-4 text-3xl sm:text-4xl lg:text-[2.5rem] font-semibold tracking-tight leading-tight text-[#0f2f63]">{t.title}</h1>
           <p className="mt-4 text-lg text-slate-700">{t.description}</p>
 
           <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -108,7 +108,7 @@ export function AnatomyExplorerPageContent() {
       <section className="bg-slate-900 text-white">
         <div className="mx-auto max-w-5xl px-4 py-16 text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.4em] text-blue-200">{t.contact.badge}</p>
-          <h2 className="mt-4 text-3xl lg:text-4xl font-semibold">{t.contact.title}</h2>
+          <h2 className="mt-4 text-3xl lg:text-4xl font-semibold tracking-tight">{t.contact.title}</h2>
           <p className="mt-3 text-slate-300">{t.contact.description}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Link
