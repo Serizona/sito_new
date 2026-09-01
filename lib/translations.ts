@@ -2,7 +2,11 @@ export const translations = {
   en: {
     nav: {
       company: "Company",
-      product: "Product",
+      product: "ViC Suite",
+      surgicalPlanning: "ViC – Surgical Planning",
+      surgicalPlanningNote: "Undergoing CE certification",
+      anatomyExplorer: "ViC – Anatomy Explorer",
+      anatomyExplorerNote: "Available today",
       dataset: "Dataset",
       support: "Support",
       exploreProduct: "Explore ViC",
@@ -156,7 +160,11 @@ export const translations = {
   it: {
     nav: {
       company: "Azienda",
-      product: "Prodotto",
+      product: "ViC Suite",
+      surgicalPlanning: "ViC – Surgical Planning",
+      surgicalPlanningNote: "In corso di certificazione CE",
+      anatomyExplorer: "ViC – Anatomy Explorer",
+      anatomyExplorerNote: "Disponibile oggi",
       dataset: "Dataset",
       support: "Supporto",
       exploreProduct: "Esplora ViC",

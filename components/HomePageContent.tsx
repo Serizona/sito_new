@@ -11,7 +11,7 @@ export function HomePageContent() {
 
   return (
     <div className="min-h-screen bg-white text-slate-900">
-      <HeaderNav active="company" cta={{ href: "/product/vic", labelKey: "exploreProduct" }} />
+      <HeaderNav active="company" cta={{ href: "/product/surgical-planning", labelKey: "exploreProduct" }} />
 
       <section className="relative overflow-hidden bg-gradient-to-br from-[#f5f8ff] via-white to-[#eefdf5]">
         <div className="pointer-events-none absolute inset-0">
@@ -31,7 +31,7 @@ export function HomePageContent() {
               <p className="mt-6 text-lg text-slate-700 max-w-2xl">{home.hero.description}</p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
-                  href="/product/vic"
+                  href="/product/surgical-planning"
                   className="rounded-full bg-[#0047ff] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-500/35 transition hover:-translate-y-0.5 hover:bg-[#003ae0]"
                 >
                   {home.hero.discover}
@@ -97,7 +97,7 @@ export function HomePageContent() {
           </div>
           <div className="mt-10 text-center">
             <a
-              href="/product/vic"
+              href="/product/surgical-planning"
               className="inline-flex items-center justify-center rounded-full bg-slate-900 text-white px-6 py-3 text-sm font-semibold hover:bg-slate-800"
             >
               {home.why.cta}

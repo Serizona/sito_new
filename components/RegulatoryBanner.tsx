@@ -15,7 +15,7 @@ import { useLanguage } from "@/components/LanguageContext";
  */
 
 export const REGULATORY_ANCHOR = "regulatory-status";
-const EXTENDED_HREF = `/product/vic#${REGULATORY_ANCHOR}`;
+const EXTENDED_HREF = `/product/surgical-planning#${REGULATORY_ANCHOR}`;
 
 const copy = {
   it: {

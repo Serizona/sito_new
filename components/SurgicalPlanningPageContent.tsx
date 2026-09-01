@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect } from "react";
 import { useLanguage } from "@/components/LanguageContext";
 import { HeaderNav } from "@/components/HeaderNav";
-import { AnatomyAtlas } from "@/components/AnatomyAtlas";
 import { RegulatoryBanner } from "@/components/RegulatoryBanner";
 import { SiteFooter } from "@/components/SiteFooter";
 
@@ -22,20 +22,6 @@ const productCopy = {
         { label: "AI", caption: "Segmentation" },
         { label: "3D", caption: "Planning" },
       ],
-    },
-    anatomy: {
-      status: "Available today",
-      title: "ViC – Anatomy Explorer",
-      description:
-        "ViC – Anatomy Explorer brings VirtualClone's 3D reconstructions to education and communication: interactive thoraco-abdominal anatomy, teaching cases and visual material for training, educational tumour boards and patient communication.",
-      list: [
-        "Interactive 3D models by anatomical district",
-        "Anonymised teaching cases with quizzes and annotations",
-        "Web access, no installation",
-        "Ideal for universities, residency programmes and surgical training",
-      ],
-      disclaimer:
-        "ViC – Anatomy Explorer is not a medical device and is not intended for diagnosis, prevention or treatment: it is an education and communication tool.",
     },
     surgical: {
       status: "Undergoing CE certification",
@@ -159,20 +145,6 @@ const productCopy = {
         { label: "3D", caption: "Pianificazione" },
       ],
     },
-    anatomy: {
-      status: "Disponibile oggi",
-      title: "ViC – Anatomy Explorer",
-      description:
-        "ViC – Anatomy Explorer porta le ricostruzioni 3D di VirtualClone nella formazione e nella comunicazione: anatomia toraco-addominale interattiva, casi didattici e materiale visivo per l'insegnamento, tumor board formativi e colloquio con il paziente.",
-      list: [
-        "Modelli 3D interattivi per distretto anatomico",
-        "Casi didattici anonimizzati con quiz e annotazioni",
-        "Accesso web, nessuna installazione",
-        "Ideale per università, scuole di specializzazione e programmi di formazione chirurgica",
-      ],
-      disclaimer:
-        "ViC – Anatomy Explorer non è un dispositivo medico e non è destinato alla diagnosi, alla prevenzione o al trattamento: è uno strumento di formazione e comunicazione.",
-    },
     surgical: {
       status: "In corso di certificazione CE",
       title: "VirtualClone (ViC) – Surgical Planning: dalle immagini al modello 3D del paziente.",
@@ -285,7 +257,7 @@ const productCopy = {
 
 type ProductCopy = (typeof productCopy)[keyof typeof productCopy];
 
-export function ProductPageContent() {
+export function SurgicalPlanningPageContent() {
   const { lang } = useLanguage();
   const content: ProductCopy = productCopy[lang] ?? productCopy.en;
   const rotateHint = lang === "it" ? "Trascina per ruotare" : "Drag to rotate";
@@ -358,7 +330,7 @@ export function ProductPageContent() {
           sempre visibile, e avvolgerli in un unico contenitore sticky evita di
           inchiodare l'altezza dell'header in un offset. */}
       <div className="sticky top-0 z-50">
-        <HeaderNav active="product" />
+        <HeaderNav active="product" activeProduct="surgicalPlanning" />
         <RegulatoryBanner variant="short" />
       </div>
 
@@ -376,17 +348,17 @@ export function ProductPageContent() {
             </h1>
             <div className="mt-16 flex flex-wrap gap-3">
               <a
-                href="#anatomy-explorer"
-                className="rounded-full bg-blue-700 text-white px-5 py-3 text-sm font-medium hover:bg-blue-800 transition"
-              >
-                {content.hero.jumpAnatomy}
-              </a>
-              <a
                 href="#surgical-planning"
-                className="rounded-full border border-slate-300 px-5 py-3 text-sm font-medium hover:bg-slate-50"
+                className="rounded-full bg-blue-700 text-white px-5 py-3 text-sm font-medium hover:bg-blue-800 transition"
               >
                 {content.hero.jumpSurgical}
               </a>
+              <Link
+                href="/product/anatomy-explorer"
+                className="rounded-full border border-slate-300 px-5 py-3 text-sm font-medium hover:bg-slate-50"
+              >
+                {content.hero.jumpAnatomy}
+              </Link>
             </div>
             <div className="mt-10 grid grid-cols-3 gap-4">
               {content.hero.stats.map((stat) => (
@@ -435,39 +407,6 @@ export function ProductPageContent() {
           />
         </div>
         <div className="pointer-events-none absolute right-[-20vw] top-0 h-[90vh] w-[70vw] rounded-[40px] bg-gradient-to-tr from-emerald-200/40 via-transparent to-blue-200/50 blur-3xl z-[-1]" />
-      </section>
-
-      {/* ---------------- ViC – Anatomy Explorer (disponibile oggi) ---------------- */}
-      <section id="anatomy-explorer" className="scroll-mt-24 border-y border-slate-200 bg-slate-50">
-        <div className="mx-auto max-w-7xl px-4 py-16">
-          <span className="inline-flex items-center gap-2 rounded-full border border-emerald-300 bg-emerald-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-emerald-700">
-            <span className="inline-block h-2 w-2 rounded-full bg-emerald-500" />
-            {content.anatomy.status}
-          </span>
-          <h2 className="mt-4 text-3xl lg:text-4xl font-semibold text-[#0f2f63]">{content.anatomy.title}</h2>
-          <p className="mt-4 text-slate-700">{content.anatomy.description}</p>
-
-          <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {content.anatomy.list.map((item) => (
-              <li
-                key={item}
-                className="rounded-3xl border border-slate-200 bg-white p-6 transition hover:-translate-y-[2px] hover:shadow-lg"
-              >
-                <svg viewBox="0 0 20 20" aria-hidden="true" className="h-5 w-5 text-emerald-500" fill="currentColor">
-                  <path
-                    fillRule="evenodd"
-                    d="M16.7 5.3a1 1 0 0 1 0 1.4l-7.5 7.5a1 1 0 0 1-1.4 0L3.3 9.7a1 1 0 0 1 1.4-1.4l3.8 3.8 6.8-6.8a1 1 0 0 1 1.4 0Z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-                <p className="mt-3 text-sm text-slate-700">{item}</p>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-8 text-sm text-slate-500">{content.anatomy.disclaimer}</p>
-
-          <AnatomyAtlas />
-        </div>
       </section>
 
       {/* ---------------- ViC – Surgical Planning (in certificazione) ---------------- */}

@@ -6,6 +6,12 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        // la pagina prodotto unica e' stata divisa in due: ViC Suite
+        source: '/product/vic',
+        destination: '/product/surgical-planning',
+        permanent: true,
+      },
+      {
         source: '/:path*',
         has: [{ type: 'host', value: 'intusai.com' }],
         destination: 'https://www.intusai.com/:path*',
