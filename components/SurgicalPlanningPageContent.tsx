@@ -550,15 +550,22 @@ export function SurgicalPlanningPageContent() {
         </div>
       </section>
 
+      {/* Niente riquadri: filetti sottili e testo, come le griglie di
+          caratteristiche di apple.com. Impaginato con le colonne CSS e non
+          con una griglia perche' le voci sono sette: una griglia da tre
+          lasciava una card orfana nell'ultima riga, mentre le colonne si
+          bilanciano da sole in altezza. */}
       <section id="features" className="border-y border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-16">
-          <h2 className="text-2xl lg:text-3xl font-semibold text-[#0f2f63]">{content.features.title}</h2>
-          <div className="mt-8 grid md:grid-cols-3 gap-6">
+        <div className="mx-auto max-w-7xl px-4 py-20 lg:py-24">
+          <h2 className="max-w-3xl text-3xl sm:text-4xl font-semibold leading-tight tracking-tight text-[#0f2f63]">
+            {content.features.title}
+          </h2>
+          <div className="mt-12 gap-x-14 md:columns-2 lg:columns-3">
             {content.features.cards.map((card) => (
-              <article key={card.title} className="group rounded-3xl border border-slate-200 bg-white p-6 hover:-translate-y-[2px] hover:shadow-lg transition">
-                <h3 className="font-semibold text-blue-700">{card.title}</h3>
-                <p className="mt-3 text-sm text-slate-600">{card.body}</p>
-              </article>
+              <div key={card.title} className="mb-10 break-inside-avoid border-t border-slate-200 pt-5">
+                <h3 className="text-lg font-semibold text-slate-900">{card.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{card.body}</p>
+              </div>
             ))}
           </div>
         </div>
