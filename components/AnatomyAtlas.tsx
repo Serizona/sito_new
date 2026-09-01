@@ -99,23 +99,27 @@ const DISTRICTS: District[] = [
     fov: "24deg",
     structures: {
       // indice 0 = "Cube": elemento di scena, volutamente senza etichetta
-      1: { color: "#d9a425", it: "Cisti renale destra", en: "Right renal cyst" },
+      // le quattro cisti (1, 8, 9, 15) condividono un'unica etichetta, quindi
+      // in legenda compaiono come una voce sola
+      1: { color: "#d9a425", it: "Cisti renali", en: "Renal cysts" },
       2: { color: "#b86654", it: "Rene destro", en: "Right kidney" },
       3: { color: "#cfe567", it: "Via urinaria destra", en: "Right urinary tract" },
       4: { color: "#d83418", it: "Vene renali destre", en: "Right renal veins" },
       5: { color: "#8ca6f4", it: "Vena cava", en: "Vena cava" },
-      6: { color: "#b86654", it: "Aorta", en: "Aorta" },
+      // l'aorta e' un'arteria: pastiglia rossa come le altre arteriose, anche
+      // se nel .glb condivide il materiale del rene destro e viene resa marrone
+      6: { color: "#d83418", it: "Aorta", en: "Aorta" },
       7: { color: "#d83418", it: "Arteria renale sinistra", en: "Left renal artery" },
-      8: { color: "#d9a425", it: "Cisti renale sinistra", en: "Left renal cyst" },
-      9: { color: "#d9a425", it: "Cisti renale sinistra", en: "Left renal cyst" },
+      8: { color: "#d9a425", it: "Cisti renali", en: "Renal cysts" },
+      9: { color: "#d9a425", it: "Cisti renali", en: "Renal cysts" },
       10: { color: "#b86654", it: "Rene sinistro", en: "Left kidney" },
       11: { color: "#8fed8f", it: "Lesione", en: "Lesion" },
       12: { color: "#cfe567", it: "Via urinaria sinistra", en: "Left urinary tract" },
       13: { color: "#8ca6f4", it: "Vene renali sinistre", en: "Left renal veins" },
       14: { color: "#8ca6f4", it: "Arteria renale destra", en: "Right renal artery" },
-      15: { color: "#d9a425", it: "Cisti renale destra", en: "Right renal cyst" },
+      15: { color: "#d9a425", it: "Cisti renali", en: "Renal cysts" },
     },
-    legend: [2, 10, 11, 1, 8, 3, 12, 6, 5, 7, 14, 4, 13],
+    legend: [2, 10, 11, 1, 3, 12, 6, 5, 7, 14, 4, 13],
   },
 ];
 
