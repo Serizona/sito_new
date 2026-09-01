@@ -13,7 +13,7 @@ const productCopy = {
       badge: "ViC",
       title: "VirtualClone (ViC) turns",
       highlight: "images",
-      afterHighlight: "into decisions.",
+      afterHighlight: "into 3D models.",
       description:
         "One platform, two tools: ViC – Anatomy Explorer for education and communication, available today; ViC – Surgical Planning, a medical device software undergoing CE certification.",
       jumpAnatomy: "ViC – Anatomy Explorer",
@@ -152,7 +152,7 @@ const productCopy = {
       badge: "ViC",
       title: "VirtualClone (ViC) trasforma",
       highlight: "le immagini",
-      afterHighlight: "in decisioni.",
+      afterHighlight: "in modelli 3D.",
       description:
         "Una piattaforma, due strumenti: ViC – Anatomy Explorer per la formazione e la comunicazione, disponibile oggi; ViC – Surgical Planning, software dispositivo medico in corso di certificazione CE.",
       jumpAnatomy: "ViC – Anatomy Explorer",
