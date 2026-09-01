@@ -473,7 +473,11 @@ export function ProductPageContent() {
       </section>
 
       {/* ---------------- ViC – Surgical Planning (in certificazione) ---------------- */}
-      <section id="surgical-planning" className="scroll-mt-24 mx-auto max-w-7xl px-4 pt-16">
+      {/* Una sezione sola: prima erano due blocchi con padding e larghezze
+          diverse (banner a tutta larghezza, testo a max-w-3xl, griglia a due
+          colonne), impilati e sfalsati. La gerarchia ora e' esplicita:
+          titolo di sezione > occhiello > sottotitolo del blocco. */}
+      <section id="surgical-planning" className="scroll-mt-24 mx-auto max-w-7xl px-4 py-16">
         <span className="inline-flex items-center gap-2 rounded-full border border-amber-300 bg-amber-50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-amber-700">
           <span className="inline-block h-2 w-2 rounded-full bg-amber-500" />
           {content.surgical.status}
@@ -484,24 +488,24 @@ export function ProductPageContent() {
           <RegulatoryBanner variant="extended" />
         </div>
 
-        <div className="mt-10 max-w-3xl">
-          <p className="text-2xl lg:text-3xl font-semibold text-slate-900">{content.surgical.title}</p>
-          <p className="mt-4 text-lg text-slate-700">{content.surgical.description}</p>
-        </div>
-      </section>
+        {/* occhiello: piu' piccolo del titolo di sezione, cosi' non compete.
+            A tutta larghezza sta su una riga sola e non si spezza a meta' */}
+        <p className="mt-10 text-xl lg:text-2xl font-medium leading-snug text-slate-900">
+          {content.surgical.title}
+        </p>
+        <p className="mt-3 max-w-4xl text-lg text-slate-700">{content.surgical.description}</p>
 
-      <section className="mx-auto max-w-7xl px-4 py-12">
-        <div className="grid lg:grid-cols-2 gap-10 items-start">
+        <div className="mt-12 grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-start">
           <div>
-            <h2 className="text-2xl lg:text-3xl font-semibold">{content.intro.title}</h2>
+            <h3 className="text-2xl font-semibold text-[#0f2f63]">{content.intro.title}</h3>
             {content.intro.paragraphs.map((paragraph, idx) => (
               <p key={idx} className="mt-4 text-slate-700">
                 {paragraph}
               </p>
             ))}
           </div>
-          <div className="rounded-3xl border border-slate-200 p-6 bg-white">
-            <h3 className="font-semibold">{content.intro.listTitle}</h3>
+          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 lg:p-8">
+            <h4 className="font-semibold text-slate-900">{content.intro.listTitle}</h4>
             <ul className="mt-3 space-y-2 text-slate-700">
               {content.intro.list.map((item) => (
                 <li key={item}>• {item}</li>
